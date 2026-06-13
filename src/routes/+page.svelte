@@ -33,6 +33,12 @@
     <Button variant="filled" onclick={() => window.open('https://chromewebstore.google.com/detail/wit-calendar/aceelinogfcceklkpacakdeddnaakicj', '_blank', 'noopener,noreferrer')}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m16 8.4l-8.9 8.9q-.275.275-.7.275t-.7-.275t-.275-.7t.275-.7L14.6 7H7q-.425 0-.712-.288T6 6t.288-.712T7 5h10q.425 0 .713.288T18 6v10q0 .425-.288.713T17 17t-.712-.288T16 16z"/></svg>
         Web Store
     </Button>
+        <Button variant="filled" onclick={() => window.location.href = "/users/sign_in"}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M12 3.25a.75.75 0 0 1 .75.75v8.25a.75.75 0 0 1-1.5 0V4a.75.75 0 0 1 .75-.75M6.166 5.106a.75.75 0 0 1 .022 1.06A7.25 7.25 0 1 0 17.812 6.166a.75.75 0 1 1 1.083-1.038A8.75 8.75 0 1 1 5.106 17.834a8.75 8.75 0 0 1 0-12.728a.75.75 0 0 1 1.06.022z"/>
+    </svg>
+    Sign In
+</Button>
 </div>
 
 
@@ -69,5 +75,5 @@
             "YTUC" 712;
     }
 
- 
+
 </style>

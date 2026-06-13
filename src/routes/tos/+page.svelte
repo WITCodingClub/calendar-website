@@ -237,24 +237,6 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 			><span style="font-size: 15px;"
 				><span data-custom-class="body_text"><bdt class="statement-end-if-in-editor"></bdt></span
 				></span
-			> <a data-custom-class="link" href="#products"></a>
-		</div>
-		<div class="MsoNormal" style="line-height: 1.5;">
-			<a data-custom-class="link" href="#products"
-				><span style="color: rgb(0, 58, 250); font-size: 15px;"
-					><span data-custom-class="body_text"
-						><bdt class="block-component"></bdt><bdt class="block-component"></bdt><bdt
-							class="statement-end-if-in-editor"
-						></bdt></span
-					></span
-				></a
-			> <a data-custom-class="link" href="#purchases"></a>
-		</div>
-		<div class="MsoNormal" style="line-height: 1.5;">
-			<a data-custom-class="link" href="#purchases"
-				><span style="color: rgb(0, 58, 250); font-size: 15px;"
-					><span data-custom-class="body_text"><bdt class="block-component"></bdt></span></span
-				></a
 			>
 		</div>
 		<div class="MsoNormal" style="line-height: 1.5;">

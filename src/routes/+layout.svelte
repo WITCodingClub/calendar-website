@@ -1,16 +1,16 @@
 <script lang="ts">
-	import '../app.css';
-	import '../main.css';
+	import { browser } from '$app/environment';
+	import { beforeNavigate } from '$app/navigation';
+	import { page } from '$app/state';
 	import favicon from '$lib/assets/favicon.png';
-	import TopBar from '$lib/components/TopBar.svelte';
 	import BottomBar from '$lib/components/BottomBar.svelte';
-	import { fly } from 'svelte/transition';
+	import TopBar from '$lib/components/TopBar.svelte';
 	import { selected } from '$lib/store.svelte';
 	import { cubicInOut } from 'svelte/easing';
-	import { page } from '$app/state';
-	import { beforeNavigate } from '$app/navigation';
-	import { browser } from '$app/environment';
-	import { writable, get } from 'svelte/store';
+	import { get, writable } from 'svelte/store';
+	import { fly } from 'svelte/transition';
+	import '../app.css';
+	import '../main.css';
 
 	let { children } = $props();
 
