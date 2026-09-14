@@ -31,7 +31,7 @@ describe('markdownFor', () => {
 		assert.ok(!home.includes(`${origin}/about`));
 	});
 
-	it('has no copy of the legal pages or of unknown paths', () => {
+	it('has no hand-written copy of the legal pages or of unknown paths', () => {
 		assert.equal(markdownFor('/privacy', origin), null);
 		assert.equal(markdownFor('/tos', origin), null);
 		assert.equal(markdownFor('/missing', origin), null);
