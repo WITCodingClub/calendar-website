@@ -77,7 +77,6 @@
     </div>
 </div>
 
-<!-- eslint-disable svelte/no-navigation-without-resolve -- These links leave the SvelteKit app. They go to other sites, or to paths that the proxy sends to the Rails backend. Links to pages in this app use resolve(). -->
 <div class="flex justify-center px-4 sm:px-6 pb-8">
     <div class="home-content w-full max-w-3xl text-lg text-secondary">
         <h2>Your class schedule, in your calendar</h2>
@@ -90,10 +89,10 @@
 
         <h2>How it works</h2>
         <ol>
-            <li>Install WIT-Calendar from the <a href={WEB_STORE_URL} target="_blank" rel="noopener noreferrer">Chrome Web Store</a>.</li>
+            <li>Install WIT-Calendar from the <a href={WEB_STORE_URL} target="_blank" rel="external noopener noreferrer">Chrome Web Store</a>.</li>
             <li>Open the extension. It gets your schedule, processes it, and gives you a calendar link.</li>
             <li>Add the link to Outlook, Apple Calendar, or any calendar app. You can also connect your Google account, so changes reach Google Calendar automatically.</li>
-            <li>Choose the event alerts, colors, and titles in the extension, or in your dashboard after you <a href="/users/sign_in" data-sveltekit-reload>sign in</a>.</li>
+            <li>Choose the event alerts, colors, and titles in the extension, or in your dashboard after you <a href="/users/sign_in" rel="external" data-sveltekit-reload>sign in</a>.</li>
         </ol>
 
         <h2>For developers and AI agents</h2>
@@ -101,12 +100,14 @@
             WIT-Calendar also publishes the Wentworth course catalog as a public, read-only API.
             It needs no API key.
         </p>
+        <!-- eslint-disable svelte/no-navigation-without-resolve -->
         <ul>
             <li><a href="/docs/api" data-sveltekit-reload>Course Catalog API reference</a> (also as <a href="/docs/api.md" data-sveltekit-reload>markdown</a>)</li>
             <li><a href="/docs/api/openapi.json" data-sveltekit-reload>OpenAPI description</a> and <a href="/docs/api/schema.graphql" data-sveltekit-reload>GraphQL schema</a></li>
             <li><a href="/llms.txt" data-sveltekit-reload>llms.txt</a>, an index of this site for AI agents</li>
-            <li><a href={GITHUB_URL}>Source code on GitHub</a></li>
+            <li><a href={GITHUB_URL} rel="external">Source code on GitHub</a></li>
         </ul>
+        <!-- eslint-enable svelte/no-navigation-without-resolve -->
 
         <h2>Who makes WIT-Calendar</h2>
         <p>
@@ -116,7 +117,6 @@
         </p>
     </div>
 </div>
-<!-- eslint-enable svelte/no-navigation-without-resolve -->
 
 <style>
     .roboto-flex-wit-main {
