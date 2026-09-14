@@ -1,3 +1,5 @@
+import { securityMarkdown } from '../security.ts';
+
 // Markdown copies of the pages, for agents that send Accept: text/markdown.
 //
 // These are written by hand, not converted from the HTML. The links on the
@@ -62,6 +64,7 @@ The ${ORGANIZATION.name}, a student club at ${ORGANIZATION.school} in ${ORGANIZA
 
 - [Privacy Policy](${origin}/privacy)
 - [Terms of Service](${origin}/tos)
+- [Security](${origin}/security): How to report a vulnerability.
 `,
 
 	'/about': (origin) => `---

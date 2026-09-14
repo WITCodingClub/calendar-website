@@ -12,6 +12,10 @@
         <Button variant="text" onclick={() => $selected = "/tos"} >
             Terms of Service
         </Button>
+        <span class="separator">•</span>
+        <Button variant="text" onclick={() => $selected = "/security"}>
+            Security
+        </Button>
     </div>
 </footer>
 
