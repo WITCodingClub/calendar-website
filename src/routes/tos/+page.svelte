@@ -136,9 +136,10 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 				>You can contact us by <bdt class="block-component"
 					>email at <bdt class="question noTranslate"
-						><a target="_blank" data-custom-class="link" href="mailto:contact@calendar.witcc.dev"
-							>contact@calendar.witcc.dev</a
-						></bdt
+						><a target="_blank" data-custom-class="link" href="mailto:calendarwit@gmail.com"
+							>calendarwit@gmail.com</a>, <a target="_blank" data-custom-class="link" href="mailto:lambertl@wit.edu"
+							>lambertl@wit.edu</a>, and <a target="_blank" data-custom-class="link" href="mailto:mayonej@wit.edu"
+							>mayonej@wit.edu</a></bdt
 					><bdt class="block-component"></bdt>
 					<bdt class="question noTranslate"></bdt><bdt class="block-component"></bdt>
 					<bdt class="question noTranslate"></bdt><bdt class="block-component"></bdt><bdt
@@ -615,9 +616,10 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 				>If you wish to make any use of the Services, Content, or Marks other than as set out in
 				this section or elsewhere in our Legal Terms, please address your request to: <bdt
 					class="question noTranslate"
-					><a target="_blank" data-custom-class="link" href="mailto:contact@calendar.witcc.dev"
-						>contact@calendar.witcc.dev</a
-					></bdt
+					><a target="_blank" data-custom-class="link" href="mailto:calendarwit@gmail.com"
+						>calendarwit@gmail.com</a>, <a target="_blank" data-custom-class="link" href="mailto:lambertl@wit.edu"
+						>lambertl@wit.edu</a>, and <a target="_blank" data-custom-class="link" href="mailto:mayonej@wit.edu"
+						>mayonej@wit.edu</a></bdt
 				>. If we ever grant you the permission to post, reproduce, or publicly display any part of
 				our Services or Content, you must identify us as the owners or licensors of the Services,
 				Content, or Marks and ensure that any copyright or proprietary notice appears or is visible
@@ -2645,7 +2647,7 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 				style="font-size:11.0pt;line-height:115%;font-family:Arial;
 Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 				>In order to resolve a complaint regarding the Services or to receive further information
-				regarding use of the Services, please contact us at: contact@calendar.witcc.dev</span
+				regarding use of the Services, please contact us at: calendarwit@gmail.com, lambertl@wit.edu, and mayonej@wit.edu</span
 			>
 		</div>
 		<div class="MsoNormal" style="line-height: 1.5; text-align: left;"><br /></div>
@@ -2762,9 +2764,11 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 							><bdt class="block-component"></bdt><bdt class="question noTranslate"
 								><a
 									target="_blank"
-									data-custom-class="link"
-									href="mailto:contact@calendar.witcc.dev">contact@calendar.witcc.dev</a
-								></bdt
+									data-custom-class="link" href="mailto:calendarwit@gmail.com">calendarwit@gmail.com</a>, <a
+									target="_blank"
+									data-custom-class="link" href="mailto:lambertl@wit.edu">lambertl@wit.edu</a>, and <a
+									target="_blank"
+									data-custom-class="link" href="mailto:mayonej@wit.edu">mayonej@wit.edu</a></bdt
 							><bdt class="statement-end-if-in-editor"></bdt></bdt
 						></strong
 					></span

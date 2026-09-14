@@ -154,9 +154,10 @@
 						and practices, please do not use our Services.<bdt class="block-component"></bdt> If you
 						still have any questions or concerns, please contact us at
 						<bdt class="question noTranslate"
-							><a target="_blank" data-custom-class="link" href="mailto:privacy@calendar.witcc.dev"
-								>privacy@calendar.witcc.dev</a
-							></bdt
+							><a target="_blank" data-custom-class="link" href="mailto:calendarwit@gmail.com"
+								>calendarwit@gmail.com</a>, <a target="_blank" data-custom-class="link" href="mailto:lambertl@wit.edu"
+								>lambertl@wit.edu</a>, and <a target="_blank" data-custom-class="link" href="mailto:mayonej@wit.edu"
+								>mayonej@wit.edu</a></bdt
 						>.</span
 					></span
 				></span
@@ -1912,10 +1913,14 @@
 																																			></bdt><bdt class="question"
 																																				><a
 																																					target="_blank"
-																																					data-custom-class="link"
-																																					href="mailto:privacy@calendar.witcc.dev"
-																																					>privacy@calendar.witcc.dev</a
-																																				></bdt
+																																					data-custom-class="link" href="mailto:calendarwit@gmail.com"
+																																					>calendarwit@gmail.com</a>, <a
+																																					target="_blank"
+																																					data-custom-class="link" href="mailto:lambertl@wit.edu"
+																																					>lambertl@wit.edu</a>, and <a
+																																					target="_blank"
+																																					data-custom-class="link" href="mailto:mayonej@wit.edu"
+																																					>mayonej@wit.edu</a></bdt
 																																			><bdt class="else-block"
 																																			></bdt></span
 																																		></span
@@ -2198,10 +2203,14 @@
 																																	class="question noTranslate"
 																																	><a
 																																		target="_blank"
-																																		data-custom-class="link"
-																																		href="mailto:privacy@calendar.witcc.dev"
-																																		>privacy@calendar.witcc.dev</a
-																																	></bdt
+																																		data-custom-class="link" href="mailto:calendarwit@gmail.com"
+																																		>calendarwit@gmail.com</a>, <a
+																																		target="_blank"
+																																		data-custom-class="link" href="mailto:lambertl@wit.edu"
+																																		>lambertl@wit.edu</a>, and <a
+																																		target="_blank"
+																																		data-custom-class="link" href="mailto:mayonej@wit.edu"
+																																		>mayonej@wit.edu</a></bdt
 																																>.</span
 																															></span
 																														><bdt class="statement-end-if-in-editor"
@@ -4407,7 +4416,7 @@
 																																											style="color: rgb(0, 58, 250);"
 																																											><bdt
 																																												class="question"
-																																												>contact@calendar.witcc.dev</bdt
+																																												>calendarwit@gmail.com, lambertl@wit.edu, and mayonej@wit.edu</bdt
 																																											></span
 																																										>,
 																																										<bdt
@@ -4430,10 +4439,14 @@
 																																														class="question"
 																																														><a
 																																															target="_blank"
-																																															data-custom-class="link"
-																																															href="mailto:contact@calendar.witcc.dev"
-																																															>contact@calendar.witcc.dev</a
-																																														></bdt
+																																															data-custom-class="link" href="mailto:calendarwit@gmail.com"
+																																															>calendarwit@gmail.com</a>, <a
+																																															target="_blank"
+																																															data-custom-class="link" href="mailto:lambertl@wit.edu"
+																																															>lambertl@wit.edu</a>, and <a
+																																															target="_blank"
+																																															data-custom-class="link" href="mailto:mayonej@wit.edu"
+																																															>mayonej@wit.edu</a></bdt
 																																													>,
 																																													<bdt
 																																														class="statement-end-if-in-editor"
@@ -4633,10 +4646,14 @@
 																																										class="question noTranslate"
 																																										><a
 																																											target="_blank"
-																																											data-custom-class="link"
-																																											href="mailto:privacy@calendar.witcc.dev"
-																																											>privacy@calendar.witcc.dev</a
-																																										></bdt
+																																											data-custom-class="link" href="mailto:calendarwit@gmail.com"
+																																											>calendarwit@gmail.com</a>, <a
+																																											target="_blank"
+																																											data-custom-class="link" href="mailto:lambertl@wit.edu"
+																																											>lambertl@wit.edu</a>, and <a
+																																											target="_blank"
+																																											data-custom-class="link" href="mailto:mayonej@wit.edu"
+																																											>mayonej@wit.edu</a></bdt
 																																									><bdt
 																																										class="else-block"
 																																									></bdt>. We will
@@ -5022,10 +5039,14 @@
 																																													class="question noTranslate"
 																																													><a
 																																														target="_blank"
-																																														data-custom-class="link"
-																																														href="mailto:privacy@calendar.witcc.dev"
-																																														>privacy@calendar.witcc.dev</a
-																																													> </bdt
+																																														data-custom-class="link" href="mailto:calendarwit@gmail.com"
+																																														>calendarwit@gmail.com</a>, <a
+																																														target="_blank"
+																																														data-custom-class="link" href="mailto:lambertl@wit.edu"
+																																														>lambertl@wit.edu</a>, and <a
+																																														target="_blank"
+																																														data-custom-class="link" href="mailto:mayonej@wit.edu"
+																																														>mayonej@wit.edu</a> </bdt
 																																												><bdt
 																																													class="statement-end-if-in-editor"
 																																													><bdt
@@ -5300,7 +5321,7 @@
 																																											style="color: rgb(0, 58, 250);"
 																																											><bdt
 																																												class="question"
-																																												>privacy@calendar.witcc.dev</bdt
+																																												>calendarwit@gmail.com, lambertl@wit.edu, and mayonej@wit.edu</bdt
 																																											></span
 																																										><bdt
 																																											class="else-block"

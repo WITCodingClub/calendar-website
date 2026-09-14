@@ -2,7 +2,7 @@
     import { selected } from "$lib/store.svelte";
     import { Button } from "m3-svelte";
     import { resolve } from "$app/paths";
-    import { CONTACT_EMAIL, DISCORD_URL, GITHUB_ISSUES_URL, ORGANIZATION, SECURITY_REPORT_URL } from "$lib/site";
+    import { CONTACT_EMAIL, DISCORD_URL, GITHUB_ISSUES_URL, LEGAL_EMAILS, ORGANIZATION, SECURITY_REPORT_URL } from "$lib/site";
 </script>
 
 <svelte:head>
@@ -71,6 +71,12 @@
         <p>
             To learn what data WIT-Calendar keeps and how to remove it, read the
             <a href={resolve('/privacy')}>Privacy Policy</a>.
+        </p>
+
+        <h3>Legal inquiries</h3>
+        <p>
+            Send legal inquiries to all three of these addresses:
+            {#each LEGAL_EMAILS as email, index (email)}{index === LEGAL_EMAILS.length - 1 ? ", and " : index > 0 ? ", " : ""}<a href={`mailto:${email}`}>{email}</a>{/each}.
         </p>
 
         <h3>Who we are</h3>

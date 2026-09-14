@@ -13,10 +13,12 @@ import {
 	GITHUB_ISSUES_URL,
 	GITHUB_URL,
 	INSTAGRAM_URL,
+	LEGAL_EMAILS,
 	ORGANIZATION,
 	SECURITY_REPORT_URL,
 	STATUS_URL,
 	WEB_STORE_URL,
+	listOfEmails,
 	metaFor
 } from '../site.ts';
 
@@ -110,6 +112,10 @@ Do not report a security problem in a public issue. Send it privately through [G
 ## Your data
 
 To learn what data WIT-Calendar keeps and how to remove it, read the [Privacy Policy](${origin}/privacy).
+
+## Legal inquiries
+
+Send legal inquiries to all three of these addresses: ${listOfEmails(LEGAL_EMAILS.map((email) => `[${email}](mailto:${email})`))}.
 
 ## Who we are
 

@@ -38,6 +38,14 @@ describe('markdownFor', () => {
 		assert.doesNotMatch(contact, /@calendar\.witcc\.dev/);
 	});
 
+	it('sends legal inquiries to all three legal contacts', () => {
+		const contact = markdownFor('/contact', origin) ?? '';
+		const legal = contact.split('## Legal inquiries')[1]?.split('## ')[0] ?? '';
+		for (const email of ['calendarwit@gmail.com', 'lambertl@wit.edu', 'mayonej@wit.edu']) {
+			assert.ok(legal.includes(`mailto:${email}`), `${email} is not a legal contact`);
+		}
+	});
+
 	it('builds site links from the request origin', () => {
 		const home = markdownFor('/', 'http://localhost:5173') ?? '';
 		assert.ok(home.includes('(http://localhost:5173/about)'));

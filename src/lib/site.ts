@@ -11,6 +11,9 @@ export const SITE_NAME = 'WIT-Calendar';
 export const WEB_STORE_URL =
 	'https://chromewebstore.google.com/detail/wit-calendar/aceelinogfcceklkpacakdeddnaakicj';
 export const CONTACT_EMAIL = 'calendarwit@gmail.com';
+// Legal inquiries go to all three addresses. They are the email contacts in
+// the security policy, in the same order.
+export const LEGAL_EMAILS = [CONTACT_EMAIL, 'lambertl@wit.edu', 'mayonej@wit.edu'];
 export const DISCORD_URL = 'https://discord.gg/fkeM94snmy';
 export const GITHUB_URL = 'https://github.com/WITCodingClub/calendar';
 export const GITHUB_ISSUES_URL = 'https://github.com/WITCodingClub/calendar/issues';
@@ -31,6 +34,12 @@ export const ORGANIZATION = {
 	country: 'US'
 };
 
+// "a, b, and c", for a sentence that names every legal contact.
+export function listOfEmails(emails: string[]): string {
+	if (emails.length < 3) return emails.join(' and ');
+	return `${emails.slice(0, -1).join(', ')}, and ${emails[emails.length - 1]}`;
+}
+
 export type PageMeta = { title: string; description: string };
 
 const pageMeta: Record<string, PageMeta> = {
@@ -46,7 +55,7 @@ const pageMeta: Record<string, PageMeta> = {
 	'/contact': {
 		title: `${SITE_NAME} - Contact`,
 		description:
-			'How to contact the WIT-Calendar team: Discord, email, GitHub issues, and private security reports.'
+			'How to contact the WIT-Calendar team: Discord, email, GitHub issues, private security reports, and legal inquiries.'
 	},
 	'/privacy': {
 		title: `${SITE_NAME} - Privacy Policy`,
@@ -99,13 +108,22 @@ export function structuredData(): Record<string, unknown> {
 				logo: `${SITE_ORIGIN}/icon.png`,
 				email: CONTACT_EMAIL,
 				sameAs: [GITHUB_ORG_URL, INSTAGRAM_URL, DISCORD_URL],
-				contactPoint: {
-					'@type': 'ContactPoint',
-					contactType: 'customer support',
-					email: CONTACT_EMAIL,
-					url: `${SITE_ORIGIN}/contact`,
-					availableLanguage: 'English'
-				},
+				contactPoint: [
+					{
+						'@type': 'ContactPoint',
+						contactType: 'customer support',
+						email: CONTACT_EMAIL,
+						url: `${SITE_ORIGIN}/contact`,
+						availableLanguage: 'English'
+					},
+					...LEGAL_EMAILS.map((email) => ({
+						'@type': 'ContactPoint',
+						contactType: 'legal inquiries',
+						email,
+						url: `${SITE_ORIGIN}/contact`,
+						availableLanguage: 'English'
+					}))
+				],
 				address: {
 					'@type': 'PostalAddress',
 					name: ORGANIZATION.school,

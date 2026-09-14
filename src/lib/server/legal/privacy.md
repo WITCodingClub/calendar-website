@@ -13,7 +13,7 @@ This Privacy Notice for WIT-Calendar ("**we**," "**us**," or "**our**"), describ
 - Use WIT-Calendar. WIT-Calendar is a Chrome extension that makes adding your classes to your calendar easy & quick!
 - Engage with us in other related ways, including any sales, marketing, or events
 
-**Questions or concerns?** Reading this Privacy Notice will help you understand your privacy rights and choices. We are responsible for making decisions about how your personal information is processed. If you do not agree with our policies and practices, please do not use our Services. If you still have any questions or concerns, please contact us at [privacy@calendar.witcc.dev](mailto:privacy@calendar.witcc.dev).
+**Questions or concerns?** Reading this Privacy Notice will help you understand your privacy rights and choices. We are responsible for making decisions about how your personal information is processed. If you do not agree with our policies and practices, please do not use our Services. If you still have any questions or concerns, please contact us at [calendarwit@gmail.com](mailto:calendarwit@gmail.com), [lambertl@wit.edu](mailto:lambertl@wit.edu), and [mayonej@wit.edu](mailto:mayonej@wit.edu).
 
 ## SUMMARY OF KEY POINTS
 
@@ -141,7 +141,7 @@ We have implemented appropriate and reasonable technical and organizational secu
 
 **_In Short:_** _We do not knowingly collect data from or market to children under 18 years of age._
 
-We do not knowingly collect, solicit data from, or market to children under 18 years of age, nor do we knowingly sell such personal information. By using the Services, you represent that you are at least 18 or that you are the parent or guardian of such a minor and consent to such minor dependent’s use of the Services. If we learn that personal information from users less than 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we may have collected from children under age 18, please contact us at [privacy@calendar.witcc.dev](mailto:privacy@calendar.witcc.dev).
+We do not knowingly collect, solicit data from, or market to children under 18 years of age, nor do we knowingly sell such personal information. By using the Services, you represent that you are at least 18 or that you are the parent or guardian of such a minor and consent to such minor dependent’s use of the Services. If we learn that personal information from users less than 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we may have collected from children under age 18, please contact us at [calendarwit@gmail.com](mailto:calendarwit@gmail.com), [lambertl@wit.edu](mailto:lambertl@wit.edu), and [mayonej@wit.edu](mailto:mayonej@wit.edu).
 
 ## 8. WHAT ARE YOUR PRIVACY RIGHTS?
 
@@ -159,7 +159,7 @@ If you would at any time like to review or change the information in your accoun
 
 Upon your request to terminate your account, we will deactivate or delete your account and information from our active databases. However, we may retain some information in our files to prevent fraud, troubleshoot problems, assist with any investigations, enforce our legal terms and/or comply with applicable legal requirements.
 
-If you have questions or comments about your privacy rights, you may email us at [privacy@calendar.witcc.dev](mailto:privacy@calendar.witcc.dev).
+If you have questions or comments about your privacy rights, you may email us at [calendarwit@gmail.com](mailto:calendarwit@gmail.com), [lambertl@wit.edu](mailto:lambertl@wit.edu), and [mayonej@wit.edu](mailto:mayonej@wit.edu).
 
 ## 9. CONTROLS FOR DO-NOT-TRACK FEATURES
 
@@ -242,7 +242,7 @@ Depending upon the state where you live, you may also have the following rights:
 
 ### How to Exercise Your Rights
 
-To exercise these rights, you can contact us by emailing us at contact@calendar.witcc.dev, by emailing us at [contact@calendar.witcc.dev](mailto:contact@calendar.witcc.dev), or by referring to the contact details at the bottom of this document.
+To exercise these rights, you can contact us by emailing us at calendarwit@gmail.com, lambertl@wit.edu, and mayonej@wit.edu, by emailing us at [calendarwit@gmail.com](mailto:calendarwit@gmail.com), [lambertl@wit.edu](mailto:lambertl@wit.edu), and [mayonej@wit.edu](mailto:mayonej@wit.edu), or by referring to the contact details at the bottom of this document.
 
 Under certain US state data protection laws, you can designate an authorized agent to make a request on your behalf. We may deny a request from an authorized agent that does not submit proof that they have been validly authorized to act on your behalf in accordance with applicable laws.
 
@@ -254,7 +254,7 @@ If you submit the request through an authorized agent, we may need to collect ad
 
 ### Appeals
 
-Under certain US state data protection laws, if we decline to take action regarding your request, you may appeal our decision by emailing us at [privacy@calendar.witcc.dev](mailto:privacy@calendar.witcc.dev). We will inform you in writing of any action taken or not taken in response to the appeal, including a written explanation of the reasons for the decisions. If your appeal is denied, you may submit a complaint to your state attorney general.
+Under certain US state data protection laws, if we decline to take action regarding your request, you may appeal our decision by emailing us at [calendarwit@gmail.com](mailto:calendarwit@gmail.com), [lambertl@wit.edu](mailto:lambertl@wit.edu), and [mayonej@wit.edu](mailto:mayonej@wit.edu). We will inform you in writing of any action taken or not taken in response to the appeal, including a written explanation of the reasons for the decisions. If your appeal is denied, you may submit a complaint to your state attorney general.
 
 ### California "Shine The Light" Law
 
@@ -268,8 +268,8 @@ We may update this Privacy Notice from time to time. The updated version will be
 
 ## 12. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?
 
-If you have questions or comments about this notice, you may email us at [privacy@calendar.witcc.dev](mailto:privacy@calendar.witcc.dev)
+If you have questions or comments about this notice, you may email us at [calendarwit@gmail.com](mailto:calendarwit@gmail.com), [lambertl@wit.edu](mailto:lambertl@wit.edu), and [mayonej@wit.edu](mailto:mayonej@wit.edu)
 
 ## 13. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?
 
-Based on the applicable laws of your country or state of residence in the US, you mayhave the right to request access to the personal information we collect from you, details about how we have processed it, correct inaccuracies, or delete your personal information. You may also have the right to withdraw your consent to our processing of your personal information. These rights may be limited in some circumstances by applicable law. To request to review, update, or delete your personal information, please email us at: privacy@calendar.witcc.dev.
+Based on the applicable laws of your country or state of residence in the US, you mayhave the right to request access to the personal information we collect from you, details about how we have processed it, correct inaccuracies, or delete your personal information. You may also have the right to withdraw your consent to our processing of your personal information. These rights may be limited in some circumstances by applicable law. To request to review, update, or delete your personal information, please email us at: calendarwit@gmail.com, lambertl@wit.edu, and mayonej@wit.edu.

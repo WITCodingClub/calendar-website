@@ -1,6 +1,14 @@
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
-import { CONTACT_EMAIL, canonicalUrl, jsonLdScript, metaFor, structuredData } from './site.ts';
+import {
+	CONTACT_EMAIL,
+	LEGAL_EMAILS,
+	canonicalUrl,
+	jsonLdScript,
+	listOfEmails,
+	metaFor,
+	structuredData
+} from './site.ts';
 
 type Node = Record<string, unknown>;
 
@@ -43,16 +51,26 @@ describe('structuredData', () => {
 
 	it('gives the organization a contact point and a postal address', () => {
 		const org = nodeOfType('Organization');
-		const contact = org.contactPoint as Node;
+		const contacts = org.contactPoint as Node[];
+		const support = contacts.find((point) => point.contactType === 'customer support');
 		const address = org.address as Node;
 
-		assert.equal(contact['@type'], 'ContactPoint');
-		assert.equal(contact.email, CONTACT_EMAIL);
-		assert.ok(contact.contactType);
+		assert.ok(contacts.every((point) => point['@type'] === 'ContactPoint'));
+		assert.equal(support?.email, CONTACT_EMAIL);
 		assert.equal(address['@type'], 'PostalAddress');
 		for (const key of ['streetAddress', 'addressLocality', 'postalCode', 'addressCountry']) {
 			assert.ok(address[key], `address has no ${key}`);
 		}
+	});
+
+	it('sends legal inquiries to all three legal contacts', () => {
+		const org = nodeOfType('Organization');
+		const legal = (org.contactPoint as Node[])
+			.filter((point) => point.contactType === 'legal inquiries')
+			.map((point) => point.email);
+
+		assert.deepEqual(legal, ['calendarwit@gmail.com', 'lambertl@wit.edu', 'mayonej@wit.edu']);
+		assert.deepEqual(legal, LEGAL_EMAILS);
 	});
 
 	it('uses no calendar.witcc.dev email address', () => {
@@ -63,6 +81,14 @@ describe('structuredData', () => {
 		const app = nodeOfType('SoftwareApplication');
 		const org = nodeOfType('Organization');
 		assert.deepEqual(app.publisher, { '@id': org['@id'] });
+	});
+});
+
+describe('listOfEmails', () => {
+	it('joins the addresses into one sentence', () => {
+		assert.equal(listOfEmails(['a@x.com']), 'a@x.com');
+		assert.equal(listOfEmails(['a@x.com', 'b@x.com']), 'a@x.com and b@x.com');
+		assert.equal(listOfEmails(['a@x.com', 'b@x.com', 'c@x.com']), 'a@x.com, b@x.com, and c@x.com');
 	});
 });
 
