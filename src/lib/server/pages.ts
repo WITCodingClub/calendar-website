@@ -4,8 +4,8 @@
 // pages are onclick handlers on buttons, so a converter would drop them.
 // When you change the text of a page, change its copy here too.
 //
-// /privacy and /tos have no copy. Their text is generated legal markup, so
-// they return HTML to every client.
+// /privacy and /tos are not here. Their text is generated legal markup, so a
+// script generates their copies too. See legal.ts.
 
 const WEB_STORE_URL =
 	'https://chromewebstore.google.com/detail/wit-calendar/aceelinogfcceklkpacakdeddnaakicj';

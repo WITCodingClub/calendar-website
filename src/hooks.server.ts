@@ -1,4 +1,5 @@
 import type { Handle } from '@sveltejs/kit';
+import { legalMarkdownFor } from '$lib/server/legal';
 import { estimateTokens, prefersMarkdown } from '$lib/server/negotiate';
 import { markdownFor } from '$lib/server/pages';
 
@@ -7,7 +8,7 @@ import { markdownFor } from '$lib/server/pages';
 // See https://developers.cloudflare.com/fundamentals/reference/markdown-for-agents/
 export const handle: Handle = async ({ event, resolve }) => {
 	const { request, url } = event;
-	const markdown = markdownFor(url.pathname, url.origin);
+	const markdown = markdownFor(url.pathname, url.origin) ?? legalMarkdownFor(url.pathname);
 
 	if (markdown === null) return resolve(event);
 
