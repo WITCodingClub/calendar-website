@@ -32,7 +32,7 @@ description: ${metaFor('/')?.description}
 
 # WIT-Calendar
 
-WIT-Calendar is a free Chrome extension for students at ${ORGANIZATION.school}. It imports your class schedule into your calendar, so every lecture, lab, and final exam shows up next to the rest of your week. It supports Google Calendar, Microsoft Outlook, and Apple Calendar.
+WIT-Calendar is a free Chrome extension for students at ${ORGANIZATION.school}. It imports your class schedule into your calendar, so every lecture, lab, and final exam shows up next to the rest of your week. It supports Google Calendar, Microsoft Outlook, and Apple Calendar. The ${ORGANIZATION.name}, a student club at ${ORGANIZATION.school} in ${ORGANIZATION.locality}, makes and runs it. Read [more about the project](${origin}/about), or [contact us](${origin}/contact).
 
 - [Install from the Chrome Web Store](${WEB_STORE_URL})
 - [Sign in](${origin}/users/sign_in): Open your dashboard.
@@ -55,10 +55,6 @@ WIT-Calendar also publishes the Wentworth course catalog as a public, read-only 
 - [GraphQL schema](${origin}/docs/api/schema.graphql)
 - [llms.txt](${origin}/llms.txt): An index of the site for agents.
 - [Source code on GitHub](${GITHUB_URL})
-
-## Who makes WIT-Calendar
-
-The ${ORGANIZATION.name}, a student club at ${ORGANIZATION.school} in ${ORGANIZATION.locality}, makes and runs WIT-Calendar.
 
 ## Legal
 
@@ -89,40 +85,16 @@ description: ${metaFor('/contact')?.description}
 
 # Contact
 
-The best way to contact us is through Discord.
+The fastest way to reach the WIT-Calendar team is our [Discord server](${DISCORD_URL}). You can ask a question, tell us about a problem with your schedule, or suggest a feature there. You can also email us at [${CONTACT_EMAIL}](mailto:${CONTACT_EMAIL}) with any questions or concerns. If you report a problem, tell us which calendar you use and what issue you're having.
 
 - [Discord](${DISCORD_URL})
 - [GitHub](${GITHUB_URL})
 - [Instagram](${INSTAGRAM_URL})
 - [About](${origin}/about)
 
-## Get help
+If the extension does something wrong, open an issue on [GitHub](${GITHUB_ISSUES_URL}) and include the steps that cause the problem. Do not report a security problem in a public issue. Send it privately through [GitHub private vulnerability reporting](${SECURITY_REPORT_URL}). Our [security.txt](${origin}/.well-known/security.txt) file lists the other contacts.
 
-The fastest way to reach the WIT-Calendar team is our [Discord server](${DISCORD_URL}). Ask a question, tell us about a problem with your schedule, or suggest a feature there.
-
-## Email
-
-You can also email us at [${CONTACT_EMAIL}](mailto:${CONTACT_EMAIL}). If you report a problem, tell us which calendar you use and what you expected to see.
-
-## Report a bug
-
-If the extension does something wrong, open an issue on [GitHub](${GITHUB_ISSUES_URL}). Include the steps that cause the problem.
-
-## Report a security problem
-
-Do not report a security problem in a public issue. Send it privately through [GitHub private vulnerability reporting](${SECURITY_REPORT_URL}). Our [security.txt](${origin}/.well-known/security.txt) file lists the other contacts.
-
-## Your data
-
-To learn what data WIT-Calendar keeps and how to remove it, read the [Privacy Policy](${origin}/privacy).
-
-## Legal inquiries
-
-Send legal inquiries to all three of these addresses: ${listOfEmails(LEGAL_EMAILS.map((email) => `[${email}](mailto:${email})`))}.
-
-## Who we are
-
-WIT-Calendar is made by the ${ORGANIZATION.name}, a student club at ${ORGANIZATION.school}, ${ORGANIZATION.streetAddress}, ${ORGANIZATION.locality}, ${ORGANIZATION.region} ${ORGANIZATION.postalCode}.
+WIT-Calendar is made by the ${ORGANIZATION.name}, a student club at ${ORGANIZATION.school}, ${ORGANIZATION.streetAddress}, ${ORGANIZATION.locality}, ${ORGANIZATION.region} ${ORGANIZATION.postalCode}. To learn what data we keep and how to remove it, read the [Privacy Policy](${origin}/privacy). Send legal inquiries to all three of these addresses: ${listOfEmails(LEGAL_EMAILS.map((email) => `[${email}](mailto:${email})`))}.
 `
 };
 

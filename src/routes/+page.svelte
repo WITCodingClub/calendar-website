@@ -77,45 +77,47 @@
     </div>
 </div>
 
-<div class="flex justify-center px-4 sm:px-6 pb-8">
-    <div class="home-content w-full max-w-3xl text-lg text-secondary">
-        <h2>Your class schedule, in your calendar</h2>
-        <p>
-            WIT-Calendar is a free Chrome extension for students at {ORGANIZATION.school}.
-            It imports your class schedule into your calendar, so every lecture, lab, and final exam
-            shows up next to the rest of your week. It supports all major calendars, including
-            Google Calendar, Microsoft Outlook, and Apple Calendar.
-        </p>
+<div class="flex justify-center px-4 sm:px-6 pt-2 pb-16">
+    <article class="home-content w-full max-w-3xl text-lg text-secondary">
+        <section>
+            <h2 class="section-heading">Your class schedule, in your calendar</h2>
+            <p>
+                WIT-Calendar is a free Chrome extension for students at {ORGANIZATION.school}.
+                It imports your class schedule into your calendar, so every lecture, lab, and final exam
+                shows up next to the rest of your week. It supports all major calendars, including
+                Google Calendar, Microsoft Outlook, and Apple Calendar.
+                The {ORGANIZATION.name}, a student club at {ORGANIZATION.school} in {ORGANIZATION.locality},
+                makes and runs it. Read <a href={resolve('/about')}>more about the project</a>, or
+                <a href={resolve('/contact')}>contact us</a>.
+            </p>
+        </section>
 
-        <h2>How it works</h2>
-        <ol>
-            <li>Install WIT-Calendar from the <a href={WEB_STORE_URL} target="_blank" rel="external noopener noreferrer">Chrome Web Store</a>.</li>
-            <li>Open the extension. It gets your schedule, processes it, and gives you a calendar link.</li>
-            <li>Add the link to Outlook, Apple Calendar, or any calendar app. You can also connect your Google account, so changes reach Google Calendar automatically.</li>
-            <li>Choose the event alerts, colors, and titles in the extension, or in your dashboard after you <a href="/users/sign_in" rel="external" data-sveltekit-reload>sign in</a>.</li>
-        </ol>
+        <section>
+            <h2 class="section-heading">How it works</h2>
+            <ol class="steps">
+                <li><span>Install WIT-Calendar from the <a href={WEB_STORE_URL} target="_blank" rel="external noopener noreferrer">Chrome Web Store</a>.</span></li>
+                <li><span>Open the extension. It gets your schedule, processes it, and gives you a calendar link.</span></li>
+                <li><span>Add the link to Outlook, Apple Calendar, or any calendar app. You can also connect your Google account, so changes reach Google Calendar automatically.</span></li>
+                <li><span>Choose the event alerts, colors, and titles in the extension, or in your dashboard after you <a href="/users/sign_in" rel="external" data-sveltekit-reload>sign in</a>.</span></li>
+            </ol>
+        </section>
 
-        <h2>For developers and AI agents</h2>
-        <p>
-            WIT-Calendar also publishes the Wentworth course catalog as a public, read-only API.
-            It needs no API key.
-        </p>
-        <!-- eslint-disable svelte/no-navigation-without-resolve -->
-        <ul>
-            <li><a href="/docs/api" data-sveltekit-reload>Course Catalog API reference</a> (also as <a href="/docs/api.md" data-sveltekit-reload>markdown</a>)</li>
-            <li><a href="/docs/api/openapi.json" data-sveltekit-reload>OpenAPI description</a> and <a href="/docs/api/schema.graphql" data-sveltekit-reload>GraphQL schema</a></li>
-            <li><a href="/llms.txt" data-sveltekit-reload>llms.txt</a>, an index of this site for AI agents</li>
-            <li><a href={GITHUB_URL} rel="external">Source code on GitHub</a></li>
-        </ul>
-        <!-- eslint-enable svelte/no-navigation-without-resolve -->
-
-        <h2>Who makes WIT-Calendar</h2>
-        <p>
-            The {ORGANIZATION.name}, a student club at {ORGANIZATION.school} in {ORGANIZATION.locality},
-            makes and runs WIT-Calendar. Read <a href={resolve('/about')}>more about the project</a>, or
-            <a href={resolve('/contact')}>contact us</a>.
-        </p>
-    </div>
+        <section>
+            <h2 class="section-heading">For developers and AI agents</h2>
+            <p>
+                WIT-Calendar also publishes the Wentworth course catalog as a public, read-only API.
+                It needs no API key.
+            </p>
+            <!-- eslint-disable svelte/no-navigation-without-resolve -->
+            <ul class="resource-list">
+                <li><a href="/docs/api" data-sveltekit-reload>Course Catalog API reference</a> <span class="resource-note">also as <a href="/docs/api.md" data-sveltekit-reload>markdown</a></span></li>
+                <li><a href="/docs/api/openapi.json" data-sveltekit-reload>OpenAPI description</a> <span class="resource-note">and <a href="/docs/api/schema.graphql" data-sveltekit-reload>GraphQL schema</a></span></li>
+                <li><a href="/llms.txt" data-sveltekit-reload>llms.txt</a> <span class="resource-note">an index of this site for AI agents</span></li>
+                <li><a href={GITHUB_URL} rel="external">Source code on GitHub</a></li>
+            </ul>
+            <!-- eslint-enable svelte/no-navigation-without-resolve -->
+        </section>
+    </article>
 </div>
 
 <style>
@@ -139,34 +141,140 @@
             "YTUC" 712;
     }
 
-    .home-content h2 {
-        margin-top: 2rem;
-        margin-bottom: 0.5rem;
-        font-size: 1.5rem;
-        font-weight: 700;
+    .home-content {
+        display: flex;
+        flex-direction: column;
+        gap: 2.25rem;
+    }
+
+    .home-content section {
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+    }
+
+    .section-heading {
+        font-family: "Roboto Flex", sans-serif;
         color: var(--color-primary);
+        font-optical-sizing: 144;
+        font-weight: 800;
+        font-style: normal;
+        font-variation-settings:
+            "slnt" 0,
+            "wdth" 129,
+            "GRAD" 0,
+            "XOPQ" 140,
+            "XTRA" 468,
+            "YOPQ" 51,
+            "YTAS" 750,
+            "YTDE" -203,
+            "YTFI" 738,
+            "YTLC" 514,
+            "YTUC" 712;
+        font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        margin: 0;
     }
 
     .home-content p,
-    .home-content ol,
-    .home-content ul {
-        line-height: 1.6;
+    .home-content li {
+        margin: 0;
+        line-height: 1.7;
+        text-wrap: pretty;
     }
 
-    .home-content ol {
-        list-style: decimal;
-        padding-left: 1.5rem;
+    .steps {
+        list-style: none;
+        margin: 0.15rem 0 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        counter-reset: home-step;
     }
 
-    .home-content ul {
-        list-style: disc;
-        padding-left: 1.5rem;
+    .steps li {
+        counter-increment: home-step;
+        display: flex;
+        gap: 0.9rem;
+        align-items: flex-start;
+        position: relative;
+        padding-bottom: 1.05rem;
+    }
+
+    .steps li:last-child {
+        padding-bottom: 0;
+    }
+
+    .steps li span {
+        min-width: 0;
+        flex: 1;
+    }
+
+    .steps li::before {
+        content: counter(home-step);
+        flex-shrink: 0;
+        width: 1.75rem;
+        height: 1.75rem;
+        margin-top: 0.12rem;
+        display: grid;
+        place-items: center;
+        border-radius: 9999px;
+        background: rgb(var(--m3-scheme-primary-container));
+        color: rgb(var(--m3-scheme-on-primary-container));
+        font-size: 0.8rem;
+        font-weight: 600;
+        line-height: 1;
+        position: relative;
+        z-index: 1;
+    }
+
+    .steps li:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        left: 0.875rem;
+        top: 2rem;
+        bottom: 0.12rem;
+        width: 1px;
+        background: rgb(var(--m3-scheme-outline-variant));
+        transform: translateX(-50%);
+    }
+
+    .resource-list {
+        list-style: none;
+        margin: 0.15rem 0 0;
+        padding: 0 0 0 0.95rem;
+        display: flex;
+        flex-direction: column;
+        border-left: 2px solid rgb(var(--m3-scheme-primary) / 0.45);
+    }
+
+    .resource-list li {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 0.35rem 0.7rem;
+        padding: 0.7rem 0;
+    }
+
+    .resource-list li + li {
+        border-top: 1px solid rgb(var(--m3-scheme-outline-variant));
+    }
+
+    .resource-note {
+        color: rgb(var(--m3-scheme-on-surface-variant));
+        font-size: 0.95em;
     }
 
     .home-content a {
         color: var(--color-primary);
         text-decoration: underline;
+        text-underline-offset: 0.18em;
+        text-decoration-thickness: 1px;
+        text-decoration-color: rgb(var(--m3-scheme-primary) / 0.45);
     }
 
-
+    .home-content a:hover {
+        text-decoration-color: rgb(var(--m3-scheme-primary));
+    }
 </style>
