@@ -3,6 +3,7 @@
 	import { beforeNavigate } from '$app/navigation';
 	import { page } from '$app/state';
 	import favicon from '$lib/assets/favicon.png';
+	import { SHARE_IMAGE_URL, SITE_NAME, canonicalUrl, metaFor } from '$lib/site';
 	import BottomBar from '$lib/components/BottomBar.svelte';
 	import TopBar from '$lib/components/TopBar.svelte';
 	import { selected } from '$lib/store.svelte';
@@ -13,6 +14,8 @@
 	import '../main.css';
 
 	let { children } = $props();
+
+	const meta = $derived(metaFor(page.url.pathname));
 
 	const order = ['/', '/about', '/contact', '/privacy', '/tos'];
 	const inX = writable(0);
@@ -51,6 +54,18 @@
 	<link rel="preload" as="image" href="/secondary_wit_ss.webp" />
 	<link rel="preload" as="image" href="/third_wit_ss.webp" />
 	<title>WIT-Calendar</title>
+	{#if meta}
+		<meta name="description" content={meta.description} />
+		<link rel="canonical" href={canonicalUrl(page.url.pathname)} />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content={SITE_NAME} />
+		<meta property="og:title" content={meta.title} />
+		<meta property="og:description" content={meta.description} />
+		<meta property="og:url" content={canonicalUrl(page.url.pathname)} />
+		<meta property="og:image" content={SHARE_IMAGE_URL} />
+		<meta property="og:image:alt" content="The WIT-Calendar extension showing a class schedule" />
+		<meta name="twitter:card" content="summary_large_image" />
+	{/if}
 </svelte:head>
 
 <TopBar />

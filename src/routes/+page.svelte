@@ -2,6 +2,8 @@
     import { onMount } from "svelte";
     import { selected } from "$lib/store.svelte";
     import { Button } from "m3-svelte";
+    import { resolve } from "$app/paths";
+    import { GITHUB_URL, ORGANIZATION, WEB_STORE_URL, jsonLdScript, structuredData } from "$lib/site";
 
     let authStatus: { authenticated: boolean; admin: boolean } | null = null;
 
@@ -17,10 +19,12 @@
 
 <svelte:head>
 	<title>WIT-Calendar</title>
+	<!-- eslint-disable-next-line svelte/no-at-html-tags -- the data is ours, and jsonLdScript escapes "<" -->
+	{@html jsonLdScript(structuredData())}
 </svelte:head>
 
 <div class="flex flex-row justify-center items-center mt-12 md:mt-24 px-4 text-center sm:text-left">
-    <svg class="w-14 h-14 md:w-30 md:h-30" viewBox="0 0 190 203" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg aria-hidden="true" class="w-14 h-14 md:w-30 md:h-30" viewBox="0 0 190 203" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="4" y="17" width="182" height="182" rx="12" stroke="#060606" stroke-width="8"/>
         <rect x="53" width="16" height="35" rx="8" fill="black"/>
         <rect x="120" width="16" height="35" rx="8" fill="black"/>
@@ -35,7 +39,7 @@
         <rect x="137" y="143" width="30" height="30" fill="#D92228" fill-opacity="0.3"/>
         <path d="M40.2827 154.061L11.23 65.1328H47.5459L64.2695 115.792C64.6357 117.135 64.9613 118.64 65.2461 120.309C65.5716 121.936 65.8158 123.014 65.9785 123.543H65.9175C66.0396 122.974 66.182 122.221 66.3447 121.285C66.5482 120.349 66.7313 119.658 66.894 119.21L84.7163 65.1328H115.112L132.812 115.304C133.626 118.071 134.134 120.003 134.338 121.102C134.582 122.201 134.765 123.055 134.887 123.666H135.009C135.091 123.096 135.233 122.241 135.437 121.102C135.681 119.922 135.884 119.108 136.047 118.661L153.198 65.1328H178.344L149.536 154.061H114.99L95.2754 100.289C95.1126 99.8822 95.0109 99.4753 94.9702 99.0684C94.9295 98.6615 94.8888 98.2139 94.8481 97.7256H94.7871C94.7464 98.2139 94.7057 98.6615 94.665 99.0684C94.665 99.4753 94.5837 99.8822 94.4209 100.289L75.8052 154.061H40.2827Z" fill="#E3C36C"/>
     </svg>
-    <h1 class="roboto-flex-wit-main text-4xl sm:text-6xl md:text-7xl leading-tight">IT-Calendar</h1>
+    <h1 class="roboto-flex-wit-main text-4xl sm:text-6xl md:text-7xl leading-tight"><span class="sr-only">W</span>IT-Calendar</h1>
 </div>
 
 <div class="flex flex-wrap justify-center items-center mt-4 peak gap-3 sm:gap-4 px-4">
@@ -73,7 +77,46 @@
     </div>
 </div>
 
+<!-- eslint-disable svelte/no-navigation-without-resolve -- These links leave the SvelteKit app. They go to other sites, or to paths that the proxy sends to the Rails backend. Links to pages in this app use resolve(). -->
+<div class="flex justify-center px-4 sm:px-6 pb-8">
+    <div class="home-content w-full max-w-3xl text-lg text-secondary">
+        <h2>Your class schedule, in your calendar</h2>
+        <p>
+            WIT-Calendar is a free Chrome extension for students at {ORGANIZATION.school}.
+            It imports your class schedule into your calendar, so every lecture, lab, and final exam
+            shows up next to the rest of your week. It supports all major calendars, including
+            Google Calendar, Microsoft Outlook, and Apple Calendar.
+        </p>
 
+        <h2>How it works</h2>
+        <ol>
+            <li>Install WIT-Calendar from the <a href={WEB_STORE_URL} target="_blank" rel="noopener noreferrer">Chrome Web Store</a>.</li>
+            <li>Open the extension. It gets your schedule, processes it, and gives you a calendar link.</li>
+            <li>Add the link to Outlook, Apple Calendar, or any calendar app. You can also connect your Google account, so changes reach Google Calendar automatically.</li>
+            <li>Choose the event alerts, colors, and titles in the extension, or in your dashboard after you <a href="/users/sign_in" data-sveltekit-reload>sign in</a>.</li>
+        </ol>
+
+        <h2>For developers and AI agents</h2>
+        <p>
+            WIT-Calendar also publishes the Wentworth course catalog as a public, read-only API.
+            It needs no API key.
+        </p>
+        <ul>
+            <li><a href="/docs/api" data-sveltekit-reload>Course Catalog API reference</a> (also as <a href="/docs/api.md" data-sveltekit-reload>markdown</a>)</li>
+            <li><a href="/docs/api/openapi.json" data-sveltekit-reload>OpenAPI description</a> and <a href="/docs/api/schema.graphql" data-sveltekit-reload>GraphQL schema</a></li>
+            <li><a href="/llms.txt" data-sveltekit-reload>llms.txt</a>, an index of this site for AI agents</li>
+            <li><a href={GITHUB_URL}>Source code on GitHub</a></li>
+        </ul>
+
+        <h2>Who makes WIT-Calendar</h2>
+        <p>
+            The {ORGANIZATION.name}, a student club at {ORGANIZATION.school} in {ORGANIZATION.locality},
+            makes and runs WIT-Calendar. Read <a href={resolve('/about')}>more about the project</a>, or
+            <a href={resolve('/contact')}>contact us</a>.
+        </p>
+    </div>
+</div>
+<!-- eslint-enable svelte/no-navigation-without-resolve -->
 
 <style>
     .roboto-flex-wit-main {
@@ -94,6 +137,35 @@
             "YTFI" 738,
             "YTLC" 514,
             "YTUC" 712;
+    }
+
+    .home-content h2 {
+        margin-top: 2rem;
+        margin-bottom: 0.5rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--color-primary);
+    }
+
+    .home-content p,
+    .home-content ol,
+    .home-content ul {
+        line-height: 1.6;
+    }
+
+    .home-content ol {
+        list-style: decimal;
+        padding-left: 1.5rem;
+    }
+
+    .home-content ul {
+        list-style: disc;
+        padding-left: 1.5rem;
+    }
+
+    .home-content a {
+        color: var(--color-primary);
+        text-decoration: underline;
     }
 
 
