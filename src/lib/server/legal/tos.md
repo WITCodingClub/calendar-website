@@ -15,7 +15,7 @@ We operate the website [https://calendar.witcc.dev](https://calendar.witcc.dev) 
 
 WIT-Calendar is a Chrome extension that makes adding your classes to your calendar easy & quick!
 
-You can contact us by email at [contact@calendar.witcc.dev](mailto:contact@calendar.witcc.dev)
+You can contact us by email at [calendarwit@gmail.com](mailto:calendarwit@gmail.com), [lambertl@wit.edu](mailto:lambertl@wit.edu), and [mayonej@wit.edu](mailto:mayonej@wit.edu)
 
 These Legal Terms constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("**you**"), and WIT-Calendar, concerning your access to and use of the Services. You agree that by accessing the Services, you have read, understood, and agreed to be bound by all of these Legal Terms. IF YOU DO NOT AGREE WITH ALL OF THESE LEGAL TERMS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SERVICES AND YOU MUST DISCONTINUE USE IMMEDIATELY.
 
@@ -100,7 +100,7 @@ solely for your personal, non-commercial use or internal business purpose.
 
 Except as set out in this section or elsewhere in our Legal Terms, no part of the Services and no Content or Marks may be copied, reproduced, aggregated, republished, uploaded, posted, publicly displayed, encoded, translated, transmitted, distributed, sold, licensed, or otherwise exploited for any commercial purpose whatsoever, without our express prior written permission.
 
-If you wish to make any use of the Services, Content, or Marks other than as set out in this section or elsewhere in our Legal Terms, please address your request to: [contact@calendar.witcc.dev](mailto:contact@calendar.witcc.dev). If we ever grant you the permission to post, reproduce, or publicly display any part of our Services or Content, you must identify us as the owners or licensors of the Services, Content, or Marks and ensure that any copyright or proprietary notice appears or is visible on posting, reproducing, or displaying our Content.
+If you wish to make any use of the Services, Content, or Marks other than as set out in this section or elsewhere in our Legal Terms, please address your request to: [calendarwit@gmail.com](mailto:calendarwit@gmail.com), [lambertl@wit.edu](mailto:lambertl@wit.edu), and [mayonej@wit.edu](mailto:mayonej@wit.edu). If we ever grant you the permission to post, reproduce, or publicly display any part of our Services or Content, you must identify us as the owners or licensors of the Services, Content, or Marks and ensure that any copyright or proprietary notice appears or is visible on posting, reproducing, or displaying our Content.
 
 We reserve all rights not expressly granted to you in and to the Services, Content, and Marks.
 
@@ -272,8 +272,8 @@ These Legal Terms and any policies or operating rules posted by us on the Servic
 
 ## 23. CONTACT US
 
-In order to resolve a complaint regarding the Services or to receive further information regarding use of the Services, please contact us at: contact@calendar.witcc.dev
+In order to resolve a complaint regarding the Services or to receive further information regarding use of the Services, please contact us at: calendarwit@gmail.com, lambertl@wit.edu, and mayonej@wit.edu
 
 **United States**
 
-**[contact@calendar.witcc.dev](mailto:contact@calendar.witcc.dev)**
+**[calendarwit@gmail.com](mailto:calendarwit@gmail.com), [lambertl@wit.edu](mailto:lambertl@wit.edu), and [mayonej@wit.edu](mailto:mayonej@wit.edu)**

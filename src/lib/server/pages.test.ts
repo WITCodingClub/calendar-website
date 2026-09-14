@@ -25,6 +25,27 @@ describe('markdownFor', () => {
 		assert.ok(contact.includes('https://discord.gg/fkeM94snmy'));
 	});
 
+	it('links agents to the API reference and llms.txt from the home copy', () => {
+		const home = markdownFor('/', origin) ?? '';
+		assert.ok(home.includes(`(${origin}/docs/api.md)`));
+		assert.ok(home.includes(`(${origin}/llms.txt)`));
+	});
+
+	it('gives the contact copy the working email and the private security channel', () => {
+		const contact = markdownFor('/contact', origin) ?? '';
+		assert.ok(contact.includes('mailto:calendarwit@gmail.com'));
+		assert.ok(contact.includes('/security/advisories/new'));
+		assert.doesNotMatch(contact, /@calendar\.witcc\.dev/);
+	});
+
+	it('sends legal inquiries to all three legal contacts', () => {
+		const contact = markdownFor('/contact', origin) ?? '';
+		const legal = contact.split('## Legal inquiries')[1]?.split('## ')[0] ?? '';
+		for (const email of ['calendarwit@gmail.com', 'lambertl@wit.edu', 'mayonej@wit.edu']) {
+			assert.ok(legal.includes(`mailto:${email}`), `${email} is not a legal contact`);
+		}
+	});
+
 	it('builds site links from the request origin', () => {
 		const home = markdownFor('/', 'http://localhost:5173') ?? '';
 		assert.ok(home.includes('(http://localhost:5173/about)'));

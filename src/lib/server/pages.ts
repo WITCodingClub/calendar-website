@@ -9,28 +9,56 @@ import { securityMarkdown } from '../security.ts';
 // /privacy and /tos are not here. Their text is generated legal markup, so a
 // script generates their copies too. See legal.ts.
 
-const WEB_STORE_URL =
-	'https://chromewebstore.google.com/detail/wit-calendar/aceelinogfcceklkpacakdeddnaakicj';
+import {
+	CONTACT_EMAIL,
+	DISCORD_URL,
+	GITHUB_ISSUES_URL,
+	GITHUB_URL,
+	INSTAGRAM_URL,
+	LEGAL_EMAILS,
+	ORGANIZATION,
+	SECURITY_REPORT_URL,
+	STATUS_URL,
+	WEB_STORE_URL,
+	listOfEmails,
+	metaFor
+} from '../site.ts';
 
 const pages: Record<string, (origin: string) => string> = {
 	'/': (origin) => `---
 title: WIT-Calendar
-description: A Chrome extension that imports your Wentworth Institute of Technology classes into your calendar.
+description: ${metaFor('/')?.description}
 ---
 
 # WIT-Calendar
 
-WIT-Calendar is a Chrome extension that imports your classes into your calendar. It supports Google Calendar, Microsoft Outlook, and Apple Calendar.
+WIT-Calendar is a free Chrome extension for students at ${ORGANIZATION.school}. It imports your class schedule into your calendar, so every lecture, lab, and final exam shows up next to the rest of your week. It supports Google Calendar, Microsoft Outlook, and Apple Calendar.
 
 - [Install from the Chrome Web Store](${WEB_STORE_URL})
 - [Sign in](${origin}/users/sign_in): Open your dashboard.
 - [About](${origin}/about)
 - [Contact](${origin}/contact)
 
+## How it works
+
+1. Install WIT-Calendar from the Chrome Web Store.
+2. Open the extension. It gets your schedule, processes it, and gives you a calendar link.
+3. Add the link to Outlook, Apple Calendar, or any calendar app. You can also connect your Google account, so changes reach Google Calendar automatically.
+4. Choose the event alerts, colors, and titles in the extension, or in your dashboard after you sign in.
+
 ## For agents and developers
 
+WIT-Calendar also publishes the Wentworth course catalog as a public, read-only API. It needs no API key.
+
+- [Course Catalog API reference](${origin}/docs/api.md): The REST, GraphQL, and CSV endpoints, as markdown.
+- [OpenAPI description](${origin}/docs/api/openapi.json)
+- [GraphQL schema](${origin}/docs/api/schema.graphql)
 - [llms.txt](${origin}/llms.txt): An index of the site for agents.
-- [Course Catalog API reference](${origin}/docs/api.md): A public, read-only API for the Wentworth course catalog. It needs no API key.
+- [Source code on GitHub](${GITHUB_URL})
+
+## Who makes WIT-Calendar
+
+The ${ORGANIZATION.name}, a student club at ${ORGANIZATION.school} in ${ORGANIZATION.locality}, makes and runs WIT-Calendar.
 
 ## Legal
 
@@ -49,29 +77,53 @@ description: What WIT-Calendar is and where to see the server status.
 WIT-Calendar is a Chrome extension that imports your classes into your calendar. It supports all major calendars, including Google Calendar, Microsoft Outlook, and Apple Calendar.
 
 - [Install from the Chrome Web Store](${WEB_STORE_URL})
-- [Server status page](https://stats.uptimerobot.com/QS76oPqfzz)
+- [Server status page](${STATUS_URL})
 - [Home](${origin}/)
 - [Contact](${origin}/contact)
 `,
 
 	'/contact': (origin) => `---
 title: WIT-Calendar - Contact
-description: How to contact the WIT-Calendar team.
+description: ${metaFor('/contact')?.description}
 ---
 
 # Contact
 
 The best way to contact us is through Discord.
 
-- [Discord](https://discord.gg/fkeM94snmy)
-- [GitHub](https://github.com/WITCodingClub/calendar)
-- [Instagram](https://www.instagram.com/wit_coding_club/)
-- Email: contact@calendar.witcc.dev
+- [Discord](${DISCORD_URL})
+- [GitHub](${GITHUB_URL})
+- [Instagram](${INSTAGRAM_URL})
 - [About](${origin}/about)
-`,
 
-	// Built from the same data as the page. See security.ts.
-	'/security': securityMarkdown
+## Get help
+
+The fastest way to reach the WIT-Calendar team is our [Discord server](${DISCORD_URL}). Ask a question, tell us about a problem with your schedule, or suggest a feature there.
+
+## Email
+
+You can also email us at [${CONTACT_EMAIL}](mailto:${CONTACT_EMAIL}). If you report a problem, tell us which calendar you use and what you expected to see.
+
+## Report a bug
+
+If the extension does something wrong, open an issue on [GitHub](${GITHUB_ISSUES_URL}). Include the steps that cause the problem.
+
+## Report a security problem
+
+Do not report a security problem in a public issue. Send it privately through [GitHub private vulnerability reporting](${SECURITY_REPORT_URL}). Our [security.txt](${origin}/.well-known/security.txt) file lists the other contacts.
+
+## Your data
+
+To learn what data WIT-Calendar keeps and how to remove it, read the [Privacy Policy](${origin}/privacy).
+
+## Legal inquiries
+
+Send legal inquiries to all three of these addresses: ${listOfEmails(LEGAL_EMAILS.map((email) => `[${email}](mailto:${email})`))}.
+
+## Who we are
+
+WIT-Calendar is made by the ${ORGANIZATION.name}, a student club at ${ORGANIZATION.school}, ${ORGANIZATION.streetAddress}, ${ORGANIZATION.locality}, ${ORGANIZATION.region} ${ORGANIZATION.postalCode}.
+`
 };
 
 // Returns null for a page that has no markdown copy.
