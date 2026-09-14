@@ -1,3 +1,5 @@
+import { securityMarkdown } from '../security.ts';
+
 // Markdown copies of the pages, for agents that send Accept: text/markdown.
 //
 // These are written by hand, not converted from the HTML. The links on the
@@ -34,6 +36,7 @@ WIT-Calendar is a Chrome extension that imports your classes into your calendar.
 
 - [Privacy Policy](${origin}/privacy)
 - [Terms of Service](${origin}/tos)
+- [Security](${origin}/security): How to report a vulnerability.
 `,
 
 	'/about': (origin) => `---
@@ -65,7 +68,10 @@ The best way to contact us is through Discord.
 - [Instagram](https://www.instagram.com/wit_coding_club/)
 - Email: contact@calendar.witcc.dev
 - [About](${origin}/about)
-`
+`,
+
+	// Built from the same data as the page. See security.ts.
+	'/security': securityMarkdown
 };
 
 // Returns null for a page that has no markdown copy.
