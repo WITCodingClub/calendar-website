@@ -5,7 +5,7 @@ description: How WIT-Calendar collects, uses, stores, and shares personal inform
 
 # PRIVACY POLICY
 
-**Last updated November 12, 2025**
+**Last updated September 16, 2026**
 
 This Privacy Notice for WIT-Calendar ("**we**," "**us**," or "**our**"), describes how and why we might access, collect, store, use, and/or share ("**process**") your personal information when you use our services ("**Services**"), including when you:
 
@@ -86,6 +86,20 @@ We collect personal information that you voluntarily provide to us when you regi
 
 All personal information that you provide to us must be true, complete, and accurate, and you must notify us of any changes to such personal information.
 
+### Anonymous usage counts in the extension
+
+**_In Short:_** _If you turn them on, the extension sends us anonymous counts of how often some features are used. They are off until you choose._
+
+After you sign in, the WIT-Calendar extension asks if you want to share anonymous usage counts. The counts are off until you turn them on. You can turn them on or off at any time in the extension Settings ("Share anonymous usage counts"). In Firefox, the extension also needs the optional "technical and interaction data" permission, which you can remove in the Firefox add-on settings.
+
+When the counts are on, the extension sends a message when some actions happen, for example when a schedule import succeeds or fails, when you sign in, or when you copy your calendar link. Each message contains only:
+
+- the name of the action, from a fixed list
+- the extension version
+- the browser name (Chrome, Edge, or Firefox)
+
+The messages do not contain your name, email address, account, sign-in token, or schedule. We do not link the counts to you or to your account. We keep only totals for each action, extension version, and browser, and we use them only to learn which parts of WIT-Calendar students use and what to improve. As with any request to our servers, your IP address can appear in short-term server logs, but we do not store it with the counts.
+
 ### Google API
 
 Our use of information received from Google APIs will adhere to [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy), including the [Limited Use requirements](https://developers.google.com/terms/api-services-user-data-policy#limited-use).
@@ -106,6 +120,7 @@ If you interact with us on a social media platform using your social media accou
 
 - **To facilitate account creation and authentication and otherwise manage user accounts.** We may process your information so you can create and log in to your account, as well as keep your account in working order.
 - **To deliver and facilitate delivery of services to the user.** We may process your information to provide you with the requested service.
+- **To improve our Services.** If you turn on anonymous usage counts in the extension, we use the totals to learn which features students use. See "Anonymous usage counts in the extension" above.
 
 ## 3. WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?
 
