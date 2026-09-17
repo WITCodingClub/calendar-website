@@ -7,7 +7,8 @@ import {
 	jsonLdScript,
 	listOfEmails,
 	metaFor,
-	structuredData
+	structuredData,
+	webStoreUrlFor
 } from './site.ts';
 
 type Node = Record<string, unknown>;
@@ -104,5 +105,25 @@ describe('jsonLdScript', () => {
 		assert.deepEqual(JSON.parse(script.slice(35, -9)), {
 			name: '</script><script>alert(1)</script>'
 		});
+	});
+});
+
+describe('webStoreUrlFor', () => {
+	it('sends Firefox to Firefox Add-ons', () => {
+		const desktop =
+			'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:143.0) Gecko/20100101 Firefox/143.0';
+		const android = 'Mozilla/5.0 (Android 15; Mobile; rv:143.0) Gecko/143.0 Firefox/143.0';
+		for (const ua of [desktop, android]) {
+			assert.match(webStoreUrlFor(ua), /^https:\/\/addons\.mozilla\.org\//);
+		}
+	});
+
+	it('sends every other browser to the Chrome Web Store', () => {
+		const chrome =
+			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36';
+		const edge = `${chrome} Edg/140.0.0.0`;
+		for (const ua of [chrome, edge, '']) {
+			assert.match(webStoreUrlFor(ua), /^https:\/\/chromewebstore\.google\.com\//);
+		}
 	});
 });

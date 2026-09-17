@@ -8,8 +8,17 @@
 export const SITE_ORIGIN = 'https://calendar.witcc.dev';
 export const SITE_NAME = 'WIT-Calendar';
 
-export const WEB_STORE_URL =
+export const CHROME_WEB_STORE_URL =
 	'https://chromewebstore.google.com/detail/wit-calendar/aceelinogfcceklkpacakdeddnaakicj';
+export const FIREFOX_WEB_STORE_URL = 'https://addons.mozilla.org/en-US/firefox/addon/wit-calendar/';
+
+// The store to send a visitor to. Firefox, including Firefox for Android,
+// installs from Firefox Add-ons. Every other browser gets the Chrome Web
+// Store, which Chrome, Edge, Brave, and Opera can all install from.
+export function webStoreUrlFor(userAgent: string): string {
+	return /Firefox\//.test(userAgent) ? FIREFOX_WEB_STORE_URL : CHROME_WEB_STORE_URL;
+}
+
 export const CONTACT_EMAIL = 'calendarwit@gmail.com';
 // Legal inquiries go to all three addresses. They are the email contacts in
 // the security policy, in the same order.
@@ -93,12 +102,12 @@ export function structuredData(): Record<string, unknown> {
 				description: pageMeta['/'].description,
 				url: `${SITE_ORIGIN}/`,
 				applicationCategory: 'ProductivityApplication',
-				operatingSystem: 'Google Chrome',
-				installUrl: WEB_STORE_URL,
+				operatingSystem: 'Google Chrome, Mozilla Firefox',
+				installUrl: [CHROME_WEB_STORE_URL, FIREFOX_WEB_STORE_URL],
 				image: SHARE_IMAGE_URL,
 				offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
 				publisher: { '@id': organizationId },
-				sameAs: [WEB_STORE_URL, GITHUB_URL]
+				sameAs: [CHROME_WEB_STORE_URL, FIREFOX_WEB_STORE_URL, GITHUB_URL]
 			},
 			{
 				'@type': 'Organization',
