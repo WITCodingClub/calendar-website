@@ -10,8 +10,10 @@ import { securityMarkdown } from '../security.ts';
 // script generates their copies too. See legal.ts.
 
 import {
+	CHROME_WEB_STORE_URL,
 	CONTACT_EMAIL,
 	DISCORD_URL,
+	FIREFOX_WEB_STORE_URL,
 	GITHUB_ISSUES_URL,
 	GITHUB_URL,
 	INSTAGRAM_URL,
@@ -19,7 +21,6 @@ import {
 	ORGANIZATION,
 	SECURITY_REPORT_URL,
 	STATUS_URL,
-	WEB_STORE_URL,
 	listOfEmails,
 	metaFor
 } from '../site.ts';
@@ -34,14 +35,15 @@ description: ${metaFor('/')?.description}
 
 WIT-Calendar is a free Chrome extension for students at ${ORGANIZATION.school}. It imports your class schedule into your calendar, so every lecture, lab, and final exam shows up next to the rest of your week. It supports Google Calendar, Microsoft Outlook, and Apple Calendar. The ${ORGANIZATION.name}, a student club at ${ORGANIZATION.school} in ${ORGANIZATION.locality}, makes and runs it. Read [more about the project](${origin}/about), or [contact us](${origin}/contact).
 
-- [Install from the Chrome Web Store](${WEB_STORE_URL})
+- [Install from the Chrome Web Store](${CHROME_WEB_STORE_URL})
+- [Install from Firefox Add-ons](${FIREFOX_WEB_STORE_URL})
 - [Sign in](${origin}/users/sign_in): Open your dashboard.
 - [About](${origin}/about)
 - [Contact](${origin}/contact)
 
 ## How it works
 
-1. Install WIT-Calendar from the Chrome Web Store.
+1. Install WIT-Calendar from the Chrome Web Store or Firefox Add-ons.
 2. Open the extension. It gets your schedule, processes it, and gives you a calendar link.
 3. Add the link to Outlook, Apple Calendar, or any calendar app. You can also connect your Google account, so changes reach Google Calendar automatically.
 4. Choose the event alerts, colors, and titles in the extension, or in your dashboard after you sign in.
@@ -72,7 +74,8 @@ description: What WIT-Calendar is and where to see the server status.
 
 WIT-Calendar is a Chrome extension that imports your classes into your calendar. It supports all major calendars, including Google Calendar, Microsoft Outlook, and Apple Calendar.
 
-- [Install from the Chrome Web Store](${WEB_STORE_URL})
+- [Install from the Chrome Web Store](${CHROME_WEB_STORE_URL})
+- [Install from Firefox Add-ons](${FIREFOX_WEB_STORE_URL})
 - [Server status page](${STATUS_URL})
 - [Home](${origin}/)
 - [Contact](${origin}/contact)
