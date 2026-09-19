@@ -114,13 +114,13 @@ Where these features are available, you can use your WIT Microsoft account in tw
 
 **Outlook calendar sync.** When you connect your Microsoft 365 (Outlook) calendar, we ask Microsoft for these permissions:
 
-- Read and write your calendars. Microsoft grants this permission for all your calendars. WIT-Calendar reads and changes only the "WIT Courses" calendar that it creates and the course events that it puts there. It does not read your other events.
+- Read and write your calendars. Microsoft grants this permission for all your calendars. You choose where your course events go: a separate "WIT Courses" calendar that WIT-Calendar creates, or your main calendar, where your classes show as busy to people who can see your availability. In both cases, WIT-Calendar reads and changes only the course events that it creates. It does not read your other events.
 - Read and write your mailbox settings. WIT-Calendar uses this permission only to read your list of Outlook categories and to add "WIT" color categories for your course events. It does not read your mail.
 - Keep access while you are away. This lets us update your course events when your schedule changes, without a new sign-in each time.
 
-For the calendar sync, we store the access token and the refresh token that Microsoft gives us, the ID of the "WIT Courses" calendar, and the ID, title, location, and times of each course event that we create. We use the stored event details to see which fields you changed in Outlook, so that a sync keeps your changes.
+For the calendar sync, we store the access token and the refresh token that Microsoft gives us, the ID of the calendar that holds your course events, and the ID, title, location, and times of each course event that we create. We use the stored event details to see which fields you changed in Outlook, so that a sync keeps your changes.
 
-You can disconnect your Microsoft account on the WIT-Calendar dashboard. When you disconnect the calendar, we delete the "WIT Courses" calendar from Outlook and we delete your Microsoft tokens from our database. If Microsoft does not answer at that moment, the calendar can stay in Outlook, and you can delete it there.
+You can disconnect your Microsoft account on the WIT-Calendar dashboard. When you disconnect the calendar, we delete your course events from Outlook, and the "WIT Courses" calendar if you use one. We also delete your Microsoft tokens from our database. If Microsoft does not answer at that moment, the calendar or some course events can stay in Outlook, and you can delete them there.
 
 We use the information that we receive from Microsoft only to provide the sign-in and the calendar sync. We do not sell it, we do not use it for advertising, and we do not share it with third parties.
 

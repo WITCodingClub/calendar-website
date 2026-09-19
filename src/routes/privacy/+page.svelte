@@ -914,9 +914,11 @@
 			<li data-custom-class="body_text" style="line-height: 1.5;">
 				<span style="font-size: 15px; color: rgb(89, 89, 89);"
 					><span data-custom-class="body_text"
-						>Read and write your calendars. Microsoft grants this permission for all your calendars.
-						WIT-Calendar reads and changes only the "WIT Courses" calendar that it creates and the
-						course events that it puts there. It does not read your other events.</span
+						>Read and write your calendars. Microsoft grants this permission for all your calendars. You
+						choose where your course events go: a separate "WIT Courses" calendar that WIT-Calendar creates,
+						or your main calendar, where your classes show as busy to people who can see your availability.
+						In both cases, WIT-Calendar reads and changes only the course events that it creates. It does
+						not read your other events.</span
 					></span
 				>
 			</li>
@@ -942,7 +944,7 @@
 			<span style="font-size: 15px; color: rgb(89, 89, 89);"
 				><span data-custom-class="body_text"
 					>For the calendar sync, we store the access token and the refresh token that Microsoft gives
-					us, the ID of the "WIT Courses" calendar, and the ID, title, location, and times of each course
+					us, the ID of the calendar that holds your course events, and the ID, title, location, and times of each course
 					event that we create. We use the stored event details to see which fields you changed in
 					Outlook, so that a sync keeps your changes.</span
 				></span
@@ -953,9 +955,10 @@
 			<span style="font-size: 15px; color: rgb(89, 89, 89);"
 				><span data-custom-class="body_text"
 					>You can disconnect your Microsoft account on the WIT-Calendar dashboard. When you disconnect
-					the calendar, we delete the "WIT Courses" calendar from Outlook and we delete your Microsoft
-					tokens from our database. If Microsoft does not answer at that moment, the calendar can stay in
-					Outlook, and you can delete it there.</span
+					the calendar, we delete your course events from Outlook, and the "WIT Courses" calendar if you
+					use one. We also delete your Microsoft tokens from our database. If Microsoft does not answer at
+					that moment, the calendar or some course events can stay in Outlook, and you can delete them
+					there.</span
 				></span
 			>
 		</div>
