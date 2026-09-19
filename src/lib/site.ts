@@ -31,7 +31,7 @@ export const INSTAGRAM_URL = 'https://www.instagram.com/wit_coding_club/';
 export const STATUS_URL = 'https://stats.uptimerobot.com/QS76oPqfzz';
 export const SECURITY_REPORT_URL =
 	'https://github.com/WITCodingClub/calendar-backend/security/advisories/new';
-export const SHARE_IMAGE_URL = `${SITE_ORIGIN}/secondary_wit_ss.webp`;
+export const SHARE_IMAGE_URL = `${SITE_ORIGIN}/calendar.webp`;
 
 export const ORGANIZATION = {
 	name: 'WIT Coding Club',
