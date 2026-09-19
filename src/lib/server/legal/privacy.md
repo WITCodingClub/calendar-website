@@ -5,7 +5,7 @@ description: How WIT-Calendar collects, uses, stores, and shares personal inform
 
 # PRIVACY POLICY
 
-**Last updated September 16, 2026**
+**Last updated September 19, 2026**
 
 This Privacy Notice for WIT-Calendar ("**we**," "**us**," or "**our**"), describes how and why we might access, collect, store, use, and/or share ("**process**") your personal information when you use our services ("**Services**"), including when you:
 
@@ -103,6 +103,26 @@ The messages do not contain your name, email address, account, sign-in token, or
 ### Google API
 
 Our use of information received from Google APIs will adhere to [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy), including the [Limited Use requirements](https://developers.google.com/terms/api-services-user-data-policy#limited-use).
+
+### Microsoft account and Outlook calendar
+
+**_In Short:_** _If you sign in with Microsoft or connect an Outlook calendar, we receive limited information from Microsoft. Both features are optional, and you can disconnect at any time._
+
+Where these features are available, you can use your WIT Microsoft account in two ways. Each one is separate, and each one needs your permission.
+
+**Sign in with Microsoft.** When you sign in to the WIT-Calendar dashboard with your WIT Microsoft account, Microsoft sends us your name, your email address, the ID of the WIT Microsoft organization, and the ID of your account in that organization. We store these values to find your WIT-Calendar account the next time you sign in. The sign-in does not ask for access to your calendar, mail, or files, and we do not keep a Microsoft access token for it.
+
+**Outlook calendar sync.** When you connect your Microsoft 365 (Outlook) calendar, we ask Microsoft for these permissions:
+
+- Read and write your calendars. Microsoft grants this permission for all your calendars. WIT-Calendar reads and changes only the "WIT Courses" calendar that it creates and the course events that it puts there. It does not read your other events.
+- Read and write your mailbox settings. WIT-Calendar uses this permission only to read your list of Outlook categories and to add "WIT" color categories for your course events. It does not read your mail.
+- Keep access while you are away. This lets us update your course events when your schedule changes, without a new sign-in each time.
+
+For the calendar sync, we store the access token and the refresh token that Microsoft gives us, the ID of the "WIT Courses" calendar, and the ID, title, location, and times of each course event that we create. We use the stored event details to see which fields you changed in Outlook, so that a sync keeps your changes.
+
+You can disconnect your Microsoft account on the WIT-Calendar dashboard. When you disconnect the calendar, we delete the "WIT Courses" calendar from Outlook and we delete your Microsoft tokens from our database. If Microsoft does not answer at that moment, the calendar can stay in Outlook, and you can delete it there.
+
+We use the information that we receive from Microsoft only to provide the sign-in and the calendar sync. We do not sell it, we do not use it for advertising, and we do not share it with third parties.
 
 ### Information collected from other sources
 

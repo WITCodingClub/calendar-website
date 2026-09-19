@@ -14,7 +14,7 @@
 			><strong
 				><span style="font-size: 15px;"
 					><span data-custom-class="subtitle"
-						>Last updated <bdt class="question">September 16, 2026</bdt></span
+						>Last updated <bdt class="question">September 19, 2026</bdt></span
 					></span
 				></strong
 			></span
@@ -778,7 +778,7 @@
 		<div style="line-height: 1.5;">
 			<span style="font-size: 15px; color: rgb(89, 89, 89);"
 				><span data-custom-class="body_text"
-					><strong><em>In Short:</em></strong><em>
+					><strong><em>In Short:&nbsp;</em></strong><em>
 						If you turn them on, the extension sends us anonymous counts of how often some features are
 						used. They are off until you choose.</em
 					></span
@@ -861,6 +861,113 @@
 					><span data-custom-class="body_text">Limited Use requirements</span></span
 				></a
 			><span style="font-size: 15px;"><span data-custom-class="body_text">.</span><br /></span>
+		</div>
+		<div><span style="font-size: 15px;"><br /></span></div>
+		<div style="line-height: 1.5;">
+			<span style="font-size: 15px;"
+				><strong
+					><span data-custom-class="heading_2"><h3>Microsoft account and Outlook calendar</h3></span></strong
+				></span
+			>
+		</div>
+		<div style="line-height: 1.5;">
+			<span style="font-size: 15px; color: rgb(89, 89, 89);"
+				><span data-custom-class="body_text"
+					><strong><em>In Short:&nbsp;</em></strong><em>
+						If you sign in with Microsoft or connect an Outlook calendar, we receive limited information
+						from Microsoft. Both features are optional, and you can disconnect at any time.</em
+					></span
+				></span
+			>
+		</div>
+		<div style="line-height: 1.5;"><br /></div>
+		<div style="line-height: 1.5;">
+			<span style="font-size: 15px; color: rgb(89, 89, 89);"
+				><span data-custom-class="body_text"
+					>Where these features are available, you can use your WIT Microsoft account in two ways. Each
+					one is separate, and each one needs your permission.</span
+				></span
+			>
+		</div>
+		<div style="line-height: 1.5;"><br /></div>
+		<div style="line-height: 1.5;">
+			<span style="font-size: 15px; color: rgb(89, 89, 89);"
+				><span data-custom-class="body_text"
+					><strong>Sign in with Microsoft.</strong> When you sign in to the WIT-Calendar dashboard with
+					your WIT Microsoft account, Microsoft sends us your name, your email address, the ID of the WIT
+					Microsoft organization, and the ID of your account in that organization. We store these values
+					to find your WIT-Calendar account the next time you sign in. The sign-in does not ask for access
+					to your calendar, mail, or files, and we do not keep a Microsoft access token for it.</span
+				></span
+			>
+		</div>
+		<div style="line-height: 1.5;"><br /></div>
+		<div style="line-height: 1.5;">
+			<span style="font-size: 15px; color: rgb(89, 89, 89);"
+				><span data-custom-class="body_text"
+					><strong>Outlook calendar sync.</strong> When you connect your Microsoft 365 (Outlook) calendar,
+					we ask Microsoft for these permissions:</span
+				></span
+			>
+		</div>
+		<ul>
+			<li data-custom-class="body_text" style="line-height: 1.5;">
+				<span style="font-size: 15px; color: rgb(89, 89, 89);"
+					><span data-custom-class="body_text"
+						>Read and write your calendars. Microsoft grants this permission for all your calendars.
+						WIT-Calendar reads and changes only the "WIT Courses" calendar that it creates and the
+						course events that it puts there. It does not read your other events.</span
+					></span
+				>
+			</li>
+			<li data-custom-class="body_text" style="line-height: 1.5;">
+				<span style="font-size: 15px; color: rgb(89, 89, 89);"
+					><span data-custom-class="body_text"
+						>Read and write your mailbox settings. WIT-Calendar uses this permission only to read your
+						list of Outlook categories and to add "WIT" color categories for your course events. It does
+						not read your mail.</span
+					></span
+				>
+			</li>
+			<li data-custom-class="body_text" style="line-height: 1.5;">
+				<span style="font-size: 15px; color: rgb(89, 89, 89);"
+					><span data-custom-class="body_text"
+						>Keep access while you are away. This lets us update your course events when your schedule
+						changes, without a new sign-in each time.</span
+					></span
+				>
+			</li>
+		</ul>
+		<div style="line-height: 1.5;">
+			<span style="font-size: 15px; color: rgb(89, 89, 89);"
+				><span data-custom-class="body_text"
+					>For the calendar sync, we store the access token and the refresh token that Microsoft gives
+					us, the ID of the "WIT Courses" calendar, and the ID, title, location, and times of each course
+					event that we create. We use the stored event details to see which fields you changed in
+					Outlook, so that a sync keeps your changes.</span
+				></span
+			>
+		</div>
+		<div style="line-height: 1.5;"><br /></div>
+		<div style="line-height: 1.5;">
+			<span style="font-size: 15px; color: rgb(89, 89, 89);"
+				><span data-custom-class="body_text"
+					>You can disconnect your Microsoft account on the WIT-Calendar dashboard. When you disconnect
+					the calendar, we delete the "WIT Courses" calendar from Outlook and we delete your Microsoft
+					tokens from our database. If Microsoft does not answer at that moment, the calendar can stay in
+					Outlook, and you can delete it there.</span
+				></span
+			>
+		</div>
+		<div style="line-height: 1.5;"><br /></div>
+		<div style="line-height: 1.5;">
+			<span style="font-size: 15px; color: rgb(89, 89, 89);"
+				><span data-custom-class="body_text"
+					>We use the information that we receive from Microsoft only to provide the sign-in and the
+					calendar sync. We do not sell it, we do not use it for advertising, and we do not share it with
+					third parties.</span
+				></span
+			>
 		</div>
 		<div><span style="font-size: 15px;"><br /></span></div>
 		<div style="line-height: 1.5;">
