@@ -4,16 +4,20 @@
     import { Button } from "m3-svelte";
     import { resolve } from "$app/paths";
     import { CHROME_WEB_STORE_URL, FIREFOX_WEB_STORE_URL, GITHUB_URL, ORGANIZATION, jsonLdScript, structuredData, webStoreUrlFor } from "$lib/site";
+    import { extensionState } from "$lib/extension-presence.svelte";
 
-    let authStatus: { authenticated: boolean; admin: boolean } | null = null;
+    let authStatus = $state<{ authenticated: boolean; admin: boolean } | null>(null);
+    const extension = $derived(extensionState.presence);
 
-    onMount(async () => {
-        try {
-            const res = await fetch("/session/status", { credentials: "include" });
-            if (res.ok) authStatus = await res.json();
-        } catch {
-            // stay null → show Sign In
-        }
+    onMount(() => {
+        void (async () => {
+            try {
+                const res = await fetch("/session/status", { credentials: "include" });
+                if (res.ok) authStatus = await res.json();
+            } catch {
+                // stay null → show Sign In
+            }
+        })();
     });
 </script>
 
@@ -46,8 +50,8 @@
     <Button variant="outlined" onclick={() => $selected = "/about"}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M11.95 18q.525 0 .888-.363t.362-.887t-.362-.888t-.888-.362t-.887.363t-.363.887t.363.888t.887.362m.05 4q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22m.1-14.3q.625 0 1.088.4t.462 1q0 .55-.337.975t-.763.8q-.575.5-1.012 1.1t-.438 1.35q0 .35.263.588t.612.237q.375 0 .638-.25t.337-.625q.1-.525.45-.937t.75-.788q.575-.55.988-1.2t.412-1.45q0-1.275-1.037-2.087T12.1 6q-.95 0-1.812.4T8.975 7.625q-.175.3-.112.638t.337.512q.35.2.725.125t.625-.425q.275-.375.688-.575t.862-.2"/></svg>
         More Info
     </Button>
-    <Button variant="filled" onclick={() => window.open(webStoreUrlFor(navigator.userAgent), '_blank', 'noopener,noreferrer')}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m16 8.4l-8.9 8.9q-.275.275-.7.275t-.7-.275t-.275-.7t.275-.7L14.6 7H7q-.425 0-.712-.288T6 6t.288-.712T7 5h10q.425 0 .713.288T18 6v10q0 .425-.288.713T17 17t-.712-.288T16 16z"/></svg>
-        Web Store
+    <Button variant={extension.status === "installed" ? "outlined" : "filled"} onclick={() => window.open(webStoreUrlFor(navigator.userAgent), '_blank', 'noopener,noreferrer')}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d={extension.status === "installed" ? "M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" : "m16 8.4l-8.9 8.9q-.275.275-.7.275t-.7-.275t-.275-.7t.275-.7L14.6 7H7q-.425 0-.712-.288T6 6t.288-.712T7 5h10q.425 0 .713.288T18 6v10q0 .425-.288.713T17 17t-.712-.288T16 16z"}/></svg>
+        {extension.status === "installed" ? "Installed" : "Web Store"}
     </Button>
         {#if authStatus?.authenticated}
         <Button variant="filled" onclick={() => window.location.href = authStatus?.admin ? "/admin" : "/dashboard"}>
@@ -95,7 +99,11 @@
         <section>
             <h2 class="section-heading">How it works</h2>
             <ol class="steps">
+                {#if extension.status === "installed"}
+                <li><span>WIT-Calendar is installed. Open it from the toolbar to get your schedule.</span></li>
+                {:else}
                 <li><span>Install WIT-Calendar from the <a href={CHROME_WEB_STORE_URL} target="_blank" rel="external noopener noreferrer">Chrome Web Store</a> or <a href={FIREFOX_WEB_STORE_URL} target="_blank" rel="external noopener noreferrer">Firefox Add-ons</a>.</span></li>
+                {/if}
                 <li><span>Open the extension. It gets your schedule, processes it, and gives you a calendar link.</span></li>
                 <li><span>Add the link to Outlook, Apple Calendar, or any calendar app. You can also connect your Google account, so changes reach Google Calendar automatically.</span></li>
                 <li><span>Choose the event alerts, colors, and titles in the extension, or in your dashboard after you <a href="/users/sign_in" rel="external" data-sveltekit-reload>sign in</a>.</span></li>
