@@ -66,6 +66,10 @@ const pageMeta: Record<string, PageMeta> = {
 		description:
 			'How to contact the WIT-Calendar team: Discord, email, GitHub issues, private security reports, and legal inquiries.'
 	},
+	'/changelog': {
+		title: `${SITE_NAME} - Changelog`,
+		description: 'What changed in each release of the WIT-Calendar extension.'
+	},
 	'/privacy': {
 		title: `${SITE_NAME} - Privacy Policy`,
 		description: 'How WIT-Calendar collects, uses, and protects your information.'

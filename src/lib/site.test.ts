@@ -22,7 +22,7 @@ function nodeOfType(type: string): Node {
 
 describe('metaFor', () => {
 	it('has a title and a description for every page', () => {
-		for (const path of ['/', '/about', '/contact', '/privacy', '/tos']) {
+		for (const path of ['/', '/about', '/contact', '/changelog', '/privacy', '/tos']) {
 			const meta = metaFor(path);
 			assert.ok(meta?.title, `${path} has no title`);
 			assert.ok((meta?.description.length ?? 0) > 40, `${path} has a short description`);

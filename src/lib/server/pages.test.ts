@@ -5,14 +5,14 @@ import { markdownFor } from './pages.ts';
 const origin = 'https://calendar.witcc.dev';
 
 describe('markdownFor', () => {
-	it('has a copy of the home, about, and contact pages', () => {
-		for (const path of ['/', '/about', '/contact']) {
+	it('has a copy of the home, about, contact, and changelog pages', () => {
+		for (const path of ['/', '/about', '/contact', '/changelog']) {
 			assert.notEqual(markdownFor(path, origin), null, `${path} has no markdown copy`);
 		}
 	});
 
 	it('starts each copy with front matter that has a title', () => {
-		for (const path of ['/', '/about', '/contact']) {
+		for (const path of ['/', '/about', '/contact', '/changelog']) {
 			assert.match(markdownFor(path, origin) ?? '', /^---\ntitle: .+\n/);
 		}
 	});
@@ -43,6 +43,26 @@ describe('markdownFor', () => {
 		for (const email of ['calendarwit@gmail.com', 'lambertl@wit.edu', 'mayonej@wit.edu']) {
 			assert.ok(contact.includes(`mailto:${email}`), `${email} is not a legal contact`);
 		}
+	});
+
+	it('lists every release in the changelog copy', () => {
+		const changelog = markdownFor('/changelog', origin) ?? '';
+		assert.ok(
+			changelog.includes(
+				'## [v5.2.0](https://github.com/WITCodingClub/calendar-extension/releases/tag/v5.2.0) (September 30, 2026)'
+			)
+		);
+		assert.ok(changelog.includes('## [v1.0.0]'));
+	});
+
+	it('credits each change and links its pull request and issues', () => {
+		const changelog = markdownFor('/changelog', origin) ?? '';
+		assert.ok(
+			changelog.includes(
+				'([@Cattn](https://github.com/Cattn), [PR #178](https://github.com/WITCodingClub/calendar-extension/pull/178), [issue #174](https://github.com/WITCodingClub/calendar-extension/issues/174))'
+			)
+		);
+		assert.doesNotMatch(changelog, /\[object Object\]/);
 	});
 
 	it('builds site links from the request origin', () => {

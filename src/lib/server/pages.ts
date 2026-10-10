@@ -1,3 +1,15 @@
+import {
+	commitUrl,
+	formatReleaseDate,
+	issueUrl,
+	profileUrl,
+	pullUrl,
+	releaseUrl,
+	releases,
+	RELEASES_URL,
+	type Change,
+	type Release
+} from '../changelog.ts';
 import { securityMarkdown } from '../security.ts';
 
 // Markdown copies of the pages, for agents that send Accept: text/markdown.
@@ -24,6 +36,25 @@ import {
 	listOfEmails,
 	metaFor
 } from '../site.ts';
+
+// "- Text ([@user](...), [PR #1](...), [issue #2](...))"
+function changeMarkdown(change: Change): string {
+	const links = [
+		...change.contributors.map((username) => `[@${username}](${profileUrl(username)})`),
+		...(change.pr ? [`[PR #${change.pr}](${pullUrl(change.pr)})`] : []),
+		...(change.pr
+			? []
+			: (change.commits ?? []).map((commit) => `[${commit}](${commitUrl(commit)})`)),
+		...(change.issues ?? []).map((issue) => `[issue #${issue}](${issueUrl(issue)})`)
+	];
+	return links.length ? `- ${change.text} (${links.join(', ')})` : `- ${change.text}`;
+}
+
+function releaseMarkdown(release: Release): string {
+	const heading = `## [v${release.version}](${releaseUrl(release.version)}) (${formatReleaseDate(release.date)})`;
+	const changes = release.changes.map(changeMarkdown).join('\n');
+	return [heading, release.summary, changes].filter(Boolean).join('\n\n');
+}
 
 const pages: Record<string, (origin: string) => string> = {
 	'/': (origin) => `---
@@ -98,6 +129,21 @@ The fastest way to reach the WIT-Calendar team is our [Discord server](${DISCORD
 If the extension does something wrong, open an issue on [GitHub](${GITHUB_ISSUES_URL}) and include the steps that cause the problem. Do not report a security problem in a public issue. Send it privately through [GitHub private vulnerability reporting](${SECURITY_REPORT_URL}). Our [security.txt](${origin}/.well-known/security.txt) file lists the other contacts.
 
 WIT-Calendar is made by the ${ORGANIZATION.name}, a student club at ${ORGANIZATION.school}, ${ORGANIZATION.streetAddress}, ${ORGANIZATION.locality}, ${ORGANIZATION.region} ${ORGANIZATION.postalCode}. To learn what data we keep and how to remove it, read the [Privacy Policy](${origin}/privacy). Send legal inquiries to all three of these addresses: ${listOfEmails(LEGAL_EMAILS.map((email) => `[${email}](mailto:${email})`))}.
+`,
+
+	'/changelog': (origin) => `---
+title: WIT-Calendar - Changelog
+description: ${metaFor('/changelog')?.description}
+---
+
+# Changelog
+
+What changed in each release of the WIT-Calendar extension. The full release notes are on [GitHub](${RELEASES_URL}).
+
+${releases.map(releaseMarkdown).join('\n\n')}
+
+- [Home](${origin}/)
+- [Contact](${origin}/contact)
 `
 };
 
