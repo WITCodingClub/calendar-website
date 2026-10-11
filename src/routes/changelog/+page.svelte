@@ -1,7 +1,9 @@
 <script lang="ts">
     import { selected } from "$lib/store.svelte";
     import { Button } from "m3-svelte";
-    import { RELEASES_URL, commitUrl, formatReleaseDate, issueUrl, profileUrl, pullUrl, releaseUrl, releases } from "$lib/changelog";
+    import { RELEASES_URL, formatReleaseDate, profileUrl } from "$lib/releaseNotes";
+
+    let { data } = $props();
 </script>
 
 <svelte:head>
@@ -24,12 +26,17 @@
 
 <!-- eslint-disable svelte/no-navigation-without-resolve -- These links go to GitHub, outside the SvelteKit app. -->
 <div class="flex justify-center px-4 sm:px-6 mt-8 pb-16">
+    {#if data.failed}
+    <p class="text-center text-lg font-medium text-secondary">
+        We couldn't load the changelog right now. See the <a class="ref-inline" href={RELEASES_URL} target="_blank" rel="noopener noreferrer">releases on GitHub</a> instead.
+    </p>
+    {:else}
     <ol class="changelog w-full max-w-3xl">
-        {#each releases as release (release.version)}
+        {#each data.releases as release (release.version)}
             <li class="release bg-surface-container-high">
                 <header class="release-header">
                     <h2 class="text-2xl font-bold text-primary">
-                        <a href={releaseUrl(release.version)} target="_blank" rel="noopener noreferrer">v{release.version}</a>
+                        <a href={release.url} target="_blank" rel="noopener noreferrer">v{release.version}</a>
                     </h2>
                     <time datetime={release.date} class="text-secondary">{formatReleaseDate(release.date)}</time>
                 </header>
@@ -37,9 +44,10 @@
                     <p class="text-lg font-medium text-on-surface">{release.summary}</p>
                 {/if}
                 <ul class="changes">
-                    {#each release.changes as change (change.text)}
+                    {#each release.changes as change, i (i)}
                         <li>
                             <span class="text-on-surface">{change.text}</span>
+                            {#if change.contributors.length || change.links.length}
                             <span class="change-meta">
                                 {#each change.contributors as username (username)}
                                     <a class="contributor bg-secondary-container text-on-secondary-container" href={profileUrl(username)} target="_blank" rel="noopener noreferrer" title={`${username} on GitHub`}>
@@ -47,23 +55,18 @@
                                         {username}
                                     </a>
                                 {/each}
-                                {#if change.pr}
-                                    <a class="ref text-secondary" href={pullUrl(change.pr)} target="_blank" rel="noopener noreferrer" title="Pull request">PR #{change.pr}</a>
-                                {:else}
-                                    {#each change.commits ?? [] as commit (commit)}
-                                        <a class="ref text-secondary" href={commitUrl(commit)} target="_blank" rel="noopener noreferrer" title="Commit"><code>{commit}</code></a>
-                                    {/each}
-                                {/if}
-                                {#each change.issues ?? [] as issue (issue)}
-                                    <a class="ref text-secondary" href={issueUrl(issue)} target="_blank" rel="noopener noreferrer" title="Issue">Issue #{issue}</a>
+                                {#each change.links as link (link.url)}
+                                    <a class="ref text-secondary" href={link.url} target="_blank" rel="noopener noreferrer">{link.label}</a>
                                 {/each}
                             </span>
+                            {/if}
                         </li>
                     {/each}
                 </ul>
             </li>
         {/each}
     </ol>
+    {/if}
 </div>
 
 <style>
@@ -160,6 +163,12 @@
         text-decoration: underline;
         text-underline-offset: 0.18em;
         text-decoration-color: rgb(var(--m3-scheme-secondary) / 0.4);
+    }
+
+    .ref-inline {
+        color: var(--color-primary);
+        text-decoration: underline;
+        text-underline-offset: 0.18em;
     }
 
     .ref:hover {

@@ -1,24 +1,28 @@
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
-import { releases } from './changelog.ts';
+import { directCommitChanges, emailLogins, ignoredCommits } from './changelog.ts';
 
-describe('releases', () => {
-	it('links a pull request or a commit for every change', () => {
-		for (const release of releases) {
-			for (const change of release.changes) {
-				assert.ok(
-					change.pr || change.commits?.length,
-					`v${release.version}: "${change.text}" has no pull request or commit`
-				);
-			}
+describe('changelog curation', () => {
+	it('links at least one commit for every direct commit change', () => {
+		for (const change of directCommitChanges) {
+			assert.ok(change.commits.length, `v${change.version}: "${change.text}" has no commit`);
 		}
 	});
 
 	it('uses short commit hashes', () => {
-		for (const release of releases) {
-			for (const commit of release.changes.flatMap((change) => change.commits ?? [])) {
-				assert.match(commit, /^[0-9a-f]{7}$/, `v${release.version}: ${commit}`);
-			}
-		}
+		const hashes = [
+			...directCommitChanges.flatMap((change) => change.commits),
+			...Object.keys(ignoredCommits)
+		];
+		for (const hash of hashes) assert.match(hash, /^[0-9a-f]{7}$/, hash);
+	});
+
+	it('does not both describe and ignore a commit', () => {
+		const described = new Set(directCommitChanges.flatMap((change) => change.commits));
+		for (const hash of Object.keys(ignoredCommits)) assert.ok(!described.has(hash), hash);
+	});
+
+	it('keys emails in lower case', () => {
+		for (const email of Object.keys(emailLogins)) assert.equal(email, email.toLowerCase());
 	});
 });

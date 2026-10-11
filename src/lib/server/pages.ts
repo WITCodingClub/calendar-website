@@ -1,15 +1,10 @@
 import {
-	commitUrl,
-	formatReleaseDate,
-	issueUrl,
-	profileUrl,
-	pullUrl,
-	releaseUrl,
-	releases,
 	RELEASES_URL,
+	formatReleaseDate,
+	profileUrl,
 	type Change,
 	type Release
-} from '../changelog.ts';
+} from '../releaseNotes.ts';
 import { securityMarkdown } from '../security.ts';
 
 // Markdown copies of the pages, for agents that send Accept: text/markdown.
@@ -37,21 +32,17 @@ import {
 	metaFor
 } from '../site.ts';
 
-// "- Text ([@user](...), [PR #1](...), [issue #2](...))"
+// "- Text ([@user](...), [PR #1](...), [Issue #2](...))"
 function changeMarkdown(change: Change): string {
 	const links = [
 		...change.contributors.map((username) => `[@${username}](${profileUrl(username)})`),
-		...(change.pr ? [`[PR #${change.pr}](${pullUrl(change.pr)})`] : []),
-		...(change.pr
-			? []
-			: (change.commits ?? []).map((commit) => `[${commit}](${commitUrl(commit)})`)),
-		...(change.issues ?? []).map((issue) => `[issue #${issue}](${issueUrl(issue)})`)
+		...change.links.map((link) => `[${link.label}](${link.url})`)
 	];
 	return links.length ? `- ${change.text} (${links.join(', ')})` : `- ${change.text}`;
 }
 
 function releaseMarkdown(release: Release): string {
-	const heading = `## [v${release.version}](${releaseUrl(release.version)}) (${formatReleaseDate(release.date)})`;
+	const heading = `## [v${release.version}](${release.url}) (${formatReleaseDate(release.date)})`;
 	const changes = release.changes.map(changeMarkdown).join('\n');
 	return [heading, release.summary, changes].filter(Boolean).join('\n\n');
 }
@@ -129,21 +120,6 @@ The fastest way to reach the WIT-Calendar team is our [Discord server](${DISCORD
 If the extension does something wrong, open an issue on [GitHub](${GITHUB_ISSUES_URL}) and include the steps that cause the problem. Do not report a security problem in a public issue. Send it privately through [GitHub private vulnerability reporting](${SECURITY_REPORT_URL}). Our [security.txt](${origin}/.well-known/security.txt) file lists the other contacts.
 
 WIT-Calendar is made by the ${ORGANIZATION.name}, a student club at ${ORGANIZATION.school}, ${ORGANIZATION.streetAddress}, ${ORGANIZATION.locality}, ${ORGANIZATION.region} ${ORGANIZATION.postalCode}. To learn what data we keep and how to remove it, read the [Privacy Policy](${origin}/privacy). Send legal inquiries to all three of these addresses: ${listOfEmails(LEGAL_EMAILS.map((email) => `[${email}](mailto:${email})`))}.
-`,
-
-	'/changelog': (origin) => `---
-title: WIT-Calendar - Changelog
-description: ${metaFor('/changelog')?.description}
----
-
-# Changelog
-
-What changed in each release of the WIT-Calendar extension. The full release notes are on [GitHub](${RELEASES_URL}).
-
-${releases.map(releaseMarkdown).join('\n\n')}
-
-- [Home](${origin}/)
-- [Contact](${origin}/contact)
 `
 };
 
@@ -151,4 +127,27 @@ ${releases.map(releaseMarkdown).join('\n\n')}
 export function markdownFor(pathname: string, origin: string): string | null {
 	const page = pages[pathname];
 	return page ? page(origin) : null;
+}
+
+// The changelog's copy is built from the releases on GitHub, so it is not in
+// the table above. See releases.ts. Pass null when they could not be loaded.
+export function changelogMarkdown(releases: Release[] | null, origin: string): string {
+	const body = releases
+		? releases.map(releaseMarkdown).join('\n\n')
+		: `The changelog could not be loaded. See the [releases on GitHub](${RELEASES_URL}).`;
+
+	return `---
+title: WIT-Calendar - Changelog
+description: ${metaFor('/changelog')?.description}
+---
+
+# Changelog
+
+What changed in each release of the WIT-Calendar extension. The release notes are on [GitHub](${RELEASES_URL}).
+
+${body}
+
+- [Home](${origin}/)
+- [Contact](${origin}/contact)
+`;
 }
