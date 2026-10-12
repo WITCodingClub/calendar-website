@@ -52,9 +52,9 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
-	<link rel="preload" as="image" href="/settings.png" />
-	<link rel="preload" as="image" href="/calendar.png" />
-	<link rel="preload" as="image" href="/help.png" />
+	<link rel="preload" as="image" href="/calendar 2.webp" />
+	<link rel="preload" as="image" href="/calendar.webp" />
+	<link rel="preload" as="image" href="/help.webp" />
 	<title>WIT-Calendar</title>
 	{#if meta}
 		<meta name="description" content={meta.description} />
