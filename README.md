@@ -16,7 +16,7 @@ Clone the repository and install dependencies:
 
 ```sh
 git clone <repository-url>
-cd club-website
+cd calendar-website
 npm i
 ```
 
