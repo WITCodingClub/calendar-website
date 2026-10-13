@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
-import { markdownFor } from './pages.ts';
+import { buildChangelog } from '../releaseNotes.ts';
+import { changelogMarkdown, markdownFor } from './pages.ts';
 
 const origin = 'https://calendar.witcc.dev';
 
@@ -55,5 +56,47 @@ describe('markdownFor', () => {
 		assert.equal(markdownFor('/privacy', origin), null);
 		assert.equal(markdownFor('/tos', origin), null);
 		assert.equal(markdownFor('/missing', origin), null);
+		assert.equal(markdownFor('/changelog', origin), null);
+	});
+});
+
+describe('changelogMarkdown', () => {
+	const releases = buildChangelog({
+		releases: [
+			{
+				tag_name: 'v5.2.0',
+				html_url: 'https://github.com/WITCodingClub/calendar-extension/releases/tag/v5.2.0',
+				published_at: '2026-09-30T21:39:12Z',
+				draft: false,
+				prerelease: false,
+				body: "## What's Changed\n* Fix the Friends button by @Cattn in https://github.com/WITCodingClub/calendar-extension/pull/179 (closes #177)"
+			}
+		],
+		commits: {},
+		tagDates: { '5.2.0': '2026-09-30T21:38:25Z' }
+	});
+
+	it('starts with front matter that has a title', () => {
+		assert.match(changelogMarkdown(releases, origin), /^---\ntitle: .+\n/);
+	});
+
+	it('credits each change and links its pull request and issues', () => {
+		const changelog = changelogMarkdown(releases, origin);
+		assert.ok(
+			changelog.includes(
+				'## [v5.2.0](https://github.com/WITCodingClub/calendar-extension/releases/tag/v5.2.0) (September 30, 2026)'
+			)
+		);
+		assert.ok(
+			changelog.includes(
+				'- Fix the Friends button ([@Cattn](https://github.com/Cattn), [PR #179](https://github.com/WITCodingClub/calendar-extension/pull/179), [Issue #177](https://github.com/WITCodingClub/calendar-extension/issues/177))'
+			)
+		);
+	});
+
+	it('links to GitHub when the releases could not be loaded', () => {
+		const changelog = changelogMarkdown(null, origin);
+		assert.ok(changelog.includes('could not be loaded'));
+		assert.ok(changelog.includes('(https://github.com/WITCodingClub/calendar-extension/releases)'));
 	});
 });

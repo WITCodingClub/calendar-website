@@ -1,3 +1,10 @@
+import {
+	RELEASES_URL,
+	formatReleaseDate,
+	profileUrl,
+	type Change,
+	type Release
+} from '../releaseNotes.ts';
 import { securityMarkdown } from '../security.ts';
 
 // Markdown copies of the pages, for agents that send Accept: text/markdown.
@@ -24,6 +31,21 @@ import {
 	listOfEmails,
 	metaFor
 } from '../site.ts';
+
+// "- Text ([@user](...), [PR #1](...), [Issue #2](...))"
+function changeMarkdown(change: Change): string {
+	const links = [
+		...change.contributors.map((username) => `[@${username}](${profileUrl(username)})`),
+		...change.links.map((link) => `[${link.label}](${link.url})`)
+	];
+	return links.length ? `- ${change.text} (${links.join(', ')})` : `- ${change.text}`;
+}
+
+function releaseMarkdown(release: Release): string {
+	const heading = `## [v${release.version}](${release.url}) (${formatReleaseDate(release.date)})`;
+	const changes = release.changes.map(changeMarkdown).join('\n');
+	return [heading, release.summary, changes].filter(Boolean).join('\n\n');
+}
 
 const pages: Record<string, (origin: string) => string> = {
 	'/': (origin) => `---
@@ -105,4 +127,27 @@ WIT-Calendar is made by the ${ORGANIZATION.name}, a student club at ${ORGANIZATI
 export function markdownFor(pathname: string, origin: string): string | null {
 	const page = pages[pathname];
 	return page ? page(origin) : null;
+}
+
+// The changelog's copy is built from the releases on GitHub, so it is not in
+// the table above. See releases.ts. Pass null when they could not be loaded.
+export function changelogMarkdown(releases: Release[] | null, origin: string): string {
+	const body = releases
+		? releases.map(releaseMarkdown).join('\n\n')
+		: `The changelog could not be loaded. See the [releases on GitHub](${RELEASES_URL}).`;
+
+	return `---
+title: WIT-Calendar - Changelog
+description: ${metaFor('/changelog')?.description}
+---
+
+# Changelog
+
+What changed in each release of the WIT-Calendar extension. The release notes are on [GitHub](${RELEASES_URL}).
+
+${body}
+
+- [Home](${origin}/)
+- [Contact](${origin}/contact)
+`;
 }
