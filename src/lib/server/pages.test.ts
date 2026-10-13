@@ -1,6 +1,5 @@
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
-import * as curation from '../changelog.ts';
 import { buildChangelog } from '../releaseNotes.ts';
 import { changelogMarkdown, markdownFor } from './pages.ts';
 
@@ -62,26 +61,20 @@ describe('markdownFor', () => {
 });
 
 describe('changelogMarkdown', () => {
-	const releases = buildChangelog(
-		{
-			releases: [
-				{
-					tag_name: 'v5.2.0',
-					html_url: 'https://github.com/WITCodingClub/calendar-extension/releases/tag/v5.2.0',
-					published_at: '2026-09-30T21:39:12Z',
-					draft: false,
-					prerelease: false,
-					body:
-						"## What's Changed" +
-						String.fromCharCode(10) +
-						'* Fix the Friends button by @Cattn in https://github.com/WITCodingClub/calendar-extension/pull/179 (closes #177)'
-				}
-			],
-			commits: {},
-			tagDates: { '5.2.0': '2026-09-30T21:38:25Z' }
-		},
-		curation
-	);
+	const releases = buildChangelog({
+		releases: [
+			{
+				tag_name: 'v5.2.0',
+				html_url: 'https://github.com/WITCodingClub/calendar-extension/releases/tag/v5.2.0',
+				published_at: '2026-09-30T21:39:12Z',
+				draft: false,
+				prerelease: false,
+				body: "## What's Changed\n* Fix the Friends button by @Cattn in https://github.com/WITCodingClub/calendar-extension/pull/179 (closes #177)"
+			}
+		],
+		commits: {},
+		tagDates: { '5.2.0': '2026-09-30T21:38:25Z' }
+	});
 
 	it('starts with front matter that has a title', () => {
 		assert.match(changelogMarkdown(releases, origin), /^---\ntitle: .+\n/);

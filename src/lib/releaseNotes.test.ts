@@ -7,7 +7,6 @@ import {
 	isRealChange,
 	parseChange,
 	parseNotes,
-	type Curation,
 	type GitHubCommit,
 	type GitHubData,
 	type GitHubRelease
@@ -15,6 +14,8 @@ import {
 
 const repo = 'https://github.com/WITCodingClub/calendar-extension';
 const pull = (n: number) => `${repo}/pull/${n}`;
+const commitUrl = (c: GitHubCommit) => `${repo}/commit/${c.sha.slice(0, 7)}`;
+const short = (c: GitHubCommit) => c.sha.slice(0, 7);
 
 function release(tag: string, body: string, publishedAt = '2026-09-30T21:39:12Z'): GitHubRelease {
 	return {
@@ -28,12 +29,13 @@ function release(tag: string, body: string, publishedAt = '2026-09-30T21:39:12Z'
 }
 
 let next = 0;
+// GitHub links the email to the account when login is given.
 function commit(
 	message: string,
-	email = 'logan@cattn.dev',
-	login: string | null = null
+	login: string | null = 'Cattn',
+	email = 'logan@cattn.dev'
 ): GitHubCommit {
-	const sha = (++next).toString(16).padStart(7, '0') + 'f'.repeat(33);
+	const sha = (++next).toString(16).padStart(7, 'a') + 'f'.repeat(33);
 	return {
 		sha,
 		commit: { message, author: { email } },
@@ -42,30 +44,19 @@ function commit(
 	};
 }
 
-const curation: Curation = {
-	directCommitChanges: [],
-	ignoredCommits: {},
-	ignoredPullRequests: {},
-	emailLogins: { 'logan@cattn.dev': 'Cattn', 'mayonej@wit.edu': 'jaspermayone' },
-	renamedAccounts: { miretskyd: 'miretskydatwit' },
-	releaseSummaries: {}
-};
-
 // The first release is v1.0.0, so the release under test is never the first.
 function changelog(
 	tag: string,
 	body: string,
 	commits: GitHubCommit[] | undefined,
-	more: Partial<Curation> = {},
 	extra: Partial<GitHubData> = {}
 ) {
-	const data: GitHubData = {
+	return buildChangelog({
 		releases: [release('v1.0.0', `* Start by @Cattn in ${pull(1)}`), release(tag, body)],
 		commits: { '1.0.0': [commit('Start (#1)')], [tag.slice(1)]: commits },
 		tagDates: {},
 		...extra
-	};
-	return buildChangelog(data, { ...curation, ...more });
+	});
 }
 
 const change = (text: string) => ({ text, contributors: [], links: [] });
@@ -112,14 +103,21 @@ describe('parseChange', () => {
 });
 
 describe('parseNotes', () => {
-	it('reads the summary and the changes, and skips New Contributors', () => {
+	it('reads the summary, the changes, and the hidden commits, and skips New Contributors', () => {
 		const notes = parseNotes(
 			[
 				'Introducing Friends.',
+				'',
 				"## What's Changed",
 				`* Friends by @Cattn in ${pull(96)}`,
+				'',
 				'## New Contributors',
 				`* @Griffty made their first contribution in ${pull(134)}`,
+				'',
+				'<!-- changelog: hide 2abb382 b42c008 -->',
+				'<!--',
+				'changelog: hide 7d77adf9c1e2',
+				'-->',
 				`**Full Changelog**: ${repo}/compare/v2.1.3...v3.0.0`
 			].join('\r\n')
 		);
@@ -128,6 +126,16 @@ describe('parseNotes', () => {
 			notes.changes.map((c) => c.text),
 			['Friends']
 		);
+		assert.deepEqual(notes.hidden, ['2abb382', 'b42c008', '7d77adf']);
+	});
+
+	it('does not treat other comments as part of the notes', () => {
+		const notes = parseNotes(
+			'<!-- a note for maintainers -->\n* Real change by @Cattn in ' + pull(5)
+		);
+		assert.equal(notes.summary, undefined);
+		assert.deepEqual(notes.hidden, []);
+		assert.equal(notes.changes.length, 1);
 	});
 });
 
@@ -171,18 +179,32 @@ describe('buildChangelog', () => {
 		const [latest] = changelog('v5.1.0', `* Any color by @Griffty in ${pull(134)}`, [
 			commit(
 				'feat: allow users to use any color (#134)\n\nCo-authored-by: Jasper Mayone <mayonej@wit.edu>\nCo-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>',
-				'kotelyakvv@gmail.com',
-				'Griffty'
-			)
+				'Griffty',
+				'kotelyakvv@gmail.com'
+			),
+			// GitHub links mayonej@wit.edu to jaspermayone on this commit.
+			commit('Other work (#140)', 'jaspermayone', 'mayonej@wit.edu')
 		]);
 		assert.deepEqual(latest.changes[0].contributors, ['Griffty', 'jaspermayone']);
 	});
 
-	it('uses the current name of a renamed account', () => {
-		const [latest] = changelog('v2.0.1', `* Refresh by @miretskyd in ${pull(87)}`, [
-			commit('Fix refresh courses button (#87)', 'miretskyd@wit.edu', 'miretskydatwit')
-		]);
-		assert.deepEqual(latest.changes[0].contributors, ['miretskydatwit']);
+	it('credits the authors of the commits that a bullet links', () => {
+		const work = commit('feat: move calendar link to settings', 'Cattn');
+		const [latest] = changelog(
+			'v5.0.0',
+			`* Your calendar link is in Settings by @jaspermayone in ${commitUrl(work)} (closes #129)`,
+			[work]
+		);
+		assert.deepEqual(
+			latest.changes.map((c) => [c.text, c.contributors, c.links.map((l) => l.label)]),
+			[
+				[
+					'Your calendar link is in Settings',
+					['jaspermayone', 'Cattn'],
+					[short(work), 'Issue #129']
+				]
+			]
+		);
 	});
 
 	it('drops a pull request with no commits in the release', () => {
@@ -202,107 +224,72 @@ describe('buildChangelog', () => {
 		assert.equal(latest.changes[0].text, 'Fix the Friends button');
 	});
 
-	it('adds direct commits, with the words from changelog.ts when it has them', () => {
-		const described = commit('feat: move calendar link to settings');
-		const plain = commit('fix: center the term chips', 'mayonej@wit.edu');
+	it('adds direct commits that the notes neither link nor hide', () => {
+		const linked = commit('feat: move calendar link to settings');
+		const hidden = commit('update build scripts');
+		const shown = commit('fix: center the term chips', 'jaspermayone');
 		const [latest] = changelog(
 			'v5.0.0',
-			`* UI refresh by @Cattn in ${pull(145)}`,
-			[commit('UI refresh (#145)'), described, plain],
-			{
-				directCommitChanges: [
-					{
-						version: '5.0.0',
-						text: 'Your calendar link is in Settings.',
-						contributors: [],
-						commits: [described.sha.slice(0, 7)],
-						issues: [129]
-					}
-				]
-			}
+			[
+				`* UI refresh by @Cattn in ${pull(145)}`,
+				`* Your calendar link is in Settings by @Cattn in ${commitUrl(linked)}`,
+				`<!-- changelog: hide ${short(hidden)} -->`
+			].join('\n'),
+			[commit('UI refresh (#145)'), linked, hidden, shown]
 		);
 		assert.deepEqual(
-			latest.changes.map((c) => [c.text, c.contributors, c.links.map((l) => l.label)]),
+			latest.changes.map((c) => [c.text, c.contributors]),
 			[
-				['UI refresh', ['Cattn'], ['PR #145']],
-				[
-					'Your calendar link is in Settings.',
-					['Cattn'],
-					[described.sha.slice(0, 7), 'Issue #129']
-				],
-				['fix: center the term chips', ['jaspermayone'], [plain.sha.slice(0, 7)]]
+				['UI refresh', ['Cattn']],
+				['Your calendar link is in Settings', ['Cattn']],
+				['fix: center the term chips', ['jaspermayone']]
 			]
 		);
 	});
 
-	it('leaves out ignored commits, version bumps, and commits that a revert undoes', () => {
-		const ignored = commit('update build scripts');
-		const original = commit('feat: send usage counts');
-		const [latest] = changelog(
-			'v5.0.0',
-			`* UI refresh by @Cattn in ${pull(145)}`,
-			[
-				commit('UI refresh (#145)'),
-				ignored,
-				original,
-				commit('revert: feat: send usage counts'),
-				commit('v5.0.0')
-			],
-			{ ignoredCommits: { [ignored.sha.slice(0, 7)]: 'Build scripts' } }
-		);
+	it('leaves out version bumps, and commits that a revert undoes', () => {
+		const [latest] = changelog('v5.0.0', `* UI refresh by @Cattn in ${pull(145)}`, [
+			commit('UI refresh (#145)'),
+			commit('feat: send usage counts'),
+			commit('revert: feat: send usage counts'),
+			commit('v5.0.0')
+		]);
 		assert.deepEqual(
 			latest.changes.map((c) => c.text),
 			['UI refresh']
 		);
 	});
 
-	it('leaves out ignored pull requests', () => {
-		const releases = changelog(
-			'v5.0.0',
-			`* Interfaces by @jaspermayone in ${pull(10)}`,
-			[commit('Interfaces (#10)')],
-			{
-				ignoredPullRequests: { 10: 'Internal types' }
-			}
+	it('adds no direct commits to the first release', () => {
+		const releases = buildChangelog({
+			releases: [release('v1.0.0', `* Start by @Cattn in ${pull(1)}`)],
+			commits: { '1.0.0': [commit('Start (#1)'), commit('feat: calendar view')] },
+			tagDates: {}
+		});
+		assert.deepEqual(
+			releases[0].changes.map((c) => c.text),
+			['Start']
 		);
-		assert.ok(!releases.some((r) => r.version === '5.0.0'));
 	});
 
 	it('hides a release with no real changelog', () => {
 		for (const [body, commits] of [
-			[
-				`**Full Changelog**: ${repo}/compare/v5.0.0...v5.0.1`,
-				[commit('chore: refactor repo'), commit('v5.0.1')]
-			],
+			[`**Full Changelog**: ${repo}/compare/v5.0.0...v5.0.1`, [commit('v5.0.1')]],
 			[`* Bug fixes by @Cattn in ${pull(200)}`, [commit('Bug fixes (#200)')]],
 			[`* ci: fix builds by @Cattn in ${pull(201)}`, [commit('ci: fix builds (#201)')]]
 		] as const) {
-			const releases = changelog('v5.0.1', body, [...commits], {
-				ignoredCommits: {}
-			});
+			const releases = changelog('v5.0.1', body, [...commits]);
 			assert.ok(!releases.some((r) => r.version === '5.0.1'), body);
 		}
 	});
 
-	it('describes a major release in one sentence, in place of the summary in its notes', () => {
-		const body = `A summary on GitHub.\n\n* UI refresh by @Cattn in ${pull(145)}`;
-		const commits = [commit('UI refresh (#145)')];
-
-		const [described] = changelog('v5.0.0', body, commits, {
-			releaseSummaries: { '5.0.0': 'A redesigned extension that loads faster.' }
-		});
-		assert.equal(described.summary, 'A redesigned extension that loads faster.');
-
-		const [fromNotes] = changelog('v6.0.0', body, commits);
-		assert.equal(fromNotes.summary, 'A summary on GitHub.');
-	});
-
-	it('describes each release in changelog.ts in one sentence', async () => {
-		const { releaseSummaries } = await import('./changelog.ts');
-		for (const [version, summary] of Object.entries(releaseSummaries)) {
-			assert.match(version, /^\d+\.\d+\.\d+$/, `${version} is not a version`);
-			assert.match(summary, /^[^.!?]+[.!?]$/, `${version}: not one sentence`);
-		}
+	it('takes the one-sentence description from the notes', () => {
+		const [latest] = changelog(
+			'v5.0.0',
+			`A redesigned extension that loads faster.\n\n## What's Changed\n* UI refresh by @Cattn in ${pull(145)}`,
+			[commit('UI refresh (#145)')]
+		);
+		assert.equal(latest.summary, 'A redesigned extension that loads faster.');
 	});
 
 	it('dates a release by its tag, in Boston', () => {
@@ -310,27 +297,21 @@ describe('buildChangelog', () => {
 			'v5.1.0',
 			`* Any color by @Griffty in ${pull(134)}`,
 			[commit('Any color (#134)')],
-			{},
-			{
-				tagDates: { '5.1.0': '2026-09-23T02:56:33Z' }
-			}
+			{ tagDates: { '5.1.0': '2026-09-23T02:56:33Z' } }
 		);
 		assert.equal(latest.date, '2026-09-22');
 	});
 
 	it('orders by version, not by the day GitHub published it', () => {
-		const releases = buildChangelog(
-			{
-				releases: [
-					release('v2.0.1', `* Refresh button by @a in ${pull(87)}`, '2026-01-06T21:03:33Z'),
-					release('v10.0.0', `* Big update by @a in ${pull(300)}`, '2026-01-01T00:00:00Z'),
-					release('v2.0.0', `* Version two by @a in ${pull(66)}`, '2026-01-06T21:04:57Z')
-				],
-				commits: {},
-				tagDates: {}
-			},
-			curation
-		);
+		const releases = buildChangelog({
+			releases: [
+				release('v2.0.1', `* Refresh button by @a in ${pull(87)}`, '2026-01-06T21:03:33Z'),
+				release('v10.0.0', `* Big update by @a in ${pull(300)}`, '2026-01-01T00:00:00Z'),
+				release('v2.0.0', `* Version two by @a in ${pull(66)}`, '2026-01-06T21:04:57Z')
+			],
+			commits: {},
+			tagDates: {}
+		});
 		assert.deepEqual(
 			releases.map((r) => r.version),
 			['10.0.0', '2.0.1', '2.0.0']

@@ -9,21 +9,23 @@
 //   commits instead of a pull request ("in https://.../commit/abc1234, ..."),
 //   and end with the issues it closes ("(closes #177)"). A bullet in another
 //   format is shown as plain text.
+//   The text before the first heading is the release's one-sentence
+//   description.
 // - The commits between its tag and the previous release's tag. Their authors
-//   and co-authors are credited on the pull requests they belong to. Commits
-//   pushed straight to main, with no pull request, are added as changes. A
-//   pull request with no commit in the range is not in this release, so its
-//   bullet is dropped.
+//   and co-authors are credited on the pull requests and commits that the
+//   notes link. A pull request with no commit in the range is not in this
+//   release, so its bullet is dropped. A commit pushed straight to main that
+//   the notes do not link is added with its commit message, unless the notes
+//   hide it with a comment that GitHub does not show:
+//
+//     <!-- changelog: hide 2abb382 b42c008 -->
+//
 // - The date of its tag.
 //
-// changelog.ts adds the words for direct commits, and the commits and pull
-// requests to leave out. Then every change that tells a student nothing is
-// dropped (see isRealChange), and every release left with no changes is
-// hidden.
+// Then every change that tells a student nothing is dropped (see
+// isRealChange), and every release left with no changes is hidden.
 //
-// This file imports only changelog.ts, so node --test can load it directly.
-
-import type { DirectCommitChange } from './changelog.ts';
+// This file imports nothing, so node --test can load it directly.
 
 export const REPO_URL = 'https://github.com/WITCodingClub/calendar-extension';
 export const RELEASES_URL = `${REPO_URL}/releases`;
@@ -75,15 +77,6 @@ export type GitHubData = {
 	commits: Record<string, GitHubCommit[] | undefined>;
 	// When each tag was made, as ISO 8601.
 	tagDates: Record<string, string | undefined>;
-};
-
-export type Curation = {
-	directCommitChanges: DirectCommitChange[];
-	ignoredCommits: Record<string, string>;
-	ignoredPullRequests: Record<number, string>;
-	emailLogins: Record<string, string>;
-	renamedAccounts: Record<string, string>;
-	releaseSummaries: Record<string, string>;
 };
 
 export function releaseUrl(version: string): string {
@@ -140,14 +133,25 @@ export function parseChange(line: string): Change {
 	return { text: text.trim(), contributors, links };
 }
 
+const HIDE = /<!--\s*changelog:\s*hide\b([\s\S]*?)-->/gi;
+
 // The summary is the text before the first heading. The changes are the
-// bullets, except the ones under "New Contributors".
-export function parseNotes(body: string): { summary?: string; changes: Change[] } {
+// bullets, except the ones under "New Contributors". The hidden commits are
+// the short hashes in "<!-- changelog: hide ... -->" comments.
+export function parseNotes(body: string): {
+	summary?: string;
+	changes: Change[];
+	hidden: string[];
+} {
 	const summary: string[] = [];
 	const changes: Change[] = [];
+	const hidden = [...body.matchAll(HIDE)].flatMap(
+		([, hashes]) => hashes.match(/\b[0-9a-f]{7,40}\b/gi)?.map((hash) => hash.slice(0, 7)) ?? []
+	);
 	let heading: string | undefined;
 
-	for (const raw of body.split(/\r?\n/)) {
+	// HTML comments are not shown on GitHub, so they are not part of the notes.
+	for (const raw of body.replace(/<!--[\s\S]*?-->/g, '').split(/\r?\n/)) {
 		const line = raw.trim();
 		if (!line || line.startsWith('**Full Changelog**')) continue;
 
@@ -164,7 +168,7 @@ export function parseNotes(body: string): { summary?: string; changes: Change[] 
 		}
 	}
 
-	return { summary: summary.length ? summary.join(' ') : undefined, changes };
+	return { summary: summary.length ? summary.join(' ') : undefined, changes, hidden };
 }
 
 // --- Commits -----------------------------------------------------------------
@@ -181,13 +185,13 @@ function pullRequestOf(commit: GitHubCommit): number | undefined {
 	return match ? Number(match[1]) : undefined;
 }
 
-// Finds the GitHub account behind a commit email.
+// Finds the GitHub account behind a commit email: the account GitHub links to
+// that email on any commit, or the name in a noreply address. A co-author with
+// neither is not credited, so credit them in the notes.
 class Accounts {
 	private byEmail = new Map<string, string>();
 
-	constructor(emailLogins: Record<string, string>, commits: GitHubCommit[]) {
-		for (const [email, login] of Object.entries(emailLogins))
-			this.byEmail.set(email.toLowerCase(), login);
+	constructor(commits: GitHubCommit[]) {
 		for (const commit of commits) {
 			const email = commit.commit.author?.email.toLowerCase();
 			if (email && commit.author?.login && !this.byEmail.has(email)) {
@@ -217,18 +221,15 @@ class Accounts {
 	}
 }
 
-// One entry per person, in the order they first appear, by their current
-// username.
-function unique(usernames: string[], renamed: Record<string, string>): string[] {
+// One entry per person, in the order they first appear.
+function unique(usernames: string[]): string[] {
 	const seen = new Set<string>();
-	return usernames
-		.map((username) => renamed[username] ?? username)
-		.filter((username) => {
-			const key = username.toLowerCase();
-			if (seen.has(key)) return false;
-			seen.add(key);
-			return true;
-		});
+	return usernames.filter((username) => {
+		const key = username.toLowerCase();
+		if (seen.has(key)) return false;
+		seen.add(key);
+		return true;
+	});
 }
 
 // Commits that undo each other: a revert, and the commit it reverts.
@@ -349,88 +350,61 @@ function buildRelease(
 	first: boolean,
 	commits: GitHubCommit[] | undefined,
 	tagDate: string | undefined,
-	curation: Curation,
 	accounts: Accounts
 ): Release {
-	const version = versionOf(release.tag_name);
 	const notes = parseNotes(release.body ?? '');
 	const groups = commits ? commitsByPullRequest(commits) : new Map<number, GitHubCommit[]>();
+	const find = (short: string) => commits?.find((commit) => commit.sha.startsWith(short));
+	const linkedCommits = (change: Change) =>
+		change.links.filter((link) => /^[0-9a-f]{7}$/.test(link.label)).map((link) => link.label);
 
-	// Pull requests and other bullets from the notes.
+	// The bullets in the notes, crediting everyone on their commits.
 	const fromNotes = notes.changes.flatMap((change) => {
 		const pr = Number(change.links.find((link) => link.label.startsWith('PR #'))?.label.slice(4));
-		if (!pr) return [change];
-		if (curation.ignoredPullRequests[pr]) return [];
 		// Listed in the notes, but none of its commits are in this release.
-		if (commits && !groups.has(pr)) return [];
-		const people = (groups.get(pr) ?? []).flatMap((commit) => accounts.people(commit));
-		return [
-			{
-				...change,
-				contributors: unique([...change.contributors, ...people], curation.renamedAccounts)
-			}
-		];
+		if (pr && commits && !groups.has(pr)) return [];
+		const own = pr
+			? (groups.get(pr) ?? [])
+			: linkedCommits(change).flatMap((short) => find(short) ?? []);
+		const people = own.flatMap((commit) => accounts.people(commit));
+		return [{ ...change, contributors: unique([...change.contributors, ...people]) }];
 	});
 
-	// Commits pushed straight to main.
+	// Commits pushed straight to main that the notes neither link nor hide are
+	// shown with their commit messages. Not for the first release: every commit
+	// before it is the work that built the extension.
 	const inPullRequests = new Set([...groups.values()].flat().map((commit) => commit.sha));
 	const reverted = commits ? revertedPairs(commits) : new Set<string>();
-	const direct = (commits ?? []).filter(
-		(commit) =>
-			commit.parents.length < 2 &&
-			!inPullRequests.has(commit.sha) &&
-			!reverted.has(commit.sha) &&
-			!curation.ignoredCommits[commit.sha.slice(0, 7)]
-	);
-	const find = (short: string) => direct.find((commit) => commit.sha.startsWith(short));
-
-	const curated = curation.directCommitChanges
-		.filter((change) => change.version === version)
-		.map((change) => ({
-			text: change.text,
-			contributors: unique(
-				[
-					...change.contributors,
-					...change.commits.flatMap((short) => {
-						const commit = find(short);
-						return commit ? accounts.people(commit) : [];
-					})
-				],
-				curation.renamedAccounts
-			),
-			links: [...change.commits.map(commitLink), ...(change.issues ?? []).map(issueLink)]
-		}));
-
-	// A direct commit with no words in changelog.ts is shown with its commit
-	// message. Not for the first release: every commit before it is the work
-	// that built the extension.
-	const described = new Set(curation.directCommitChanges.flatMap((change) => change.commits));
-	const uncurated = first
+	const covered = new Set([...notes.hidden, ...notes.changes.flatMap(linkedCommits)]);
+	const direct = first
 		? []
-		: direct
-				.filter((commit) => !described.has(commit.sha.slice(0, 7)))
+		: (commits ?? [])
+				.filter(
+					(commit) =>
+						commit.parents.length < 2 &&
+						!inPullRequests.has(commit.sha) &&
+						!reverted.has(commit.sha) &&
+						!covered.has(commit.sha.slice(0, 7))
+				)
 				.reverse()
 				.map((commit) => ({
 					text: subject(commit),
-					contributors: unique(accounts.people(commit), curation.renamedAccounts),
+					contributors: unique(accounts.people(commit)),
 					links: [commitLink(commit.sha)]
 				}));
 
 	return {
-		version,
+		version: versionOf(release.tag_name),
 		url: release.html_url,
 		date: bostonDate(tagDate ?? (release.published_at as string)),
-		summary: curation.releaseSummaries[version] ?? notes.summary,
-		changes: [...fromNotes, ...curated, ...uncurated].filter(isRealChange)
+		summary: notes.summary,
+		changes: [...fromNotes, ...direct].filter(isRealChange)
 	};
 }
 
 // Newest version first. A release with no real changes is left out.
-export function buildChangelog(data: GitHubData, curation: Curation): Release[] {
-	const accounts = new Accounts(
-		curation.emailLogins,
-		Object.values(data.commits).flatMap((commits) => commits ?? [])
-	);
+export function buildChangelog(data: GitHubData): Release[] {
+	const accounts = new Accounts(Object.values(data.commits).flatMap((commits) => commits ?? []));
 	return publishedReleases(data.releases)
 		.map((release, i) => {
 			const version = versionOf(release.tag_name);
@@ -439,7 +413,6 @@ export function buildChangelog(data: GitHubData, curation: Curation): Release[] 
 				i === 0,
 				data.commits[version],
 				data.tagDates[version],
-				curation,
 				accounts
 			);
 		})

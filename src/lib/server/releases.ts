@@ -1,12 +1,4 @@
 import {
-	directCommitChanges,
-	emailLogins,
-	ignoredCommits,
-	ignoredPullRequests,
-	releaseSummaries,
-	renamedAccounts
-} from '../changelog.ts';
-import {
 	buildChangelog,
 	publishedReleases,
 	versionOf,
@@ -129,14 +121,7 @@ let last: Release[] | undefined;
 // Throws when GitHub cannot be reached and nothing was loaded before.
 export async function loadChangelog(): Promise<Release[]> {
 	try {
-		last = buildChangelog(await fetchGitHub(), {
-			directCommitChanges,
-			ignoredCommits,
-			ignoredPullRequests,
-			emailLogins,
-			renamedAccounts,
-			releaseSummaries
-		});
+		last = buildChangelog(await fetchGitHub());
 	} catch (error) {
 		console.error('Could not load the changelog from GitHub:', error);
 		if (!last) throw error;
