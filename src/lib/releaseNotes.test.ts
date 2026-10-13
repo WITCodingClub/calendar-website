@@ -207,6 +207,28 @@ describe('buildChangelog', () => {
 		);
 	});
 
+	it('keeps a bullet that links only an issue, with its commit hidden', () => {
+		const work = commit('fix: default to first term');
+		const [latest] = changelog(
+			'v5.1.0',
+			[
+				`* When you show past terms, the extension opens your current term by @Cattn in ${repo}/issues/161`,
+				`<!-- changelog: hide ${short(work)} -->`
+			].join('\n'),
+			[work]
+		);
+		assert.deepEqual(
+			latest.changes.map((c) => [c.text, c.contributors, c.links.map((l) => l.label)]),
+			[
+				[
+					'When you show past terms, the extension opens your current term',
+					['Cattn'],
+					['Issue #161']
+				]
+			]
+		);
+	});
+
 	it('drops a pull request with no commits in the release', () => {
 		const releases = changelog('v2.1.2', `* Colors by @jaspermayone in ${pull(95)}`, []);
 		assert.deepEqual(

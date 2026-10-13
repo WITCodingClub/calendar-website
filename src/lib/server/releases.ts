@@ -28,6 +28,7 @@ const SETTLED = 30 * 24 * 60 * 60;
 type Commit = GitHubCommit & { commit: { committer: { date: string } | null } };
 type TagRef = { ref: string; object: { sha: string; type: 'commit' | 'tag' } };
 type Tag = { tagger: { date: string } | null };
+type Compare = { total_commits: number; commits: Commit[] };
 
 // Kept on globalThis, not in this module, so that every copy of the module
 // shares one cache. The dev server can load a module twice on Windows, once
@@ -63,20 +64,34 @@ async function request<T>(url: string, seconds: number): Promise<T> {
 	return (await response.json()) as T;
 }
 
-// Every commit up to a tag, for the first release.
-async function commitsUpTo(tag: string): Promise<Commit[]> {
-	const commits: Commit[] = [];
-	for (let page = 1; page <= 10; page++) {
-		const batch = await get<Commit[]>(`/commits?sha=${tag}&per_page=100&page=${page}`, SETTLED);
-		commits.push(...batch);
-		if (batch.length < 100) break;
+const PER_PAGE = 100;
+
+// Every item of a list endpoint, page by page, until a page is not full.
+async function everyPage<T>(path: string, seconds: number): Promise<T[]> {
+	const items: T[] = [];
+	for (let page = 1; ; page++) {
+		const batch = await get<T[]>(`${path}per_page=${PER_PAGE}&page=${page}`, seconds);
+		items.push(...batch);
+		if (batch.length < PER_PAGE) return items;
 	}
-	return commits;
+}
+
+// Every commit after one tag, up to and including another. Without paging,
+// GitHub returns at most 250 of them, so a large release would lose commits.
+// total_commits says how many pages there are. See
+// https://docs.github.com/en/rest/commits/commits#compare-two-commits
+async function commitsBetween(base: string, head: string, seconds: number): Promise<Commit[]> {
+	const page = (n: number) =>
+		get<Compare>(`/compare/${base}...${head}?per_page=${PER_PAGE}&page=${n}`, seconds);
+	const first = await page(1);
+	const count = Math.ceil(first.total_commits / PER_PAGE);
+	const rest = await Promise.all(Array.from({ length: count - 1 }, (_, i) => page(i + 2)));
+	return [first, ...rest].flatMap((compare) => compare.commits);
 }
 
 async function fetchGitHub(): Promise<GitHubData> {
 	const [releases, refs] = await Promise.all([
-		get<GitHubRelease[]>('/releases?per_page=100', FRESH),
+		everyPage<GitHubRelease>('/releases?', FRESH),
 		get<TagRef[]>('/git/matching-refs/tags', FRESH).catch(() => [] as TagRef[])
 	]);
 	const published = publishedReleases(releases);
@@ -86,11 +101,10 @@ async function fetchGitHub(): Promise<GitHubData> {
 	const ranges = await Promise.all(
 		published.map((release, i) => {
 			const tag = release.tag_name;
-			if (i === 0) return commitsUpTo(tag).catch(() => undefined);
+			// The first release: every commit up to its tag.
+			if (i === 0) return everyPage<Commit>(`/commits?sha=${tag}&`, SETTLED).catch(() => undefined);
 			const ttl = i === published.length - 1 ? FRESH : SETTLED;
-			return get<{ commits: Commit[] }>(`/compare/${published[i - 1].tag_name}...${tag}`, ttl)
-				.then((compare) => compare.commits)
-				.catch(() => undefined);
+			return commitsBetween(published[i - 1].tag_name, tag, ttl).catch(() => undefined);
 		})
 	);
 
