@@ -6,7 +6,7 @@
 			><bdt class="statement-end-if-in-editor"></bdt>
 		</div>
 		<div class="MsoNormal" data-custom-class="subtitle" style="line-height: 1.5;">
-			<strong>Last updated</strong> <bdt class="question"><strong>November 12, 2025</strong></bdt>
+			<strong>Last updated</strong> <bdt class="question"><strong>October 14, 2026</strong></bdt>
 		</div>
 		<div class="MsoNormal" style="line-height: 1.1;"><br /></div>
 		<div style="line-height: 1.5;"><br /></div>
@@ -2513,6 +2513,36 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 				data, and you hereby waive any right of action against us arising from any such loss or
 				corruption of such data.</span
 			>
+		</div>
+		<div data-custom-class="body_text" style="line-height: 1.5; text-align: left;">
+			<h3>Friends, sharing, and meetings</h3>
+		</div>
+		<div data-custom-class="body_text" style="line-height: 1.5; text-align: left;">
+			Sending or accepting a friend request authorizes schedule sharing once the request is accepted,
+			at the level you select. Full sharing is the default; where available, you can choose
+			availability-only sharing for each friend. You can change that level or remove the friendship.
+			Temporary friendships stop granting schedule access at expiry. Either person can shorten the
+			duration, but extending it or making it permanent requires the other person's acceptance on
+			the dashboard. Deleting or expiring a friend group does not end its friendships.
+		</div>
+		<div data-custom-class="body_text" style="line-height: 1.5; text-align: left;">
+			Creating a meeting authorizes us to publish and update it in the calendar destinations you
+			choose. If you do not select destinations, we use all connected course calendar providers and
+			your ICS feed. Choosing to invite friends authorizes us to share meeting and attendee details
+			and send calendar invitations. Invited meetings appear in WIT-Calendar without an acceptance
+			step; invitees can leave, and only the organizer can edit or cancel. Cancel in WIT-Calendar,
+			because a sync can recreate an event deleted only in an external calendar. Provider updates
+			and cancellations can be delayed or fail.
+		</div>
+		<div data-custom-class="body_text" style="line-height: 1.5; text-align: left;">
+			Creating a meeting link authorizes anyone holding it to view the available times and book
+			once before expiry or revocation, without an account. Booking authorizes us to share the
+			guest's name, email, and selected time with the organizer and publish the meeting and send
+			confirmation and calendar invitations as described in the Privacy Policy. Keep links private.
+			Revoking a link does not cancel a booked meeting. Use another person's shared schedule and
+			contact details only to coordinate with them; do not redistribute them without permission.
+			Revocation cannot erase information already received or copied. The Privacy Policy explains
+			what each sharing level reveals and how we store, use, and share this information.
 		</div>
 		<div class="MsoNormal" style="line-height: 1.5; text-align: left;"><br /></div>
 		<div

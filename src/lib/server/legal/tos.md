@@ -5,7 +5,7 @@ description: The legal terms for using WIT-Calendar and its website.
 
 # TERMS OF SERVICE
 
-**Last updated November 12, 2025**
+**Last updated October 14, 2026**
 
 ## AGREEMENT TO OUR LEGAL TERMS
 
@@ -257,6 +257,14 @@ You agree to defend, indemnify, and hold us harmless, including our subsidiaries
 ## 19. USER DATA
 
 We will maintain certain data that you transmit to the Services for the purpose of managing the performance of the Services, as well as data relating to your use of the Services. Although we perform regular routine backups of data, you are solely responsible for all data that you transmit or that relates to any activity you have undertaken using the Services. You agree that we shall have no liability to you for any loss or corruption of any such data, and you hereby waive any right of action against us arising from any such loss or corruption of such data.
+
+### Friends, sharing, and meetings
+
+Sending or accepting a friend request authorizes schedule sharing once the request is accepted, at the level you select. Full sharing is the default; where available, you can choose availability-only sharing for each friend. You can change that level or remove the friendship. Temporary friendships stop granting schedule access at expiry. Either person can shorten the duration, but extending it or making it permanent requires the other person's acceptance on the dashboard. Deleting or expiring a friend group does not end its friendships.
+
+Creating a meeting authorizes us to publish and update it in the calendar destinations you choose. If you do not select destinations, we use all connected course calendar providers and your ICS feed. Choosing to invite friends authorizes us to share meeting and attendee details and send calendar invitations. Invited meetings appear in WIT-Calendar without an acceptance step; invitees can leave, and only the organizer can edit or cancel. Cancel in WIT-Calendar, because a sync can recreate an event deleted only in an external calendar. Provider updates and cancellations can be delayed or fail.
+
+Creating a meeting link authorizes anyone holding it to view the available times and book once before expiry or revocation, without an account. Booking authorizes us to share the guest's name, email, and selected time with the organizer and publish the meeting and send confirmation and calendar invitations as described in the Privacy Policy. Keep links private. Revoking a link does not cancel a booked meeting. Use another person's shared schedule and contact details only to coordinate with them; do not redistribute them without permission. Revocation cannot erase information already received or copied. The Privacy Policy explains what each sharing level reveals and how we store, use, and share this information.
 
 ## 20. ELECTRONIC COMMUNICATIONS, TRANSACTIONS, AND SIGNATURES
 
