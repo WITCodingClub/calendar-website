@@ -10,6 +10,7 @@ import {
 	structuredData,
 	webStoreUrlFor
 } from './site.ts';
+import { GUIDES, guidePath } from './guides.ts';
 
 type Node = Record<string, unknown>;
 
@@ -22,7 +23,8 @@ function nodeOfType(type: string): Node {
 
 describe('metaFor', () => {
 	it('has a title and a description for every page', () => {
-		for (const path of ['/', '/about', '/contact', '/changelog', '/privacy', '/tos']) {
+		const pages = ['/', '/about', '/contact', '/changelog', '/guides', '/privacy', '/tos'];
+		for (const path of [...pages, ...GUIDES.map((guide) => guidePath(guide.slug))]) {
 			const meta = metaFor(path);
 			assert.ok(meta?.title, `${path} has no title`);
 			assert.ok((meta?.description.length ?? 0) > 40, `${path} has a short description`);

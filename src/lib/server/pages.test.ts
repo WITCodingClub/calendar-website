@@ -6,8 +6,8 @@ import { changelogMarkdown, markdownFor } from './pages.ts';
 const origin = 'https://calendar.witcc.dev';
 
 describe('markdownFor', () => {
-	it('has a copy of the home, about, and contact pages', () => {
-		for (const path of ['/', '/about', '/contact']) {
+	it('has a copy of the home, about, contact, and guides pages', () => {
+		for (const path of ['/', '/about', '/contact', '/guides']) {
 			assert.notEqual(markdownFor(path, origin), null, `${path} has no markdown copy`);
 		}
 	});
@@ -44,6 +44,21 @@ describe('markdownFor', () => {
 		for (const email of ['calendarwit@gmail.com', 'lambertl@wit.edu', 'mayonej@wit.edu']) {
 			assert.ok(contact.includes(`mailto:${email}`), `${email} is not a legal contact`);
 		}
+	});
+
+	it('sends new users to the getting started guide from the home and guides copies', () => {
+		for (const path of ['/', '/guides']) {
+			const copy = markdownFor(path, origin) ?? '';
+			assert.ok(copy.includes('Start here'), `${path} does not say where to start`);
+			assert.ok(copy.includes(`(${origin}/guides/getting-started)`), `${path} has no start link`);
+		}
+	});
+
+	it('lists every guide in the guides copy, with links to the developer references', () => {
+		const guides = markdownFor('/guides', origin) ?? '';
+		assert.ok(guides.includes(`(${origin}/guides/getting-started)`));
+		assert.ok(guides.includes(`(${origin}/guides/mcp)`));
+		assert.ok(guides.includes(`(${origin}/docs/mcp.md)`));
 	});
 
 	it('builds site links from the request origin', () => {

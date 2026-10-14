@@ -6,6 +6,7 @@ import {
 	type Release
 } from '../releaseNotes.ts';
 import { securityMarkdown } from '../security.ts';
+import { FEATURES, GUIDES, START_GUIDE, guidePath, type Feature } from '../guides.ts';
 
 // Markdown copies of the pages, for agents that send Accept: text/markdown.
 //
@@ -47,6 +48,14 @@ function releaseMarkdown(release: Release): string {
 	return [heading, release.summary, changes].filter(Boolean).join('\n\n');
 }
 
+// "- **Name**: Summary ([Guide title](...))"
+function featureMarkdown(feature: Feature, origin: string): string {
+	const guide = GUIDES.find((entry) => entry.slug === feature.guide);
+	const name = feature.startHere ? `${feature.name} (start here)` : feature.name;
+	if (!guide) return `- **${name}**: ${feature.summary}`;
+	return `- **${name}**: ${feature.summary} ([${guide.title}](${origin}${guidePath(guide.slug)}))`;
+}
+
 const pages: Record<string, (origin: string) => string> = {
 	'/': (origin) => `---
 title: WIT-Calendar
@@ -69,6 +78,8 @@ WIT-Calendar is a free Chrome extension for students at ${ORGANIZATION.school}. 
 2. Open the extension. It gets your schedule, processes it, and gives you a calendar link.
 3. Add the link to Outlook, Apple Calendar, or any calendar app. You can also connect your Google account, so changes reach Google Calendar automatically.
 4. Choose the event alerts, colors, and titles in the extension, or in your dashboard after you sign in.
+
+**New to WIT-Calendar? Start here.** The [${START_GUIDE.title.toLowerCase()} guide](${origin}${guidePath(START_GUIDE.slug)}) walks through each step, with screenshots.
 
 ## For agents and developers
 
@@ -99,6 +110,34 @@ WIT-Calendar is a Chrome extension that imports your classes into your calendar.
 - [Install from the Chrome Web Store](${CHROME_WEB_STORE_URL})
 - [Install from Firefox Add-ons](${FIREFOX_WEB_STORE_URL})
 - [Server status page](${STATUS_URL})
+- [Home](${origin}/)
+- [Contact](${origin}/contact)
+`,
+
+	// Built from guides.ts, so it lists each guide and feature as they are added.
+	'/guides': (origin) => `---
+title: WIT-Calendar - Guides
+description: ${metaFor('/guides')?.description}
+---
+
+# Guides
+
+Step-by-step guides to WIT-Calendar, with screenshots.
+
+**New to WIT-Calendar? Start here.** The [${START_GUIDE.title.toLowerCase()} guide](${origin}${guidePath(START_GUIDE.slug)}) walks through each step: ${START_GUIDE.summary.charAt(0).toLowerCase()}${START_GUIDE.summary.slice(1)}
+
+## Features
+
+${FEATURES.map((feature) => featureMarkdown(feature, origin)).join('\n')}
+
+## All guides
+
+${GUIDES.map((guide, i) => `${i + 1}. [${guide.title}](${origin}${guidePath(guide.slug)}): ${guide.summary}`).join('\n')}
+
+## For developers
+
+- [Course Catalog API reference](${origin}/docs/api.md)
+- [MCP server reference](${origin}/docs/mcp.md)
 - [Home](${origin}/)
 - [Contact](${origin}/contact)
 `,

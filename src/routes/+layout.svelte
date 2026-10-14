@@ -8,6 +8,7 @@
 	import OpenExtensionHint from '$lib/components/OpenExtensionHint.svelte';
 	import TopBar from '$lib/components/TopBar.svelte';
 	import { extensionState } from '$lib/extension-presence.svelte';
+	import { GUIDES, guidePath } from '$lib/guides';
 	import { selected } from '$lib/store.svelte';
 	import { cubicInOut } from 'svelte/easing';
 	import { get, writable } from 'svelte/store';
@@ -19,7 +20,17 @@
 
 	const meta = $derived(metaFor(page.url.pathname));
 
-	const order = ['/', '/about', '/contact', '/changelog', '/privacy', '/tos', '/security'];
+	const order = [
+		'/',
+		'/about',
+		'/guides',
+		...GUIDES.map((guide) => guidePath(guide.slug)),
+		'/contact',
+		'/changelog',
+		'/privacy',
+		'/tos',
+		'/security'
+	];
 	const inX = writable(0);
 	const outX = writable(0);
 	const activeTransitions = writable(0);

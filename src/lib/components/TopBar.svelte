@@ -22,6 +22,8 @@
         <Button for="seg-a" variant="filled">Home</Button>
         <input type="radio" name="seg" id="seg-b" bind:group={$selected} value="/about" />
         <Button for="seg-b" variant="filled">About</Button>
+        <input type="radio" name="seg" id="seg-e" bind:group={$selected} value="/guides" />
+        <Button for="seg-e" variant="filled">Guides</Button>
         <input type="radio" name="seg" id="seg-c" bind:group={$selected} value="/contact" />
         <Button for="seg-c" variant="filled">Contact</Button>
         <input type="radio" name="seg" id="seg-d" bind:group={$selected} value="/changelog" />

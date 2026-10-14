@@ -1,7 +1,10 @@
 // Facts about the site that the pages, their markdown copies, and the
 // structured data all use. Change a fact here, not in each page.
 //
-// This file imports nothing, so node --test can load it directly.
+// This file imports only guides.ts, which imports nothing, so node --test can
+// load it directly.
+
+import { GUIDES, guidePath } from './guides.ts';
 
 // The Worker also answers on workers.dev. Links and canonical URLs always name
 // the public host.
@@ -70,6 +73,17 @@ const pageMeta: Record<string, PageMeta> = {
 		title: `${SITE_NAME} - Changelog`,
 		description: 'What changed in each release of the WIT-Calendar extension.'
 	},
+	'/guides': {
+		title: `${SITE_NAME} - Guides`,
+		description:
+			'Step-by-step guides to every WIT-Calendar feature, with screenshots: getting started, calendar sync, friends, AI assistants, and more.'
+	},
+	...Object.fromEntries(
+		GUIDES.map((guide) => [
+			guidePath(guide.slug),
+			{ title: `${SITE_NAME} - ${guide.title}`, description: guide.summary }
+		])
+	),
 	'/privacy': {
 		title: `${SITE_NAME} - Privacy Policy`,
 		description: 'How WIT-Calendar collects, uses, and protects your information.'
