@@ -27,8 +27,8 @@ export const CONTACT_EMAIL = 'calendarwit@gmail.com';
 // the security policy, in the same order.
 export const LEGAL_EMAILS = [CONTACT_EMAIL, 'lambertl@wit.edu', 'mayonej@wit.edu'];
 export const DISCORD_URL = 'https://discord.gg/fkeM94snmy';
-export const GITHUB_URL = 'https://github.com/WITCodingClub/calendar';
-export const GITHUB_ISSUES_URL = 'https://github.com/WITCodingClub/calendar/issues';
+export const GITHUB_URL = 'https://github.com/WITCodingClub/calendar-extension';
+export const GITHUB_ISSUES_URL = 'https://github.com/WITCodingClub/calendar-extension/issues';
 export const GITHUB_ORG_URL = 'https://github.com/WITCodingClub';
 export const INSTAGRAM_URL = 'https://www.instagram.com/wit_coding_club/';
 export const STATUS_URL = 'https://stats.uptimerobot.com/QS76oPqfzz';
