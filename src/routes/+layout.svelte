@@ -6,6 +6,7 @@
 	import { SHARE_IMAGE_URL, SITE_NAME, canonicalUrl, metaFor } from '$lib/site';
 	import BottomBar from '$lib/components/BottomBar.svelte';
 	import TopBar from '$lib/components/TopBar.svelte';
+	import { DOCS, docPath } from '$lib/docs';
 	import { GUIDES, guidePath } from '$lib/guides';
 	import { selected } from '$lib/store.svelte';
 	import { cubicInOut } from 'svelte/easing';
@@ -23,6 +24,7 @@
 		'/about',
 		'/guides',
 		...GUIDES.map((guide) => guidePath(guide.slug)),
+		...DOCS.map((doc) => docPath(doc.slug)),
 		'/contact',
 		'/changelog',
 		'/privacy',

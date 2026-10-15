@@ -150,11 +150,9 @@
 
     <h2 id="developers">For developers</h2>
     <p>
-        <!-- eslint-disable svelte/no-navigation-without-resolve -- The Rails backend serves /docs, outside the SvelteKit app. -->
-        The <a href="/docs/mcp" data-sveltekit-reload>MCP server reference</a> lists every tool, the
-        OAuth sign-in flow, and the rate limits. Each catalog tool matches an endpoint of the public
-        <a href="/docs/api" data-sveltekit-reload>Course Catalog API</a>. To learn what data we keep, read
-        the <a href={resolve("/privacy")}>privacy policy</a>.
-        <!-- eslint-enable svelte/no-navigation-without-resolve -->
+        The <a href={resolve("/docs/[slug]", { slug: "mcp" })}>MCP server reference</a> lists every tool,
+        the OAuth sign-in flow, and the rate limits. Each catalog tool matches an endpoint of the public
+        <a href={resolve("/docs/[slug]", { slug: "api" })}>Course Catalog API</a>. To learn what data we
+        keep, read the <a href={resolve("/privacy")}>privacy policy</a>.
     </p>
 </Guide>

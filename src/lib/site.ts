@@ -1,9 +1,10 @@
 // Facts about the site that the pages, their markdown copies, and the
 // structured data all use. Change a fact here, not in each page.
 //
-// This file imports only guides.ts, which imports nothing, so node --test can
-// load it directly.
+// This file imports only guides.ts and docs.ts, which import nothing, so
+// node --test can load it directly.
 
+import { DOCS, docPath } from './docs.ts';
 import { GUIDES, guidePath } from './guides.ts';
 
 // The Worker also answers on workers.dev. Links and canonical URLs always name
@@ -82,6 +83,12 @@ const pageMeta: Record<string, PageMeta> = {
 		GUIDES.map((guide) => [
 			guidePath(guide.slug),
 			{ title: `${SITE_NAME} - ${guide.title}`, description: guide.summary }
+		])
+	),
+	...Object.fromEntries(
+		DOCS.map((doc) => [
+			docPath(doc.slug),
+			{ title: `${SITE_NAME} - ${doc.title}`, description: doc.description }
 		])
 	),
 	'/privacy': {
