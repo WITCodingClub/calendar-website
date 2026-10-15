@@ -50,15 +50,8 @@
                     </li>
                     {:else}
                     <li class="feature bg-surface-container-high">
-                        <h3 class="text-xl font-bold text-on-surface">{feature.name}</h3>
+                        <h3 class="text-xl font-bold text-on-surface"><a class="text-on-primary" href={guideHref(feature.guide ?? "") as string}>{feature.name}</a></h3>
                         <p>{feature.summary}</p>
-                        {#if feature.guide}
-                            <a class="feature-link" href={guideHref(feature.guide)}>
-                                {guideFor(feature.guide)?.title ?? "Read the guide"}
-                            </a>
-                        {:else}
-                            <span class="soon text-on-surface-variant">Guide coming soon</span>
-                        {/if}
                     </li>
                     {/if}
                 {/each}

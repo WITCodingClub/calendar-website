@@ -26,6 +26,12 @@ export const GUIDES: Guide[] = [
 			'Install WIT-Calendar, sign in, get your schedule into your calendar, and make it look the way you want.'
 	},
 	{
+		slug: 'friends',
+		title: 'Friends',
+		summary:
+			'Add friends, choose what each one sees, compare calendars, and find a time to meet.'
+	},
+	{
 		slug: 'mcp',
 		title: 'Connect an AI assistant',
 		summary:
@@ -55,8 +61,10 @@ export const FEATURES: Feature[] = [
 		startHere: true
 	},
 	{
-		name: 'Final exams',
-		summary: 'Your final exams show up in your calendar next to your classes.'
+		name: 'Friends',
+		summary:
+			'Add friends, compare calendars, and find a time to meet. Share your full schedule or only when you are busy.',
+		guide: 'friends'
 	},
 	{
 		name: 'University events',
@@ -64,9 +72,9 @@ export const FEATURES: Feature[] = [
 			'Holidays, deadlines, and finals week from the academic calendar, with their own color and alerts.'
 	},
 	{
-		name: 'Friends',
-		summary: 'Add friends and see when they are busy, without sharing your course details.'
-	},
+		name: 'Final exams',
+		summary: 'Your final exams show up in your calendar next to your classes.'
+	},	
 	{
 		name: 'AI assistants',
 		summary: 'Connect Claude, ChatGPT, or Claude Code and ask about your schedule and the catalog.',
