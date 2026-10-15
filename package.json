@@ -39,6 +39,8 @@
 	},
 	"dependencies": {
 		"@sveltejs/adapter-static": "3.0.10",
-		"m3-svelte": "^5.14.0"
+		"m3-svelte": "^5.14.0",
+		"marked": "18.0.14",
+		"mermaid": "11.17.2"
 	}
 }

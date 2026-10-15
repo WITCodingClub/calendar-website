@@ -5,9 +5,9 @@
 	import favicon from '$lib/assets/favicon.png';
 	import { SHARE_IMAGE_URL, SITE_NAME, canonicalUrl, metaFor } from '$lib/site';
 	import BottomBar from '$lib/components/BottomBar.svelte';
-	import OpenExtensionHint from '$lib/components/OpenExtensionHint.svelte';
 	import TopBar from '$lib/components/TopBar.svelte';
-	import { extensionState } from '$lib/extension-presence.svelte';
+	import { DOCS, docPath } from '$lib/docs';
+	import { GUIDES, guidePath } from '$lib/guides';
 	import { selected } from '$lib/store.svelte';
 	import { cubicInOut } from 'svelte/easing';
 	import { get, writable } from 'svelte/store';
@@ -19,7 +19,18 @@
 
 	const meta = $derived(metaFor(page.url.pathname));
 
-	const order = ['/', '/about', '/contact', '/changelog', '/privacy', '/tos', '/security'];
+	const order = [
+		'/',
+		'/about',
+		'/guides',
+		...GUIDES.map((guide) => guidePath(guide.slug)),
+		...DOCS.map((doc) => docPath(doc.slug)),
+		'/contact',
+		'/changelog',
+		'/privacy',
+		'/tos',
+		'/security'
+	];
 	const inX = writable(0);
 	const outX = writable(0);
 	const activeTransitions = writable(0);
@@ -71,10 +82,6 @@
 </svelte:head>
 
 <TopBar />
-
-{#if extensionState.presence.status === 'installed' && !extensionState.presence.returning}
-	<OpenExtensionHint />
-{/if}
 
 <div class="relative overflow-hidden overflow-x-hidden overflow-y-hidden min-h-screen flex flex-col">
 	{#key page.url.pathname}

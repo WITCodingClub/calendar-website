@@ -5,6 +5,7 @@
     import { resolve } from "$app/paths";
     import { CHROME_WEB_STORE_URL, FIREFOX_WEB_STORE_URL, GITHUB_URL, ORGANIZATION, jsonLdScript, structuredData, webStoreUrlFor } from "$lib/site";
     import { extensionState } from "$lib/extension-presence.svelte";
+    import { START_GUIDE, guidePath } from "$lib/guides";
 
     let authStatus = $state<{ authenticated: boolean; admin: boolean } | null>(null);
     const extension = $derived(extensionState.presence);
@@ -108,6 +109,16 @@
                 <li><span>Add the link to Outlook, Apple Calendar, or any calendar app. You can also connect your Google account, so changes reach Google Calendar automatically.</span></li>
                 <li><span>Choose the event alerts, colors, and titles in the extension, or in your dashboard after you <a href="/users/sign_in" rel="external" data-sveltekit-reload>sign in</a>.</span></li>
             </ol>
+            <div class="start-here bg-primary-container text-on-primary-container">
+                <div>
+                    <p class="start-title">New to WIT-Calendar? Start here.</p>
+                    <p>The {START_GUIDE.title.toLowerCase()} guide walks through each step, with screenshots.</p>
+                </div>
+                <Button variant="filled" onclick={() => $selected = guidePath(START_GUIDE.slug)}>
+                    {START_GUIDE.title}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M8 17.175V6.825q0-.425.3-.713t.7-.287q.125 0 .263.037t.262.113l8.15 5.175q.225.15.338.375t.112.475t-.112.475t-.338.375l-8.15 5.175q-.125.075-.262.113T9 18.175q-.4 0-.7-.288t-.3-.712"/></svg>
+                </Button>
+            </div>
         </section>
 
         <section>
@@ -246,6 +257,27 @@
         width: 1px;
         background: rgb(var(--m3-scheme-outline-variant));
         transform: translateX(-50%);
+    }
+
+    .start-here {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem 1.5rem;
+        margin-top: 0.75rem;
+        padding: 1.25rem 1.5rem;
+        border-radius: 1rem;
+        border: 2px solid rgb(var(--m3-scheme-primary));
+    }
+
+    .start-here > div {
+        flex: 1 1 16rem;
+    }
+
+    .start-title {
+        font-weight: 700;
+        font-size: 1.15rem;
     }
 
     .resource-list {
