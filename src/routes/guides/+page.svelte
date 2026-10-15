@@ -3,7 +3,7 @@
     import { resolve } from "$app/paths";
     import { selected } from "$lib/store.svelte";
     import { Button } from "m3-svelte";
-    import { FEATURES, START_GUIDE, guideFor, guidePath } from "$lib/guides";
+    import { FEATURES, START_GUIDE, guidePath } from "$lib/guides";
 
     // Every guide is its own route, so its path is a real Pathname.
     const guideHref = (slug: string) => resolve(guidePath(slug) as Pathname);
@@ -50,7 +50,11 @@
                     </li>
                     {:else}
                     <li class="feature bg-surface-container-high">
-                        <h3 class="text-xl font-bold text-on-surface"><a class="text-on-primary" href={guideHref(feature.guide ?? "") as string}>{feature.name}</a></h3>
+                        {#if feature.guide}
+                        <h3 class="text-xl font-bold text-on-surface"><a class="text-on-primary" href={guideHref(feature.guide)}>{feature.name}</a></h3>
+                        {:else}
+                        <h3 class="text-xl font-bold text-on-surface">{feature.name}</h3>
+                        {/if}
                         <p>{feature.summary}</p>
                     </li>
                     {/if}
@@ -61,11 +65,9 @@
         <section>
             <h2 class="section-heading">For developers</h2>
             <p>
-                <!-- eslint-disable svelte/no-navigation-without-resolve -- The Rails backend serves /docs, outside the SvelteKit app. -->
                 The technical references live under /docs: the
-                <a href="/docs/api" data-sveltekit-reload>Course Catalog API</a> and the
-                <a href="/docs/mcp" data-sveltekit-reload>MCP server</a>.
-                <!-- eslint-enable svelte/no-navigation-without-resolve -->
+                <a href={resolve("/docs/[slug]", { slug: "api" })}>Course Catalog API</a> and the
+                <a href={resolve("/docs/[slug]", { slug: "mcp" })}>MCP server</a>.
             </p>
         </section>
     </div>

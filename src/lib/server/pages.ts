@@ -162,6 +162,9 @@ WIT-Calendar is made by the ${ORGANIZATION.name}, a student club at ${ORGANIZATI
 `
 };
 
+// The security page and its copy share one source. See security.ts.
+pages['/security'] = securityMarkdown;
+
 // Returns null for a page that has no markdown copy.
 export function markdownFor(pathname: string, origin: string): string | null {
 	const page = pages[pathname];
