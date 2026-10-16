@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { existsSync } from 'node:fs';
+import { existsSync, readdirSync } from 'node:fs';
 import { describe, it } from 'node:test';
 import { FEATURES, GUIDES, START_GUIDE, guideFor, guidePath, neighborsOf } from './guides.ts';
 
@@ -15,6 +15,14 @@ describe('GUIDES', () => {
 			const page = `src/routes${guidePath(guide.slug)}/+page.svelte`;
 			assert.ok(existsSync(page), `${guide.slug} has no ${page}`);
 		}
+	});
+
+	it('lists every guide page, so each page gets its title', () => {
+		const pages = readdirSync('src/routes/guides', { withFileTypes: true })
+			.filter((entry) => entry.isDirectory())
+			.map((entry) => entry.name);
+		for (const slug of pages)
+			assert.ok(guideFor(slug), `src/routes/guides/${slug} is not in GUIDES`);
 	});
 
 	it('starts with the getting started guide', () => {

@@ -26,6 +26,12 @@ export const GUIDES: Guide[] = [
 			'Install WIT-Calendar, sign in, get your schedule into your calendar, and make it look the way you want.'
 	},
 	{
+		slug: 'friends',
+		title: 'Friends',
+		summary:
+			'Add friends, choose what each one sees, compare calendars, and find a time to meet.'
+	},
+	{
 		slug: 'mcp',
 		title: 'Connect an AI assistant',
 		summary:
@@ -57,7 +63,8 @@ export const FEATURES: Feature[] = [
 	{
 		name: 'Friends',
 		summary:
-			'Add friends, compare calendars, and find a time to meet. Share your full schedule or only when you are busy.'
+			'Add friends, compare calendars, and find a time to meet. Share your full schedule or only when you are busy.',
+		guide: 'friends'
 	},
 	{
 		name: 'University events',
