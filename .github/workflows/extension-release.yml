@@ -1,0 +1,86 @@
+﻿name: Update extension screenshots
+
+on:
+  repository_dispatch:
+    types: [extension-release]
+  workflow_dispatch:
+    inputs:
+      extension_ref:
+        description: Extension release tag or branch to capture
+        required: true
+        default: website-script
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: extension-screenshots-${{ github.event.client_payload.tag || inputs.extension_ref }}
+  cancel-in-progress: false
+
+jobs:
+  screenshots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Validate extension reference
+        id: extension
+        env:
+          EXTENSION_REF: ${{ github.event.client_payload.tag || inputs.extension_ref }}
+        run: |
+          test -n "$EXTENSION_REF"
+          git check-ref-format "refs/heads/screenshots/$EXTENSION_REF"
+          printf 'ref=%s\n' "$EXTENSION_REF" >> "$GITHUB_OUTPUT"
+
+      - name: Check out website
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          path: website
+
+      - name: Check out extension
+        uses: actions/checkout@v6
+        with:
+          repository: WITCodingClub/calendar-extension
+          ref: ${{ github.event_name == 'repository_dispatch' && format('refs/tags/{0}', steps.extension.outputs.ref) || steps.extension.outputs.ref }}
+          path: extension
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: extension/package-lock.json
+
+      - name: Install extension dependencies
+        working-directory: extension
+        run: npm ci
+
+      - name: Install Chromium
+        working-directory: extension
+        run: npx playwright install --with-deps chromium
+
+      - name: Build extension
+        working-directory: extension
+        run: npm run build-dev
+
+      - name: Generate screenshots
+        working-directory: extension
+        run: node scripts/screenshot.js --config ../website/scripts/screenshotConfig/config.json --out ../website/static/guides/getting-started
+
+      - name: Open screenshot pull request
+        uses: peter-evans/create-pull-request@v8
+        with:
+          path: website
+          add-paths: static/guides/getting-started/*.webp
+          branch: screenshots/${{ steps.extension.outputs.ref }}
+          commit-message: 'Update screenshots for extension ${{ steps.extension.outputs.ref }}'
+          title: 'Update screenshots for extension ${{ steps.extension.outputs.ref }}'
+          body: |
+            Generated from WITCodingClub/calendar-extension at `${{ steps.extension.outputs.ref }}` using `scripts/screenshotConfig/config.json`.
+
+            Review the screenshots, add guide markup or annotations, and mark this pull request ready when it is ready to merge.
+          draft: true
+          maintainer-can-modify: true
