@@ -1,0 +1,59 @@
+{
+	"data": "calendar.json",
+	"date": "2026-10-06T12:00:00-04:00",
+	"viewport": { "width": 1280, "height": 900 },
+	"settings": {
+		"military_time": false,
+		"default_color_lecture": "#3f51b5",
+		"default_color_lab": "#0b8043",
+		"advanced_editing": false
+	},
+	"targets": {
+		"classButton": {
+			"role": "button",
+			"name": "Object-Oriented Design",
+			"exact": false,
+			"index": 0
+		},
+		"classDialog": { "role": "dialog", "name": "Edit Calendar Event" },
+		"saveButton": { "role": "button", "name": "Save changes", "within": "@classDialog" }
+	},
+	"quickActions": {
+		"calendarReady": [{ "action": "waitFor", "target": "@classButton" }],
+		"openClassDetails": [
+			"calendarReady",
+			{ "action": "click", "target": "@classButton" },
+			{ "action": "waitFor", "target": "@saveButton" }
+		]
+	},
+	"screenshots": [
+		{
+			"name": "calendar",
+			"outputDir": "../../static/guides/getting-started",
+			"route": "/calendar.html",
+			"actions": ["calendarReady"],
+			"capture": { "fullPage": true }
+		},
+		{
+			"name": "class-details",
+			"outputDir": "../../static/guides/getting-started",
+			"route": "/calendar.html",
+			"actions": ["openClassDetails"],
+			"capture": { "target": "@classDialog" }
+		},
+		{
+			"name": "calendar-scrolled",
+			"outputDir": "../../static/guides/getting-started",
+			"route": "/calendar.html",
+			"actions": ["calendarReady", { "action": "scroll", "y": 400 }],
+			"capture": { "fullPage": false }
+		},
+		{
+			"name": "calendar-header",
+			"outputDir": "../../static/guides/getting-started",
+			"route": "/calendar.html",
+			"actions": ["calendarReady"],
+			"capture": { "clip": { "x": 0, "y": 0, "width": 1280, "height": 240 } }
+		}
+	]
+}
