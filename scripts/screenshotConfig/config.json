@@ -1,7 +1,10 @@
 {
 	"data": "calendar.json",
 	"date": "2026-10-06T12:00:00-04:00",
-	"viewport": { "width": 1280, "height": 900 },
+	"viewport": {
+		"width": 1280,
+		"height": 900
+	},
 	"settings": {
 		"military_time": false,
 		"default_color_lecture": "#3f51b5",
@@ -15,102 +18,233 @@
 			"exact": false,
 			"index": 0
 		},
-		"classDialog": { "role": "dialog", "name": "Edit Calendar Event" },
-		"saveButton": { "role": "button", "name": "Save changes", "within": "@classDialog" },
+		"classDialog": {
+			"role": "dialog",
+			"name": "Edit Calendar Event"
+		},
+		"saveButton": {
+			"role": "button",
+			"name": "Save changes",
+			"within": "@classDialog"
+		},
 		"googleAccounts": "section > div:has(> div > h2:text-is(\"Connected Google accounts\"))",
-		"timeFormat": { "role": "heading", "name": "Time format" },
+		"timeFormat": {
+			"role": "heading",
+			"name": "Time format"
+		},
 		"welcomeInfo": "div:has(> p:text-is(\"Welcome! A few things to note:\"))",
 		"termChips": ".m3-container:has(> input[name=\"panel-term\"])",
 		"lectureColorRow": "div:has(> h3:text-is(\"Default lecture color\"))",
 		"calendarLinkRow": "div:has(> div > h3:text-is(\"Calendar link\"))",
-		"lectureColor": { "label": "Default lecture color" },
+		"lectureColor": {
+			"label": "Default lecture color"
+		},
 		"universityEvents": "section:has(h2:text-is(\"Sync university events\"))",
-		"manualFields": { "css": "div.grid:has(input):has(textarea)", "within": "@classDialog" },
-		"reminders": { "css": "section:has(h2:text-is(\"Reminders\"))", "within": "@classDialog" }
+		"manualFields": {
+			"css": "div.grid:has(input):has(textarea)",
+			"within": "@classDialog"
+		},
+		"reminders": {
+			"css": "section:has(h2:text-is(\"Reminders\"))",
+			"within": "@classDialog"
+		}
 	},
 	"quickActions": {
-		"calendarReady": [{ "action": "waitFor", "target": "@classButton" }],
+		"calendarReady": [
+			{
+				"action": "waitFor",
+				"target": "@classButton"
+			}
+		],
 		"openClassDetails": [
 			"calendarReady",
-			{ "action": "click", "target": "@classButton" },
-			{ "action": "waitFor", "target": "@saveButton" }
+			{
+				"action": "click",
+				"target": "@classButton"
+			},
+			{
+				"action": "waitFor",
+				"target": "@saveButton"
+			}
 		]
 	},
 	"screenshots": [
 		{
-			"name": "homepage",
-			"outputDir": "screenshots/",
+			"name": "google-button",
+			"outputDir": "../../static/guides/getting-started",
 			"route": "/index.html",
 			"signedIn": false,
-			"highlights": [{ "target": { "role": "button", "name": "Sign in with Google" } }],
+			"highlights": [
+				{
+					"target": {
+						"role": "button",
+						"name": "Sign in with Google"
+					}
+				}
+			],
 			"actions": [
-				{ "action": "waitFor", "target": { "role": "button", "name": "Sign in with Google" } }
+				{
+					"action": "waitFor",
+					"target": {
+						"role": "button",
+						"name": "Sign in with Google"
+					}
+				}
 			],
 			"capture": {
 				"target": "@welcomeInfo",
-				"padding": { "top": 80, "right": 32, "bottom": 200, "left": 32 }
+				"padding": {
+					"top": 80,
+					"right": 32,
+					"bottom": 200,
+					"left": 32
+				}
 			}
 		},
 		{
-			"name": "calendar",
-			"outputDir": "screenshots/",
+			"name": "schedule",
+			"outputDir": "../../static/guides/getting-started",
 			"route": "/calendar.html",
 			"actions": ["calendarReady"],
-			"highlights": [{ "target": "@termChips" }],
-			"capture": { "fullPage": true }
+			"highlights": [
+				{
+					"target": "@termChips"
+				}
+			],
+			"capture": {
+				"fullPage": true
+			}
 		},
 		{
-			"name": "calendar-expand",
-			"outputDir": "screenshots/",
+			"name": "open-new-tab",
+			"outputDir": "../../static/guides/getting-started",
 			"route": "/calendar.html",
 			"sidebar": true,
-			"viewport": { "width": 1120, "height": 900 },
+			"viewport": {
+				"width": 1120,
+				"height": 900
+			},
 			"actions": [
 				"calendarReady",
-				{ "action": "waitFor", "target": { "role": "button", "name": "Open in new tab" } }
+				{
+					"action": "waitFor",
+					"target": {
+						"role": "button",
+						"name": "Open in new tab"
+					}
+				}
 			],
-			"highlights": [{ "target": { "role": "button", "name": "Open in new tab" } }],
-			"capture": { "clip": { "x": 0, "y": 0, "width": 1120, "height": 280 } }
+			"highlights": [
+				{
+					"target": {
+						"role": "button",
+						"name": "Open in new tab"
+					}
+				}
+			],
+			"capture": {
+				"clip": {
+					"x": 0,
+					"y": 0,
+					"width": 1120,
+					"height": 280
+				}
+			}
 		},
 		{
-			"name": "calendar-full-page",
-			"outputDir": "screenshots/",
+			"name": "in-new-tab",
+			"outputDir": "../../static/guides/getting-started",
 			"route": "/calendar.html",
-			"viewport": { "width": 1440, "height": 1000 },
+			"viewport": {
+				"width": 1440,
+				"height": 1000
+			},
 			"actions": ["calendarReady"],
-			"capture": { "fullPage": true }
+			"capture": {
+				"fullPage": true
+			}
 		},
 		{
-			"name": "settings-google-accounts",
-			"outputDir": "screenshots/",
+			"name": "connect-google-accs",
+			"outputDir": "../../static/guides/getting-started",
 			"route": "/calendar.html?view=settings",
-			"actions": [{ "action": "waitFor", "target": "@googleAccounts" }],
-			"highlights": [{ "target": { "role": "button", "name": "Add Account" } }],
-			"capture": { "target": "@googleAccounts" }
-		},
-		{
-			"name": "settings",
-			"outputDir": "screenshots/",
-			"route": "/calendar.html?view=settings",
-			"actions": [{ "action": "waitFor", "target": "@timeFormat" }],
-			"highlights": [{ "target": "@calendarLinkRow" }],
-			"capture": { "clip": { "x": 0, "y": 0, "width": 1280, "height": 531 } }
-		},
-		{
-			"name": "settings-lecture-color",
-			"outputDir": "screenshots/",
-			"route": "/calendar.html?view=settings",
-			"viewport": { "width": 1280, "height": 1400 },
 			"actions": [
-				{ "action": "click", "target": "@lectureColor" },
-				{ "action": "waitFor", "target": "select[aria-label=\"Default lecture color\"]:open" },
-				{ "action": "waitFor", "target": { "role": "option", "name": "Custom…" } }
+				{
+					"action": "waitFor",
+					"target": "@googleAccounts"
+				}
 			],
-			"capture": { "target": "@lectureColorRow", "padding": { "bottom": 500 } }
+			"highlights": [
+				{
+					"target": {
+						"role": "button",
+						"name": "Add Account"
+					}
+				}
+			],
+			"capture": {
+				"target": "@googleAccounts"
+			}
 		},
 		{
-			"name": "settings-university-events",
-			"outputDir": "screenshots/",
+			"name": "calendar-link",
+			"outputDir": "../../static/guides/getting-started",
+			"route": "/calendar.html?view=settings",
+			"actions": [
+				{
+					"action": "waitFor",
+					"target": "@timeFormat"
+				}
+			],
+			"highlights": [
+				{
+					"target": "@calendarLinkRow"
+				}
+			],
+			"capture": {
+				"clip": {
+					"x": 0,
+					"y": 0,
+					"width": 1280,
+					"height": 531
+				}
+			}
+		},
+		{
+			"name": "colors",
+			"outputDir": "../../static/guides/getting-started",
+			"route": "/calendar.html?view=settings",
+			"viewport": {
+				"width": 1280,
+				"height": 1400
+			},
+			"actions": [
+				{
+					"action": "click",
+					"target": "@lectureColor"
+				},
+				{
+					"action": "waitFor",
+					"target": "select[aria-label=\"Default lecture color\"]:open"
+				},
+				{
+					"action": "waitFor",
+					"target": {
+						"role": "option",
+						"name": "Custom…"
+					}
+				}
+			],
+			"capture": {
+				"target": "@lectureColorRow",
+				"padding": {
+					"bottom": 500
+				}
+			}
+		},
+		{
+			"name": "uni-events",
+			"outputDir": "../../static/guides/getting-started",
 			"route": "/calendar.html?view=settings",
 			"settings": {
 				"sync_university_events": true,
@@ -166,39 +300,80 @@
 					}
 				]
 			},
-			"actions": [{ "action": "waitFor", "target": "#uni-events-details:not(.hidden)" }],
-			"capture": { "target": "@universityEvents" }
-		},
-		{
-			"name": "edit-event-manual",
-			"outputDir": "screenshots/",
-			"route": "/calendar.html",
-			"viewport": { "width": 1280, "height": 1400 },
 			"actions": [
-				"openClassDetails",
 				{
-					"action": "click",
-					"target": { "role": "button", "name": "Manual", "within": "@classDialog" }
-				},
-				{ "action": "waitFor", "target": { "label": "Course Title", "within": "@classDialog" } }
-			],
-			"highlights": [{ "target": "@manualFields" }],
-			"capture": { "target": "@classDialog", "padding": 16 }
-		},
-		{
-			"name": "edit-event-presets-reminders",
-			"outputDir": "screenshots/",
-			"route": "/calendar.html",
-			"viewport": { "width": 1280, "height": 1400 },
-			"actions": [
-				"openClassDetails",
-				{
-					"action": "click",
-					"target": { "role": "button", "name": "Presets", "within": "@classDialog" }
+					"action": "waitFor",
+					"target": "#uni-events-details:not(.hidden)"
 				}
 			],
-			"highlights": [{ "target": "@reminders" }],
-			"capture": { "target": "@classDialog", "padding": 16 }
+			"capture": {
+				"target": "@universityEvents"
+			}
+		},
+		{
+			"name": "titles",
+			"outputDir": "../../static/guides/getting-started",
+			"route": "/calendar.html",
+			"viewport": {
+				"width": 1280,
+				"height": 1400
+			},
+			"actions": [
+				"openClassDetails",
+				{
+					"action": "click",
+					"target": {
+						"role": "button",
+						"name": "Manual",
+						"within": "@classDialog"
+					}
+				},
+				{
+					"action": "waitFor",
+					"target": {
+						"label": "Course Title",
+						"within": "@classDialog"
+					}
+				}
+			],
+			"highlights": [
+				{
+					"target": "@manualFields"
+				}
+			],
+			"capture": {
+				"target": "@classDialog",
+				"padding": 16
+			}
+		},
+		{
+			"name": "alerts",
+			"outputDir": "../../static/guides/getting-started",
+			"route": "/calendar.html",
+			"viewport": {
+				"width": 1280,
+				"height": 1400
+			},
+			"actions": [
+				"openClassDetails",
+				{
+					"action": "click",
+					"target": {
+						"role": "button",
+						"name": "Presets",
+						"within": "@classDialog"
+					}
+				}
+			],
+			"highlights": [
+				{
+					"target": "@reminders"
+				}
+			],
+			"capture": {
+				"target": "@classDialog",
+				"padding": 16
+			}
 		}
 	]
 }
