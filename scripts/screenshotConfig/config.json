@@ -16,7 +16,17 @@
 			"index": 0
 		},
 		"classDialog": { "role": "dialog", "name": "Edit Calendar Event" },
-		"saveButton": { "role": "button", "name": "Save changes", "within": "@classDialog" }
+		"saveButton": { "role": "button", "name": "Save changes", "within": "@classDialog" },
+		"googleAccounts": "section > div:has(> div > h2:text-is(\"Connected Google accounts\"))",
+		"timeFormat": { "role": "heading", "name": "Time format" },
+		"welcomeInfo": "div:has(> p:text-is(\"Welcome! A few things to note:\"))",
+		"termChips": ".m3-container:has(> input[name=\"panel-term\"])",
+		"lectureColorRow": "div:has(> h3:text-is(\"Default lecture color\"))",
+		"calendarLinkRow": "div:has(> div > h3:text-is(\"Calendar link\"))",
+		"lectureColor": { "label": "Default lecture color" },
+		"universityEvents": "section:has(h2:text-is(\"Sync university events\"))",
+		"manualFields": { "css": "div.grid:has(input):has(textarea)", "within": "@classDialog" },
+		"reminders": { "css": "section:has(h2:text-is(\"Reminders\"))", "within": "@classDialog" }
 	},
 	"quickActions": {
 		"calendarReady": [{ "action": "waitFor", "target": "@classButton" }],
@@ -28,32 +38,167 @@
 	},
 	"screenshots": [
 		{
+			"name": "homepage",
+			"outputDir": "screenshots/",
+			"route": "/index.html",
+			"signedIn": false,
+			"highlights": [{ "target": { "role": "button", "name": "Sign in with Google" } }],
+			"actions": [
+				{ "action": "waitFor", "target": { "role": "button", "name": "Sign in with Google" } }
+			],
+			"capture": {
+				"target": "@welcomeInfo",
+				"padding": { "top": 80, "right": 32, "bottom": 200, "left": 32 }
+			}
+		},
+		{
 			"name": "calendar",
-			"outputDir": "../../static/guides/getting-started",
+			"outputDir": "screenshots/",
 			"route": "/calendar.html",
+			"actions": ["calendarReady"],
+			"highlights": [{ "target": "@termChips" }],
+			"capture": { "fullPage": true }
+		},
+		{
+			"name": "calendar-expand",
+			"outputDir": "screenshots/",
+			"route": "/calendar.html",
+			"sidebar": true,
+			"viewport": { "width": 1120, "height": 900 },
+			"actions": [
+				"calendarReady",
+				{ "action": "waitFor", "target": { "role": "button", "name": "Open in new tab" } }
+			],
+			"highlights": [{ "target": { "role": "button", "name": "Open in new tab" } }],
+			"capture": { "clip": { "x": 0, "y": 0, "width": 1120, "height": 280 } }
+		},
+		{
+			"name": "calendar-full-page",
+			"outputDir": "screenshots/",
+			"route": "/calendar.html",
+			"viewport": { "width": 1440, "height": 1000 },
 			"actions": ["calendarReady"],
 			"capture": { "fullPage": true }
 		},
 		{
-			"name": "class-details",
-			"outputDir": "../../static/guides/getting-started",
-			"route": "/calendar.html",
-			"actions": ["openClassDetails"],
-			"capture": { "target": "@classDialog" }
+			"name": "settings-google-accounts",
+			"outputDir": "screenshots/",
+			"route": "/calendar.html?view=settings",
+			"actions": [{ "action": "waitFor", "target": "@googleAccounts" }],
+			"highlights": [{ "target": { "role": "button", "name": "Add Account" } }],
+			"capture": { "target": "@googleAccounts" }
 		},
 		{
-			"name": "calendar-scrolled",
-			"outputDir": "../../static/guides/getting-started",
-			"route": "/calendar.html",
-			"actions": ["calendarReady", { "action": "scroll", "y": 400 }],
-			"capture": { "fullPage": false }
+			"name": "settings",
+			"outputDir": "screenshots/",
+			"route": "/calendar.html?view=settings",
+			"actions": [{ "action": "waitFor", "target": "@timeFormat" }],
+			"highlights": [{ "target": "@calendarLinkRow" }],
+			"capture": { "clip": { "x": 0, "y": 0, "width": 1280, "height": 531 } }
 		},
 		{
-			"name": "calendar-header",
-			"outputDir": "../../static/guides/getting-started",
+			"name": "settings-lecture-color",
+			"outputDir": "screenshots/",
+			"route": "/calendar.html?view=settings",
+			"viewport": { "width": 1280, "height": 1400 },
+			"actions": [
+				{ "action": "click", "target": "@lectureColor" },
+				{ "action": "waitFor", "target": "select[aria-label=\"Default lecture color\"]:open" },
+				{ "action": "waitFor", "target": { "role": "option", "name": "Custom…" } }
+			],
+			"capture": { "target": "@lectureColorRow", "padding": { "bottom": 500 } }
+		},
+		{
+			"name": "settings-university-events",
+			"outputDir": "screenshots/",
+			"route": "/calendar.html?view=settings",
+			"settings": {
+				"sync_university_events": true,
+				"university_event_categories": [
+					"term_dates",
+					"registration",
+					"deadline",
+					"study_day",
+					"finals",
+					"graduation",
+					"academic"
+				],
+				"available_university_event_categories": [
+					{
+						"id": "holiday",
+						"name": "Holidays",
+						"description": "University holidays and closures."
+					},
+					{
+						"id": "term_dates",
+						"name": "Term Dates",
+						"description": "Semester start and end dates (classes begin/end)"
+					},
+					{
+						"id": "registration",
+						"name": "Registration",
+						"description": "Registration periods and enrollment dates"
+					},
+					{
+						"id": "deadline",
+						"name": "Deadline",
+						"description": "Academic deadlines (add/drop, withdrawal, payment due)"
+					},
+					{
+						"id": "study_day",
+						"name": "Study Day",
+						"description": "Study days (no-class days before finals)"
+					},
+					{
+						"id": "finals",
+						"name": "Finals",
+						"description": "Final exam schedules and exam periods"
+					},
+					{
+						"id": "graduation",
+						"name": "Graduation",
+						"description": "Commencement ceremonies and graduation events"
+					},
+					{
+						"id": "academic",
+						"name": "Academic",
+						"description": "Other academic events and calendar announcements"
+					}
+				]
+			},
+			"actions": [{ "action": "waitFor", "target": "#uni-events-details:not(.hidden)" }],
+			"capture": { "target": "@universityEvents" }
+		},
+		{
+			"name": "edit-event-manual",
+			"outputDir": "screenshots/",
 			"route": "/calendar.html",
-			"actions": ["calendarReady"],
-			"capture": { "clip": { "x": 0, "y": 0, "width": 1280, "height": 240 } }
+			"viewport": { "width": 1280, "height": 1400 },
+			"actions": [
+				"openClassDetails",
+				{
+					"action": "click",
+					"target": { "role": "button", "name": "Manual", "within": "@classDialog" }
+				},
+				{ "action": "waitFor", "target": { "label": "Course Title", "within": "@classDialog" } }
+			],
+			"highlights": [{ "target": "@manualFields" }],
+			"capture": { "target": "@classDialog", "padding": 16 }
+		},
+		{
+			"name": "edit-event-presets-reminders",
+			"outputDir": "screenshots/",
+			"route": "/calendar.html",
+			"viewport": { "width": 1280, "height": 1400 },
+			"actions": [
+				"openClassDetails",
+				{
+					"action": "click",
+					"target": { "role": "button", "name": "Presets", "within": "@classDialog" }
+				}
+			],
+			"highlights": [{ "target": "@reminders" }],
+			"capture": { "target": "@classDialog", "padding": 16 }
 		}
 	]
 }
