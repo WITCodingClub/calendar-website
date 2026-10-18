@@ -12,7 +12,7 @@
         time that works for everyone. You choose how much of your schedule each friend can see.
     </p>
     <p>Open the extension and select the <strong>Friends</strong> tab at the top.</p>
-    <Screenshot src="/guides/friends/friends-main.png" alt="The Friends tab in the extension" />
+    <Screenshot src="/guides/friends/friends-main.webp" width={1280} height={900} alt="The Friends tab in the extension" />
 
     <h2 id="add-a-friend">Add a friend</h2>
     <ol>
@@ -25,15 +25,15 @@
     </ol>
     <ScreenshotRow>
         <Screenshot
-            src="/guides/friends/manage-friends.png"
-            width={860}
-            height={467}
+            src="/guides/friends/manage-friends-button.webp"
+            width={1280}
+            height={900}
             alt="The Manage friends section in the extension"
         />
         <Screenshot
-            src="/guides/friends/manage-friends-menu.png"
-            width={860}
-            height={467}
+            src="/guides/friends/add-friend-button.webp"
+            width={480}
+            height={900}
             alt="The Manage friends menu in the extension"
         />
     </ScreenshotRow>
@@ -47,16 +47,16 @@
     <p>Requests you sent show up there too. Select <strong>Cancel request</strong> to take one back.</p>
     <ScreenshotRow>
         <Screenshot
-            src="/guides/friends/friend-requests.png" 
-            width={360}
-            height={400}
+            src="/guides/friends/friend-requests.webp" 
+            width={480}
+            height={900}
             maxWidth={300}
             alt="A friend request under Requests, with its sharing and end date details open"
         />
         <Screenshot
-            src="/guides/friends/edit-inc-friend-request.png" 
-            width={360}
-            height={400}
+            src="/guides/friends/friend-request-details.webp" 
+            width={480}
+            height={900}
             maxWidth={300}
             alt="The Edit details section of a friend request, with the sharing and end date options"
         />
@@ -81,9 +81,9 @@
     </p>
     <ScreenshotRow>
         <Screenshot
-            src="/guides/friends/edit-sharing.png"
-            width={360}
-            height={400}
+            src="/guides/friends/friend-sharing.webp"
+            width={480}
+            height={900}
             maxWidth={300}
             alt="A friend's settings in Manage friends, with Your schedule sharing and the end date"
         />
@@ -103,16 +103,16 @@
     <p>To plan with a group, open it and select <strong>Find a time with this group</strong>.</p>
     <ScreenshotRow>
         <Screenshot
-            src="/guides/friends/create-group.png"
-            width={360}
-            height={400}
+            src="/guides/friends/create-group.webp"
+            width={480}
+            height={900}
             maxWidth={300}
             alt="Creating a private group in Manage friends"
         />
         <Screenshot
-            src="/guides/friends/group-edit.png"
-            width={360}
-            height={400}
+            src="/guides/friends/edit-group.webp"
+            width={480}
+            height={900}
             maxWidth={300}
             alt="The Edit details section of a group, with the end date and the move later button"
         />
@@ -120,15 +120,48 @@
 
     <h2 id="compare">Compare calendars</h2>
     <ol>
-        <li>On the Friends tab, select <strong>Edit people</strong> and choose who to compare. Turn on <strong>Include your own schedule</strong> to see yours too.</li>
+        <li>On the Friends tab, select <strong>Edit people</strong> and choose who to compare with.</li>
         <li>Select <strong>Compare calendars</strong>.</li>
-        <li>Switch between the <strong>Calendar</strong> and <strong>List</strong> views, and between <strong>This week</strong> and <strong>Next week</strong>. Select a day to see it on its own.</li>
+        <li>Switch between the <strong>Calendar</strong> and <strong>List</strong> views, and between <strong>This week</strong> and <strong>Next week</strong>. Click on any day to see its details on its own.</li>
     </ol>
     <p>
         A friend who shares only their availability shows up as <strong>Busy</strong>, with no class
-        details. Select <strong>← Back to Friends</strong> when you are done.
+        details.<br>Select <strong>← Back to Friends</strong> when you are done.
+        <br>
+        <strong>Tip:</strong> view the comparison in the new tab view for best experience. See <a href={resolve("/guides/getting-started#pro-tip")}>Getting started</a>.
     </p>
-    <Screenshot alt="Compare calendars, showing the week for three people side by side" />
+    <ScreenshotRow>
+        <Screenshot
+            src="/guides/friends/edit-people.webp"
+            width={688}
+            height={706}
+            maxWidth={300}
+            alt="The Edit people section in the Friends tab, with the people to compare with"
+        />
+        <Screenshot
+            src="/guides/friends/compare-calendars-button.webp"
+            width={360}
+            height={400}
+            maxWidth={400}
+            alt="The Compare calendars button in the Friends tab"
+        />
+    </ScreenshotRow>
+    <ScreenshotRow>
+        <Screenshot
+            src="/guides/friends/compare-detailed.webp"
+            width={1600}
+            height={1093}
+            maxWidth={400}
+            alt="Compare calendars, showing the week for three people side by side in a new tab, in detailed view"
+        />
+        <Screenshot
+            src="/guides/friends/compare-group.webp"
+            width={1600}
+            height={1077}
+            maxWidth={400}
+            alt="Compare calendars, showing the week for three people side by side in a new tab, in list view"
+        />
+    </ScreenshotRow>
 
     <h2 id="find-a-time">Find a time together</h2>
     <p>
@@ -142,7 +175,7 @@
         <li><strong>Buffer:</strong> free minutes to leave before and after everyone's busy times, so nobody has to run.</li>
     </ul>
     <p>Select <strong>Show more</strong> for more days, then pick a suggested time.</p>
-    <Screenshot alt="Suggested times for a group, with the date, length, hours, and buffer filters" />
+    <Screenshot src="/guides/friends/filter-dates.webp" width={1280} height={900} alt="Suggested times for a group, with the date, length, hours, and buffer filters" />
 
     <h2 id="create-a-meeting">Create a meeting</h2>
     <p>When you pick a suggested time, a meeting form opens. Fill in:</p>
@@ -162,7 +195,7 @@
         <strong>Send calendar invitations to participants</strong> is on, and confirm. A meeting can include up
         to 20 friends.
     </p>
-    <Screenshot alt="The Create meeting form, with the title, time, repeat, and calendar fields" />
+    <Screenshot src="/guides/friends/create-meeting.webp" width={592} height={1108} maxWidth={400} alt="The Create meeting form, with the title, time, repeat, and calendar fields" />
 
     <h2 id="upcoming">Upcoming meetings</h2>
     <p>
@@ -174,7 +207,7 @@
         <li>If you were invited, you can leave it. Answer the calendar invitation in your calendar app.</li>
     </ul>
     <p>Meetings count as busy time when friends look for a time with you.</p>
-    <Screenshot alt="The details of a saved meeting, with the participants and the edit and delete buttons" />
+    <Screenshot src="/guides/friends/meeting-details.webp" width={592} height={520} maxWidth={400} alt="The details of a saved meeting, with the participants and the edit and delete buttons" />
 
     <h2 id="meeting-links">Meet with someone outside WIT-Calendar</h2>
     <p>
@@ -187,13 +220,13 @@
         <li>Choose the dates your guest can pick from, up to 30 days.</li>
         <li>Choose the meeting length.</li>
         <li>Choose when the link stops taking bookings, up to 60 days from now.</li>
-        <li>Select <strong>Copy guest link</strong>, and send it to your guest.</li>
+        <li>Select <strong>Create meeting link</strong>, and send it to your guest.</li>
     </ol>
     <p>
         Guests can book on weekdays between 8:00 AM and 9:00 PM Eastern. Copy the link before you leave the
         page: it can't be shown again. To stop a link from taking bookings, select <strong>Revoke</strong>.
     </p>
-    <Screenshot alt="Creating a one-time meeting link, with the dates, length, and expiry fields" />
+    <Screenshot src="/guides/friends/create-meeting-link.webp" width={672} height={640} maxWidth={400} alt="Creating a one-time meeting link, with the dates, length, and expiry fields" />
 
     <h2 id="next">Stuck?</h2>
     <p>Ask on <a href={DISCORD_URL} target="_blank" rel="external noopener noreferrer">Discord</a> or <a href={resolve("/contact")}>contact us</a> if you need help.</p>

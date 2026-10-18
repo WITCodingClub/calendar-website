@@ -47,7 +47,85 @@
 		"reminders": {
 			"css": "section:has(h2:text-is(\"Reminders\"))",
 			"within": "@classDialog"
-		}
+		},
+		"manageFriendsButton": {
+			"role": "button",
+			"name": "Manage friends"
+		},
+		"manageFriends": {
+			"role": "dialog",
+			"name": "Manage friends"
+		},
+		"manageGroupsTab": {
+			"css": "label:has-text(\"Groups\")",
+			"within": "@manageFriends"
+		},
+		"manageRequestsTab": {
+			"css": "label:has-text(\"Requests\")",
+			"within": "@manageFriends"
+		},
+		"manageListItem": {
+			"css": "li > button",
+			"within": "@manageFriends",
+			"index": 0
+		},
+		"planner": {
+			"role": "region",
+			"name": "Friends planning"
+		},
+		"plannerFilters": {
+			"css": "[aria-label=\"Planning preferences\"]",
+			"within": "@planner"
+		},
+		"suggestedTimes": {
+			"role": "region",
+			"name": "Suggested times"
+		},
+		"firstSuggestedTime": {
+			"css": "button",
+			"within": "@suggestedTimes",
+			"index": 0
+		},
+		"peoplePicker": {
+			"role": "dialog",
+			"name": "Select people"
+		},
+		"firstPickerGroup": {
+			"css": "label:has(input[type=\"checkbox\"])",
+			"within": "@peoplePicker",
+			"index": 0
+		},
+		"compareButton": {
+			"role": "button",
+			"name": "Compare calendars",
+			"within": "@planner"
+		},
+		"comparison": "section.comparison",
+		"meetingEditor": {
+			"role": "dialog",
+			"name": "Create meeting"
+		},
+		"savedMeetings": {
+			"role": "region",
+			"name": "Saved meetings"
+		},
+		"meetingDetails": {
+			"role": "dialog",
+			"name": "Meeting details"
+		},
+		"meetingLinks": {
+			"role": "region",
+			"name": "One-time meeting links"
+		},
+		"meetingLinkEditor": {
+			"role": "dialog",
+			"name": "Create meeting link"
+		},
+		"copyGuestLink": {
+			"role": "button",
+			"name": "Copy guest link"
+		},
+		"meetingLinkCreated": "dialog[open]:has(button:has-text(\"Copy guest link\"))"
 	},
 	"quickActions": {
 		"calendarReady": [
@@ -65,6 +143,62 @@
 			{
 				"action": "waitFor",
 				"target": "@saveButton"
+			}
+		],
+		"friendsReady": [
+			{
+				"action": "waitFor",
+				"target": "@planner"
+			}
+		],
+		"selectFriends": [
+			"friendsReady",
+			{
+				"action": "click",
+				"target": {
+					"role": "button",
+					"name": "Edit people",
+					"exact": false,
+					"within": "@planner"
+				}
+			},
+			{
+				"action": "click",
+				"target": "@firstPickerGroup"
+			},
+			{
+				"action": "click",
+				"target": {
+					"role": "button",
+					"name": "Done",
+					"within": "@peoplePicker"
+				}
+			},
+			{
+				"action": "waitFor",
+				"target": "@firstSuggestedTime"
+			}
+		],
+		"openManageFriends": [
+			"friendsReady",
+			{
+				"action": "click",
+				"target": "@manageFriendsButton"
+			},
+			{
+				"action": "waitFor",
+				"target": "@manageFriends"
+			}
+		],
+		"openComparison": [
+			"selectFriends",
+			{
+				"action": "click",
+				"target": "@compareButton"
+			},
+			{
+				"action": "waitFor",
+				"target": "@comparison"
 			}
 		]
 	},
@@ -372,6 +506,623 @@
 			],
 			"capture": {
 				"target": "@classDialog",
+				"padding": 16
+			}
+		},
+		{
+			"name": "friends-main",
+			"outputDir": "../../static/guides/friends",
+			"route": "/friends.html",
+			"actions": ["selectFriends"],
+			"capture": {
+				"target": "@suggestedTimes",
+				"padding": {
+					"top": 2000,
+					"right": 2000,
+					"bottom": 16,
+					"left": 2000
+				}
+			}
+		},
+		{
+			"name": "manage-friends-button",
+			"outputDir": "../../static/guides/friends",
+			"route": "/friends.html",
+			"actions": ["selectFriends"],
+			"highlights": [
+				{
+					"target": "@manageFriendsButton"
+				}
+			],
+			"capture": {
+				"target": "@suggestedTimes",
+				"padding": {
+					"top": 2000,
+					"right": 2000,
+					"bottom": 16,
+					"left": 2000
+				}
+			}
+		},
+		{
+			"name": "add-friend-button",
+			"outputDir": "../../static/guides/friends",
+			"route": "/friends.html",
+			"actions": ["openManageFriends"],
+			"highlights": [
+				{
+					"target": {
+						"role": "button",
+						"name": "Add friend",
+						"within": "@manageFriends"
+					}
+				}
+			],
+			"capture": {
+				"target": "@manageFriends"
+			}
+		},
+		{
+			"name": "friend-requests",
+			"outputDir": "../../static/guides/friends",
+			"route": "/friends.html",
+			"actions": [
+				"openManageFriends",
+				{
+					"action": "click",
+					"target": "@manageRequestsTab"
+				},
+				{
+					"action": "waitFor",
+					"target": {
+						"role": "heading",
+						"name": "Requests",
+						"within": "@manageFriends"
+					}
+				}
+			],
+			"capture": {
+				"target": "@manageFriends"
+			}
+		},
+		{
+			"name": "friend-request-details",
+			"outputDir": "../../static/guides/friends",
+			"route": "/friends.html",
+			"actions": [
+				"openManageFriends",
+				{
+					"action": "click",
+					"target": "@manageRequestsTab"
+				},
+				{
+					"action": "click",
+					"target": {
+						"role": "button",
+						"name": "Edit details",
+						"within": "@manageFriends",
+						"index": 0
+					}
+				},
+				{
+					"action": "waitFor",
+					"target": {
+						"label": "Your sharing on acceptance",
+						"within": "@manageFriends"
+					}
+				}
+			],
+			"capture": {
+				"target": "@manageFriends"
+			}
+		},
+		{
+			"name": "friend-sharing",
+			"outputDir": "../../static/guides/friends",
+			"route": "/friends.html",
+			"actions": [
+				"openManageFriends",
+				{
+					"action": "click",
+					"target": "@manageListItem"
+				},
+				{
+					"action": "waitFor",
+					"target": {
+						"label": "Your schedule sharing",
+						"within": "@manageFriends"
+					}
+				}
+			],
+			"highlights": [
+				{
+					"target": {
+						"label": "Your schedule sharing",
+						"within": "@manageFriends"
+					}
+				},
+				{
+					"target": {
+						"label": "Friendship end date (optional)",
+						"within": "@manageFriends"
+					}
+				}
+			],
+			"capture": {
+				"target": "@manageFriends"
+			}
+		},
+		{
+			"name": "create-group",
+			"outputDir": "../../static/guides/friends",
+			"route": "/friends.html",
+			"actions": [
+				"openManageFriends",
+				{
+					"action": "click",
+					"target": "@manageGroupsTab"
+				},
+				{
+					"action": "click",
+					"target": {
+						"role": "button",
+						"name": "Create group",
+						"within": "@manageFriends"
+					}
+				},
+				{
+					"action": "waitFor",
+					"target": {
+						"label": "Group name",
+						"within": "@manageFriends"
+					}
+				}
+			],
+			"capture": {
+				"target": "@manageFriends"
+			}
+		},
+		{
+			"name": "edit-group",
+			"outputDir": "../../static/guides/friends",
+			"route": "/friends.html",
+			"actions": [
+				"openManageFriends",
+				{
+					"action": "click",
+					"target": "@manageGroupsTab"
+				},
+				{
+					"action": "click",
+					"target": "@manageListItem"
+				},
+				{
+					"action": "waitFor",
+					"target": {
+						"role": "button",
+						"name": "Find a time with this group",
+						"within": "@manageFriends"
+					}
+				}
+			],
+			"highlights": [
+				{
+					"target": {
+						"role": "button",
+						"name": "Find a time with this group",
+						"within": "@manageFriends"
+					}
+				}
+			],
+			"capture": {
+				"target": "@manageFriends"
+			}
+		},
+		{
+			"name": "groups-list",
+			"outputDir": "../../static/guides/friends",
+			"route": "/friends.html",
+			"actions": [
+				"openManageFriends",
+				{
+					"action": "click",
+					"target": "@manageGroupsTab"
+				},
+				{
+					"action": "waitFor",
+					"target": "@manageListItem"
+				}
+			],
+			"capture": {
+				"target": "@manageFriends"
+			}
+		},
+		{
+			"name": "edit-people",
+			"outputDir": "../../static/guides/friends",
+			"route": "/friends.html",
+			"actions": [
+				"friendsReady",
+				{
+					"action": "click",
+					"target": {
+						"role": "button",
+						"name": "Edit people",
+						"exact": false,
+						"within": "@planner"
+					}
+				},
+				{
+					"action": "click",
+					"target": {
+						"css": "label:has(p:text-is(\"Maya Chen\"))",
+						"within": "@peoplePicker"
+					}
+				},
+				{
+					"action": "waitFor",
+					"target": {
+						"text": "1 of 3 selected",
+						"within": "@peoplePicker"
+					}
+				}
+			],
+			"capture": {
+				"target": "@peoplePicker"
+			}
+		},
+		{
+			"name": "compare-calendars-button",
+			"outputDir": "../../static/guides/friends",
+			"route": "/friends.html",
+			"actions": ["selectFriends"],
+			"highlights": [
+				{
+					"target": "@compareButton"
+				}
+			],
+			"capture": {
+				"target": "@planner",
+				"padding": 16
+			}
+		},
+		{
+			"name": "compare-detailed",
+			"outputDir": "../../static/guides/friends",
+			"route": "/friends.html",
+			"viewport": {
+				"width": 1600,
+				"height": 1000
+			},
+			"actions": ["openComparison"],
+			"capture": {
+				"fullPage": true
+			}
+		},
+		{
+			"name": "compare-group",
+			"outputDir": "../../static/guides/friends",
+			"route": "/friends.html",
+			"viewport": {
+				"width": 1600,
+				"height": 1000
+			},
+			"actions": [
+				"openComparison",
+				{
+					"action": "click",
+					"target": "label[for=\"comparison-group\"]"
+				}
+			],
+			"capture": {
+				"fullPage": true
+			}
+		},
+		{
+			"name": "filter-dates",
+			"outputDir": "../../static/guides/friends",
+			"route": "/friends.html",
+			"actions": [
+				"selectFriends",
+				{
+					"action": "click",
+					"target": {
+						"css": "button",
+						"within": "@plannerFilters",
+						"index": 0
+					}
+				}
+			],
+			"highlights": [
+				{
+					"target": "@plannerFilters"
+				}
+			],
+			"capture": {
+				"target": "@suggestedTimes",
+				"padding": {
+					"top": 2000,
+					"right": 2000,
+					"bottom": 16,
+					"left": 2000
+				}
+			}
+		},
+		{
+			"name": "filter-length",
+			"outputDir": "../../static/guides/friends",
+			"route": "/friends.html",
+			"actions": [
+				"selectFriends",
+				{
+					"action": "click",
+					"target": {
+						"css": "button",
+						"within": "@plannerFilters",
+						"index": 1
+					}
+				}
+			],
+			"highlights": [
+				{
+					"target": "@plannerFilters"
+				}
+			],
+			"capture": {
+				"target": "@suggestedTimes",
+				"padding": {
+					"top": 2000,
+					"right": 2000,
+					"bottom": 16,
+					"left": 2000
+				}
+			}
+		},
+		{
+			"name": "filter-hours",
+			"outputDir": "../../static/guides/friends",
+			"route": "/friends.html",
+			"actions": [
+				"selectFriends",
+				{
+					"action": "click",
+					"target": {
+						"css": "button",
+						"within": "@plannerFilters",
+						"index": 2
+					}
+				}
+			],
+			"highlights": [
+				{
+					"target": "@plannerFilters"
+				}
+			],
+			"capture": {
+				"target": "@suggestedTimes",
+				"padding": {
+					"top": 2000,
+					"right": 2000,
+					"bottom": 16,
+					"left": 2000
+				}
+			}
+		},
+		{
+			"name": "filter-buffer",
+			"outputDir": "../../static/guides/friends",
+			"route": "/friends.html",
+			"actions": [
+				"selectFriends",
+				{
+					"action": "click",
+					"target": {
+						"css": "button",
+						"within": "@plannerFilters",
+						"index": 3
+					}
+				}
+			],
+			"highlights": [
+				{
+					"target": "@plannerFilters"
+				}
+			],
+			"capture": {
+				"target": "@suggestedTimes",
+				"padding": {
+					"top": 2000,
+					"right": 2000,
+					"bottom": 16,
+					"left": 2000
+				}
+			}
+		},
+		{
+			"name": "create-meeting",
+			"outputDir": "../../static/guides/friends",
+			"route": "/friends.html",
+			"viewport": {
+				"width": 1280,
+				"height": 1400
+			},
+			"actions": [
+				"selectFriends",
+				{
+					"action": "click",
+					"target": "@firstSuggestedTime"
+				},
+				{
+					"action": "fill",
+					"target": {
+						"label": "Meeting title",
+						"within": "@meetingEditor"
+					},
+					"value": "Study session"
+				},
+				{
+					"action": "click",
+					"target": {
+						"css": "summary:has-text(\"More options\")",
+						"within": "@meetingEditor"
+					}
+				},
+				{
+					"action": "waitFor",
+					"target": {
+						"label": "Add to calendar",
+						"within": "@meetingEditor"
+					}
+				}
+			],
+			"capture": {
+				"target": "@meetingEditor",
+				"padding": 16
+			}
+		},
+		{
+			"name": "upcoming-meetings",
+			"outputDir": "../../static/guides/friends",
+			"route": "/friends.html",
+			"actions": [
+				"friendsReady",
+				{
+					"action": "waitFor",
+					"target": "@savedMeetings"
+				}
+			],
+			"capture": {
+				"target": "@savedMeetings",
+				"padding": 16
+			}
+		},
+		{
+			"name": "meeting-details",
+			"outputDir": "../../static/guides/friends",
+			"route": "/friends.html",
+			"actions": [
+				"friendsReady",
+				{
+					"action": "click",
+					"target": {
+						"role": "button",
+						"name": "Details for",
+						"exact": false,
+						"within": "@savedMeetings",
+						"index": 0
+					}
+				},
+				{
+					"action": "waitFor",
+					"target": "@meetingDetails"
+				}
+			],
+			"capture": {
+				"target": "@meetingDetails",
+				"padding": 16
+			}
+		},
+		{
+			"name": "meeting-links-empty",
+			"outputDir": "../../static/guides/friends",
+			"route": "/friends.html",
+			"actions": [
+				"friendsReady",
+				{
+					"action": "waitFor",
+					"target": "@meetingLinks"
+				}
+			],
+			"capture": {
+				"target": "@meetingLinks",
+				"padding": 16
+			}
+		},
+		{
+			"name": "meeting-links-active",
+			"outputDir": "../../static/guides/friends",
+			"route": "/friends.html",
+			"actions": [
+				"friendsReady",
+				{
+					"action": "waitFor",
+					"target": "@meetingLinks"
+				}
+			],
+			"capture": {
+				"target": "@meetingLinks",
+				"padding": 16
+			}
+		},
+		{
+			"name": "meeting-links-revoked",
+			"outputDir": "../../static/guides/friends",
+			"route": "/friends.html",
+			"actions": [
+				"friendsReady",
+				{
+					"action": "waitFor",
+					"target": "@meetingLinks"
+				}
+			],
+			"capture": {
+				"target": "@meetingLinks",
+				"padding": 16
+			}
+		},
+		{
+			"name": "create-meeting-link",
+			"outputDir": "../../static/guides/friends",
+			"route": "/friends.html",
+			"actions": [
+				"friendsReady",
+				{
+					"action": "click",
+					"target": {
+						"role": "button",
+						"name": "Create meeting link",
+						"within": "@meetingLinks"
+					}
+				},
+				{
+					"action": "waitFor",
+					"target": "@meetingLinkEditor"
+				}
+			],
+			"capture": {
+				"target": "@meetingLinkEditor",
+				"padding": 16
+			}
+		},
+		{
+			"name": "meeting-link-created",
+			"outputDir": "../../static/guides/friends",
+			"route": "/friends.html",
+			"actions": [
+				"friendsReady",
+				{
+					"action": "click",
+					"target": {
+						"role": "button",
+						"name": "Create meeting link",
+						"within": "@meetingLinks"
+					}
+				},
+				{
+					"action": "click",
+					"target": {
+						"role": "button",
+						"name": "Create meeting link",
+						"within": "@meetingLinkEditor"
+					}
+				},
+				{
+					"action": "waitFor",
+					"target": "@copyGuestLink"
+				}
+			],
+			"capture": {
+				"target": "@meetingLinkCreated",
 				"padding": 16
 			}
 		}
