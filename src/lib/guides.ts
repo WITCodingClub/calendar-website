@@ -28,15 +28,20 @@ export const GUIDES: Guide[] = [
 	{
 		slug: 'friends',
 		title: 'Friends',
-		summary:
-			'Add friends, choose what each one sees, compare calendars, and find a time to meet.'
+		summary: 'Add friends, choose what each one sees, compare calendars, and find a time to meet.'
 	},
-	{
-		slug: 'mcp',
-		title: 'Connect an AI assistant',
-		summary:
-			'Let Claude, ChatGPT, or another AI assistant read your schedule and the course catalog, and ask it about your week.'
-	}
+	// {
+	// 	slug: 'dashboard',
+	// 	title: 'Your dashboard',
+	// 	summary:
+	// 		'Manage WIT-Calendar on the web: your schedule, calendar preferences, connected calendars, notifications, and account.'
+	// },
+	// {
+	// 	slug: 'mcp',
+	// 	title: 'Connect an AI assistant',
+	// 	summary:
+	// 		'Let Claude, ChatGPT, or another AI assistant read your schedule and the course catalog, and ask it about your week.'
+	// }
 ];
 
 export type Feature = {
@@ -66,20 +71,17 @@ export const FEATURES: Feature[] = [
 			'Add friends, compare calendars, and find a time to meet. Share your full schedule or only when you are busy.',
 		guide: 'friends'
 	},
-	{
-		name: 'University events',
-		summary:
-			'Holidays, deadlines, and finals week from the academic calendar, with their own color and alerts.'
-	},
-	{
-		name: 'Final exams',
-		summary: 'Your final exams show up in your calendar next to your classes.'
-	},
-	{
-		name: 'AI assistants',
-		summary: 'Connect Claude, ChatGPT, or Claude Code and ask about your schedule and the catalog.',
-		guide: 'mcp'
-	}
+	// {
+	// 	name: 'Dashboard',
+	// 	summary:
+	// 		'Change your settings on the web, connect Google Calendar or Outlook, and get your calendar feed link.',
+	// 	guide: 'dashboard'
+	// },
+	// {
+	// 	name: 'AI assistants',
+	// 	summary: 'Connect Claude, ChatGPT, or Claude Code and ask about your schedule and the catalog.',
+	// 	guide: 'mcp'
+	// }
 ];
 
 // The guide that new users should read first. It is also the first guide.
