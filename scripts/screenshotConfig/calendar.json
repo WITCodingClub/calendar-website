@@ -482,5 +482,941 @@
 			]
 		}
 	],
-	"notifications_disabled": false
+	"notifications_disabled": false,
+	"responses": {
+		"GET /api/user": {
+			"pub_id": "screenshot-user",
+			"email": "sample@example.invalid",
+			"ics_url": "https://example.invalid/sample.ics"
+		},
+		"GET /api/user/feature_flags": {
+			"feature_flags": {
+				"friendMeetingEvents": true,
+				"meetingLinks": true
+			}
+		},
+		"GET /api/user/busy_blocks": {
+			"time_zone": "America/New_York",
+			"start_date": "2026-10-05",
+			"end_date": "2026-10-09",
+			"busy": [
+				{
+					"date": "2026-10-05",
+					"weekday": "monday",
+					"start": "10:00",
+					"end": "11:15"
+				},
+				{
+					"date": "2026-10-05",
+					"weekday": "monday",
+					"start": "13:00",
+					"end": "14:10"
+				},
+				{
+					"date": "2026-10-05",
+					"weekday": "monday",
+					"start": "15:00",
+					"end": "16:45"
+				},
+				{
+					"date": "2026-10-07",
+					"weekday": "wednesday",
+					"start": "10:00",
+					"end": "11:45"
+				},
+				{
+					"date": "2026-10-07",
+					"weekday": "wednesday",
+					"start": "13:00",
+					"end": "14:10"
+				},
+				{
+					"date": "2026-10-07",
+					"weekday": "wednesday",
+					"start": "15:00",
+					"end": "16:15"
+				},
+				{
+					"date": "2026-10-09",
+					"weekday": "friday",
+					"start": "10:00",
+					"end": "11:15"
+				},
+				{
+					"date": "2026-10-09",
+					"weekday": "friday",
+					"start": "13:00",
+					"end": "14:10"
+				},
+				{
+					"date": "2026-10-09",
+					"weekday": "friday",
+					"start": "15:00",
+					"end": "16:15"
+				}
+			]
+		},
+		"GET /api/friends": {
+			"friends": [
+				{
+					"id": "friend-priya-2",
+					"name": "Priya Nair",
+					"visibility": {
+						"mine": "full",
+						"theirs": "full"
+					},
+					"expires_at": "2026-12-15T23:59:59-05:00"
+				},
+				{
+					"id": "friend-maya-4",
+					"name": "Maya Chen",
+					"visibility": {
+						"mine": "full",
+						"theirs": "full"
+					},
+					"expires_at": null
+				},
+				{
+					"id": "friend-jordan-6",
+					"name": "Jordan Brooks",
+					"visibility": {
+						"mine": "full",
+						"theirs": "full"
+					},
+					"expires_at": null
+				},
+				{
+					"id": "friend-sam",
+					"name": "Sam Ortiz",
+					"visibility": {
+						"mine": "full",
+						"theirs": "availability_only"
+					},
+					"expires_at": null
+				}
+			]
+		},
+		"GET /api/friends/requests": {
+			"incoming": [
+				{
+					"request_id": "request-incoming",
+					"from": {
+						"id": "friend-leo",
+						"name": "Leo Martins"
+					},
+					"created_at": "2026-10-05T15:20:00-04:00"
+				}
+			],
+			"outgoing": [
+				{
+					"request_id": "request-outgoing",
+					"to": {
+						"id": "friend-ava",
+						"name": "Ava Thompson"
+					},
+					"created_at": "2026-10-04T10:05:00-04:00"
+				}
+			]
+		},
+		"GET /api/friends/groups": {
+			"groups": [
+				{
+					"id": "group-study",
+					"name": "Database study group",
+					"expires_at": null,
+					"members": [
+						{
+							"id": "friend-maya-4",
+							"name": "Maya Chen"
+						},
+						{
+							"id": "friend-jordan-6",
+							"name": "Jordan Brooks"
+						},
+						{
+							"id": "friend-sam",
+							"name": "Sam Ortiz"
+						}
+					]
+				}
+			]
+		},
+		"GET /api/friends/meetings": {
+			"meetings": [
+				{
+					"id": "meeting-club",
+					"title": "Robotics club planning",
+					"location": "Makerspace",
+					"start_time": "2026-10-13T17:00:00-04:00",
+					"end_time": "2026-10-13T18:00:00-04:00",
+					"time_zone": "America/New_York",
+					"frequency": "weekly",
+					"recurrence": "RRULE:FREQ=WEEKLY;BYDAY=TU;UNTIL=20261216T045959Z",
+					"repeat_until": "2026-12-15",
+					"invite_friends": true,
+					"role": "invitee",
+					"can_edit": false,
+					"can_delete": false,
+					"can_leave": true,
+					"owner": {
+						"id": "friend-jordan-6",
+						"name": "Jordan Brooks"
+					},
+					"friends": [
+						{
+							"id": "screenshot-user",
+							"name": "Sample Student"
+						},
+						{
+							"id": "friend-priya-2",
+							"name": "Priya Nair"
+						}
+					],
+					"destinations": [],
+					"publications": []
+				},
+				{
+					"id": "meeting-study",
+					"title": "Database study session",
+					"location": "Library, room 2",
+					"start_time": "2026-10-15T16:30:00-04:00",
+					"end_time": "2026-10-15T17:30:00-04:00",
+					"time_zone": "America/New_York",
+					"frequency": "one_time",
+					"recurrence": null,
+					"repeat_until": null,
+					"invite_friends": true,
+					"role": "owner",
+					"can_edit": true,
+					"can_delete": true,
+					"can_leave": false,
+					"owner": {
+						"id": "screenshot-user",
+						"name": "Sample Student"
+					},
+					"friends": [
+						{
+							"id": "friend-maya-4",
+							"name": "Maya Chen"
+						},
+						{
+							"id": "friend-jordan-6",
+							"name": "Jordan Brooks"
+						}
+					],
+					"destinations": ["ics"],
+					"publications": [
+						{
+							"provider": "ics",
+							"status": "published",
+							"invitation_status": "sent"
+						}
+					]
+				}
+			],
+			"occurrences": [
+				{
+					"id": "occurrence-club",
+					"meeting_id": "meeting-club",
+					"start_time": "2026-10-13T17:00:00-04:00",
+					"end_time": "2026-10-13T18:00:00-04:00"
+				},
+				{
+					"id": "occurrence-study",
+					"meeting_id": "meeting-study",
+					"start_time": "2026-10-15T16:30:00-04:00",
+					"end_time": "2026-10-15T17:30:00-04:00"
+				}
+			]
+		},
+		"GET /api/meeting_links": {
+			"meeting_links": [
+				{
+					"id": "link-checkin",
+					"title": "Project check-in",
+					"status": "active",
+					"starts_on": "2026-10-07",
+					"ends_on": "2026-10-20",
+					"duration_minutes": 30,
+					"created_at": "2026-10-05T14:00:00-04:00",
+					"expires_at": "2026-10-20T23:59:59-04:00",
+					"booking": null
+				}
+			]
+		},
+		"POST /api/meeting_links": {
+			"meeting_link": {
+				"id": "link-new",
+				"title": null,
+				"status": "active",
+				"starts_on": "2026-10-06",
+				"ends_on": "2026-10-09",
+				"duration_minutes": 30,
+				"created_at": "2026-10-06T12:00:00-04:00",
+				"expires_at": "2026-10-13T23:59:59-04:00",
+				"booking": null,
+				"url": "https://calendar.witcc.dev/meet/k7Qm2xRv9TpL4wNa"
+			}
+		},
+		"GET /api/friends/friend-priya-2/busy_blocks": {
+			"time_zone": "America/New_York",
+			"start_date": "2026-10-05",
+			"end_date": "2026-10-09",
+			"busy": [
+				{
+					"date": "2026-10-05",
+					"weekday": "monday",
+					"start": "10:00",
+					"end": "10:50"
+				},
+				{
+					"date": "2026-10-06",
+					"weekday": "tuesday",
+					"start": "12:30",
+					"end": "13:45"
+				},
+				{
+					"date": "2026-10-07",
+					"weekday": "wednesday",
+					"start": "10:00",
+					"end": "10:50"
+				},
+				{
+					"date": "2026-10-08",
+					"weekday": "thursday",
+					"start": "12:30",
+					"end": "13:45"
+				},
+				{
+					"date": "2026-10-09",
+					"weekday": "friday",
+					"start": "10:00",
+					"end": "10:50"
+				}
+			]
+		},
+		"GET /api/friends/friend-priya-2/processed_events/status": {
+			"processed": true
+		},
+		"GET /api/friends/friend-priya-2/processed_events": {
+			"classes": [
+				{
+					"title": "Linear Algebra",
+					"subject": "MATH",
+					"course_number": 2025,
+					"schedule_type": "lecture",
+					"prefix": "MATH",
+					"instructors": ["Sample Instructor"],
+					"term": {
+						"name": "Fall 2026",
+						"id": 202710,
+						"start_date": "2026-09-08",
+						"end_date": "2026-12-15"
+					},
+					"professor": {
+						"first_name": "Sample",
+						"last_name": "Instructor",
+						"email": ""
+					},
+					"meeting_times": [
+						{
+							"id": "priya-1-0",
+							"begin_time": "12:30",
+							"end_time": "13:45",
+							"start_date": "2026-09-08",
+							"end_date": "2026-12-15",
+							"location": {
+								"building": {
+									"name": "Wentworth Hall",
+									"abbreviation": "WENTW"
+								},
+								"rooms": ["212"]
+							},
+							"monday": false,
+							"tuesday": true,
+							"wednesday": false,
+							"thursday": true,
+							"friday": false,
+							"saturday": false,
+							"sunday": false
+						}
+					]
+				},
+				{
+					"title": "Computer Networks",
+					"subject": "COMP",
+					"course_number": 3100,
+					"schedule_type": "lecture",
+					"prefix": "COMP",
+					"instructors": ["Sample Instructor"],
+					"term": {
+						"name": "Fall 2026",
+						"id": 202710,
+						"start_date": "2026-09-08",
+						"end_date": "2026-12-15"
+					},
+					"professor": {
+						"first_name": "Sample",
+						"last_name": "Instructor",
+						"email": ""
+					},
+					"meeting_times": [
+						{
+							"id": "priya-2-0",
+							"begin_time": "10:00",
+							"end_time": "10:50",
+							"start_date": "2026-09-08",
+							"end_date": "2026-12-15",
+							"location": {
+								"building": {
+									"name": "Beatty Hall",
+									"abbreviation": "BEATY"
+								},
+								"rooms": ["301"]
+							},
+							"monday": true,
+							"tuesday": false,
+							"wednesday": true,
+							"thursday": false,
+							"friday": true,
+							"saturday": false,
+							"sunday": false
+						}
+					]
+				}
+			],
+			"notifications_disabled": false
+		},
+		"GET /api/friends/friend-maya-4/busy_blocks": {
+			"time_zone": "America/New_York",
+			"start_date": "2026-10-05",
+			"end_date": "2026-10-09",
+			"busy": [
+				{
+					"date": "2026-10-05",
+					"weekday": "monday",
+					"start": "09:00",
+					"end": "09:50"
+				},
+				{
+					"date": "2026-10-05",
+					"weekday": "monday",
+					"start": "14:30",
+					"end": "15:45"
+				},
+				{
+					"date": "2026-10-06",
+					"weekday": "tuesday",
+					"start": "11:00",
+					"end": "12:15"
+				},
+				{
+					"date": "2026-10-07",
+					"weekday": "wednesday",
+					"start": "09:00",
+					"end": "09:50"
+				},
+				{
+					"date": "2026-10-07",
+					"weekday": "wednesday",
+					"start": "14:30",
+					"end": "15:45"
+				},
+				{
+					"date": "2026-10-08",
+					"weekday": "thursday",
+					"start": "11:00",
+					"end": "12:15"
+				},
+				{
+					"date": "2026-10-09",
+					"weekday": "friday",
+					"start": "09:00",
+					"end": "09:50"
+				}
+			]
+		},
+		"GET /api/friends/friend-maya-4/processed_events/status": {
+			"processed": true
+		},
+		"GET /api/friends/friend-maya-4/processed_events": {
+			"classes": [
+				{
+					"title": "Calculus II",
+					"subject": "MATH",
+					"course_number": 1850,
+					"schedule_type": "lecture",
+					"prefix": "MATH",
+					"instructors": ["Sample Instructor"],
+					"term": {
+						"name": "Fall 2026",
+						"id": 202710,
+						"start_date": "2026-09-08",
+						"end_date": "2026-12-15"
+					},
+					"professor": {
+						"first_name": "Sample",
+						"last_name": "Instructor",
+						"email": ""
+					},
+					"meeting_times": [
+						{
+							"id": "maya-1-0",
+							"begin_time": "09:00",
+							"end_time": "09:50",
+							"start_date": "2026-09-08",
+							"end_date": "2026-12-15",
+							"location": {
+								"building": {
+									"name": "Wentworth Hall",
+									"abbreviation": "WENTW"
+								},
+								"rooms": ["210"]
+							},
+							"monday": true,
+							"tuesday": false,
+							"wednesday": true,
+							"thursday": false,
+							"friday": true,
+							"saturday": false,
+							"sunday": false
+						}
+					]
+				},
+				{
+					"title": "Data Structures",
+					"subject": "COMP",
+					"course_number": 2000,
+					"schedule_type": "lecture",
+					"prefix": "COMP",
+					"instructors": ["Sample Instructor"],
+					"term": {
+						"name": "Fall 2026",
+						"id": 202710,
+						"start_date": "2026-09-08",
+						"end_date": "2026-12-15"
+					},
+					"professor": {
+						"first_name": "Sample",
+						"last_name": "Instructor",
+						"email": ""
+					},
+					"meeting_times": [
+						{
+							"id": "maya-2-0",
+							"begin_time": "11:00",
+							"end_time": "12:15",
+							"start_date": "2026-09-08",
+							"end_date": "2026-12-15",
+							"location": {
+								"building": {
+									"name": "Beatty Hall",
+									"abbreviation": "BEATY"
+								},
+								"rooms": ["402"]
+							},
+							"monday": false,
+							"tuesday": true,
+							"wednesday": false,
+							"thursday": true,
+							"friday": false,
+							"saturday": false,
+							"sunday": false
+						}
+					]
+				},
+				{
+					"title": "Physics I",
+					"subject": "PHYS",
+					"course_number": 1250,
+					"schedule_type": "lecture",
+					"prefix": "PHYS",
+					"instructors": ["Sample Instructor"],
+					"term": {
+						"name": "Fall 2026",
+						"id": 202710,
+						"start_date": "2026-09-08",
+						"end_date": "2026-12-15"
+					},
+					"professor": {
+						"first_name": "Sample",
+						"last_name": "Instructor",
+						"email": ""
+					},
+					"meeting_times": [
+						{
+							"id": "maya-3-0",
+							"begin_time": "14:30",
+							"end_time": "15:45",
+							"start_date": "2026-09-08",
+							"end_date": "2026-12-15",
+							"location": {
+								"building": {
+									"name": "Dobbs",
+									"abbreviation": "DOBBS"
+								},
+								"rooms": ["104"]
+							},
+							"monday": true,
+							"tuesday": false,
+							"wednesday": true,
+							"thursday": false,
+							"friday": false,
+							"saturday": false,
+							"sunday": false
+						}
+					]
+				}
+			],
+			"notifications_disabled": false
+		},
+		"GET /api/friends/friend-jordan-6/busy_blocks": {
+			"time_zone": "America/New_York",
+			"start_date": "2026-10-05",
+			"end_date": "2026-10-09",
+			"busy": [
+				{
+					"date": "2026-10-05",
+					"weekday": "monday",
+					"start": "11:30",
+					"end": "12:20"
+				},
+				{
+					"date": "2026-10-06",
+					"weekday": "tuesday",
+					"start": "09:30",
+					"end": "10:45"
+				},
+				{
+					"date": "2026-10-07",
+					"weekday": "wednesday",
+					"start": "11:30",
+					"end": "12:20"
+				},
+				{
+					"date": "2026-10-08",
+					"weekday": "thursday",
+					"start": "09:30",
+					"end": "10:45"
+				},
+				{
+					"date": "2026-10-08",
+					"weekday": "thursday",
+					"start": "13:00",
+					"end": "15:45"
+				},
+				{
+					"date": "2026-10-09",
+					"weekday": "friday",
+					"start": "11:30",
+					"end": "12:20"
+				}
+			]
+		},
+		"GET /api/friends/friend-jordan-6/processed_events/status": {
+			"processed": true
+		},
+		"GET /api/friends/friend-jordan-6/processed_events": {
+			"classes": [
+				{
+					"title": "Digital Logic",
+					"subject": "ELEC",
+					"course_number": 1500,
+					"schedule_type": "lecture",
+					"prefix": "ELEC",
+					"instructors": ["Sample Instructor"],
+					"term": {
+						"name": "Fall 2026",
+						"id": 202710,
+						"start_date": "2026-09-08",
+						"end_date": "2026-12-15"
+					},
+					"professor": {
+						"first_name": "Sample",
+						"last_name": "Instructor",
+						"email": ""
+					},
+					"meeting_times": [
+						{
+							"id": "jordan-1-0",
+							"begin_time": "09:30",
+							"end_time": "10:45",
+							"start_date": "2026-09-08",
+							"end_date": "2026-12-15",
+							"location": {
+								"building": {
+									"name": "Ira Allen",
+									"abbreviation": "IRA"
+								},
+								"rooms": ["011"]
+							},
+							"monday": false,
+							"tuesday": true,
+							"wednesday": false,
+							"thursday": true,
+							"friday": false,
+							"saturday": false,
+							"sunday": false
+						}
+					]
+				},
+				{
+					"title": "Technical Writing",
+					"subject": "ENGL",
+					"course_number": 1100,
+					"schedule_type": "lecture",
+					"prefix": "ENGL",
+					"instructors": ["Sample Instructor"],
+					"term": {
+						"name": "Fall 2026",
+						"id": 202710,
+						"start_date": "2026-09-08",
+						"end_date": "2026-12-15"
+					},
+					"professor": {
+						"first_name": "Sample",
+						"last_name": "Instructor",
+						"email": ""
+					},
+					"meeting_times": [
+						{
+							"id": "jordan-2-0",
+							"begin_time": "11:30",
+							"end_time": "12:20",
+							"start_date": "2026-09-08",
+							"end_date": "2026-12-15",
+							"location": {
+								"building": {
+									"name": "Wentworth Hall",
+									"abbreviation": "WENTW"
+								},
+								"rooms": ["306"]
+							},
+							"monday": true,
+							"tuesday": false,
+							"wednesday": true,
+							"thursday": false,
+							"friday": true,
+							"saturday": false,
+							"sunday": false
+						}
+					]
+				},
+				{
+					"title": "Digital Logic - Lab",
+					"subject": "ELEC",
+					"course_number": 1500,
+					"schedule_type": "laboratory",
+					"prefix": "ELEC",
+					"instructors": ["Sample Instructor"],
+					"term": {
+						"name": "Fall 2026",
+						"id": 202710,
+						"start_date": "2026-09-08",
+						"end_date": "2026-12-15"
+					},
+					"professor": {
+						"first_name": "Sample",
+						"last_name": "Instructor",
+						"email": ""
+					},
+					"meeting_times": [
+						{
+							"id": "jordan-3-0",
+							"begin_time": "13:00",
+							"end_time": "15:45",
+							"start_date": "2026-09-08",
+							"end_date": "2026-12-15",
+							"location": {
+								"building": {
+									"name": "Ira Allen",
+									"abbreviation": "IRA"
+								},
+								"rooms": ["015"]
+							},
+							"monday": false,
+							"tuesday": false,
+							"wednesday": false,
+							"thursday": true,
+							"friday": false,
+							"saturday": false,
+							"sunday": false
+						}
+					]
+				}
+			],
+			"notifications_disabled": false
+		},
+		"GET /api/friends/friend-sam/busy_blocks": {
+			"time_zone": "America/New_York",
+			"start_date": "2026-10-05",
+			"end_date": "2026-10-09",
+			"busy": [
+				{
+					"date": "2026-10-05",
+					"weekday": "monday",
+					"start": "08:00",
+					"end": "09:15"
+				},
+				{
+					"date": "2026-10-06",
+					"weekday": "tuesday",
+					"start": "14:00",
+					"end": "15:15"
+				},
+				{
+					"date": "2026-10-07",
+					"weekday": "wednesday",
+					"start": "08:00",
+					"end": "09:15"
+				},
+				{
+					"date": "2026-10-08",
+					"weekday": "thursday",
+					"start": "14:00",
+					"end": "15:15"
+				},
+				{
+					"date": "2026-10-09",
+					"weekday": "friday",
+					"start": "09:00",
+					"end": "11:45"
+				}
+			]
+		},
+		"GET /api/friends/friend-sam/processed_events/status": {
+			"processed": true
+		},
+		"GET /api/friends/friend-sam/processed_events": {
+			"classes": [
+				{
+					"title": "Statics",
+					"subject": "MECH",
+					"course_number": 2100,
+					"schedule_type": "lecture",
+					"prefix": "MECH",
+					"instructors": ["Sample Instructor"],
+					"term": {
+						"name": "Fall 2026",
+						"id": 202710,
+						"start_date": "2026-09-08",
+						"end_date": "2026-12-15"
+					},
+					"professor": {
+						"first_name": "Sample",
+						"last_name": "Instructor",
+						"email": ""
+					},
+					"meeting_times": [
+						{
+							"id": "sam-1-0",
+							"begin_time": "08:00",
+							"end_time": "09:15",
+							"start_date": "2026-09-08",
+							"end_date": "2026-12-15",
+							"location": {
+								"building": {
+									"name": "Annex",
+									"abbreviation": "ANNEX"
+								},
+								"rooms": ["201"]
+							},
+							"monday": true,
+							"tuesday": false,
+							"wednesday": true,
+							"thursday": false,
+							"friday": false,
+							"saturday": false,
+							"sunday": false
+						}
+					]
+				},
+				{
+					"title": "Thermodynamics",
+					"subject": "MECH",
+					"course_number": 2400,
+					"schedule_type": "lecture",
+					"prefix": "MECH",
+					"instructors": ["Sample Instructor"],
+					"term": {
+						"name": "Fall 2026",
+						"id": 202710,
+						"start_date": "2026-09-08",
+						"end_date": "2026-12-15"
+					},
+					"professor": {
+						"first_name": "Sample",
+						"last_name": "Instructor",
+						"email": ""
+					},
+					"meeting_times": [
+						{
+							"id": "sam-2-0",
+							"begin_time": "14:00",
+							"end_time": "15:15",
+							"start_date": "2026-09-08",
+							"end_date": "2026-12-15",
+							"location": {
+								"building": {
+									"name": "Annex",
+									"abbreviation": "ANNEX"
+								},
+								"rooms": ["204"]
+							},
+							"monday": false,
+							"tuesday": true,
+							"wednesday": false,
+							"thursday": true,
+							"friday": false,
+							"saturday": false,
+							"sunday": false
+						}
+					]
+				},
+				{
+					"title": "Machine Shop",
+					"subject": "MECH",
+					"course_number": 1000,
+					"schedule_type": "laboratory",
+					"prefix": "MECH",
+					"instructors": ["Sample Instructor"],
+					"term": {
+						"name": "Fall 2026",
+						"id": 202710,
+						"start_date": "2026-09-08",
+						"end_date": "2026-12-15"
+					},
+					"professor": {
+						"first_name": "Sample",
+						"last_name": "Instructor",
+						"email": ""
+					},
+					"meeting_times": [
+						{
+							"id": "sam-3-0",
+							"begin_time": "09:00",
+							"end_time": "11:45",
+							"start_date": "2026-09-08",
+							"end_date": "2026-12-15",
+							"location": {
+								"building": {
+									"name": "Annex",
+									"abbreviation": "ANNEX"
+								},
+								"rooms": ["B01"]
+							},
+							"monday": false,
+							"tuesday": false,
+							"wednesday": false,
+							"thursday": false,
+							"friday": true,
+							"saturday": false,
+							"sunday": false
+						}
+					]
+				}
+			],
+			"notifications_disabled": false
+		}
+	}
 }

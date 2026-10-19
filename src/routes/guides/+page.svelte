@@ -57,10 +57,14 @@
                         {/if}
                         <p>{feature.summary}</p>
                     </li>
+
                     {/if}
                 {/each}
             </ul>
+
         </section>
+
+        <p class="text-center text-on-surface-variant">More guides coming soon...</p>
 
         <section>
             <h2 class="section-heading">For developers</h2>
