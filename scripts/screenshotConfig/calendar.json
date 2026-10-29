@@ -489,6 +489,21 @@
 			"email": "sample@example.invalid",
 			"ics_url": "https://example.invalid/sample.ics"
 		},
+		"GET /api/user/backfills": {
+			"past_terms": {
+				"completed": true,
+				"completed_at": "2026-09-08T12:00:00-04:00"
+			},
+			"academic_data": {
+				"completed": true,
+				"completed_at": "2026-09-08T12:00:00-04:00"
+			}
+		},
+		"GET /api/user/finals": {
+			"term_uid": 202710,
+			"schedule_published": false,
+			"finals": []
+		},
 		"GET /api/user/feature_flags": {
 			"feature_flags": {
 				"friendMeetingEvents": true,
