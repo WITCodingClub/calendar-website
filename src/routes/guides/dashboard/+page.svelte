@@ -8,7 +8,7 @@
 
 <Guide slug="dashboard">
     <p>
-        Your dashboard on this site has the same settings as the extension, plus a few that only live here.
+        Your dashboard on this site has the same settings and information as the extension, plus a few that only live here.
         Use it on any computer or phone, even one without the extension.
     </p>
 
@@ -17,24 +17,30 @@
         <a href="/users/sign_in" rel="external" data-sveltekit-reload>Sign in</a> with your WIT Google account
         or a passkey. Once you're signed in, you should see the Overview page.
     </p>
+    <Screenshot
+        src="/guides/dashboard/signin.webp"
+        width={2560}
+        height={1362}
+        maxWidth={400}
+        alt="The dashboard's Sign in page, with the Google and passkey buttons"
+    />
+
+    <h2 id="overview">Overview</h2>
+    <p>The first page shows where you are:</p>
+    <ul>
+        <li><strong>Current Term</strong> and <strong>Next Term</strong>, with how many courses you're taking.</li>
+        <li><strong>Calendar:</strong> whether a calendar is connected.</li>
+    </ul>
     <p>
         The menu on the side lists every page. On a phone, it moves to the bottom of the screen, and the less
         common pages are under <strong>More</strong>.
     </p>
     <Screenshot
         src="/guides/dashboard/overview.webp"
-        width={2560}
-        height={1362}
+        width={2082}
+        height={1352}
         alt="The dashboard's Overview page, with the menu on the side, the current and next term, and the calendar connection"
     />
-
-    <h2 id="overview">Overview</h2>
-    <p>The first page shows where you are:</p>
-    <ul>
-        <li><strong>Set up WIT Calendar:</strong> a checklist to install the extension, import your schedule, and connect a calendar. Each step has a button that takes you there.</li>
-        <li><strong>Current Term</strong> and <strong>Next Term</strong>, with how many courses you're taking.</li>
-        <li><strong>Calendar:</strong> whether a calendar is connected.</li>
-    </ul>
 
     <h2 id="schedule">Schedule</h2>
     <p>
@@ -57,7 +63,6 @@
             like "COMP 2350 — Object-Oriented Design".
         </li>
         <li><strong>University Calendar Events:</strong> add holidays, deadlines, and other events from the academic calendar, and choose which kinds you get. Holidays always sync.</li>
-        <li><strong>Event Type Overrides:</strong> different templates for one kind of class, such as labs. Select <strong>Reset</strong> to go back to the global defaults.</li>
     </ul>
     <ScreenshotRow>
         <Screenshot
@@ -95,12 +100,19 @@
     <p>
         For Apple Calendar or any other app, copy <strong>Your personal ICS URL</strong> and subscribe to it in the
         app. The feed updates every time you sync with the extension. The
-        <a href={resolve("/guides/getting-started")}>Getting started guide</a> has the steps for Outlook and Apple
+        <a href={resolve("/guides/getting-started#add-to-calendar")}>Getting started guide</a> has the steps for Outlook and Apple
         Calendar.
     </p>
     <p>
         <strong>Keep the link private.</strong> Anyone with it can see your full schedule, without a password.
     </p>
+    <Screenshot
+        src="/guides/dashboard/ics-url.webp"
+        width={617}
+        height={563}
+        maxWidth={400}
+        alt="The ICS URL, with the Your personal ICS URL and the Copy button"
+    />
 
     <h2 id="notifications">Notifications</h2>
     <ul>
@@ -120,19 +132,16 @@
     <p>
         The <strong>Friends</strong> page has your friends, your friend requests, and your private groups. Open a
         friend to see their schedule and change what you share with them. You can also make
-        <strong>meeting links</strong> here, so someone who isn't your friend can book a time with you. To learn
-        more, read the <a href={resolve("/guides/friends")}>Friends guide</a>.
+        <strong>meeting links</strong> here, so someone who isn't your friend can book a time with you.
     </p>
-    <p>
-        Approve a friend's request to move your friendship's end date later here, too. You get an email when one
-        is waiting.
-    </p>
+    <p>To learn more, read the <a href={resolve("/guides/friends")}>Friends guide</a>. Note that it is for the extension, not the dashboard.</p>
 
     <h2 id="settings">Settings</h2>
     <ul>
         <li><strong>Your account:</strong> your name, email, and <strong>User ID</strong>. Give your User ID to a friend so they can add you.</li>
-        <li><strong>Microsoft sign-in:</strong> remove a Microsoft account you sign in with. This doesn't sign you out.</li>
-        <li><strong>Connected apps:</strong> disconnect an <a href={resolve("/guides/mcp")}>AI assistant</a> you've connected.</li>
+        <li><strong>Connected Google Accounts:</strong> disconnect a Google account you've connected.</li>
+        <li><strong>Notifications:</strong> turn notifications on or off for your classes, university events, and friend emails.</li>
+        <li><strong>ICS Feed:</strong> copy your personal ICS URL and subscribe to it in your calendar app.</li>
         <li><strong>Sign out.</strong></li>
     </ul>
     <Screenshot
