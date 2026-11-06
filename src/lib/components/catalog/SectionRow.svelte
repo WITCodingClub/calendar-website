@@ -12,8 +12,10 @@
 
 <li data-crn={section.crn}>
     <p class="text-on-surface font-medium">
-        {#if showCourse}
+        {#if showCourse && section.course}
             <a href={resolve("/catalog/courses/[code]", { code: `${section.subject_code}${section.course_number}` })}>{section.course_code}: {section.title}</a>
+        {:else if showCourse}
+            {section.course_code}: {section.title}
         {:else}
             {section.course_code}
         {/if}

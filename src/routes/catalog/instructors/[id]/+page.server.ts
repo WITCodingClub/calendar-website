@@ -1,10 +1,9 @@
 import type { InstructorDetail } from '$lib/catalog';
-import { catalogGet, catalogTerms, selectedTerm } from '$lib/server/catalog';
+import { catalogGet, termChoice } from '$lib/server/catalog';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ params, url, setHeaders }) => {
-	const terms = await catalogTerms();
-	const term = await selectedTerm(url.searchParams.get('term_uid'), terms);
+	const { terms, term } = await termChoice(url.searchParams.get('term_uid'));
 	const instructor = await catalogGet<{ data: InstructorDetail }>(
 		`/instructors/${encodeURIComponent(params.id)}`,
 		{

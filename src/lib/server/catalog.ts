@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
 import { SITE_ORIGIN } from '../site.ts';
-import type { Term } from '../catalog.ts';
+import { pickTerm, type Term } from '../catalog.ts';
 
 // Requests to the backend's public catalog API. See catalog.ts.
 //
@@ -12,8 +12,9 @@ const API = `${SITE_ORIGIN}/api/v1/catalog`;
 const FRESH = 300;
 
 // The parsed JSON body of a catalog request. A 404 from the API is a 404
-// here, so the rproxy Worker then asks Rails, which answers 404 too. Any other
-// failure is a 503.
+// here. Any other failure is a 503. The rproxy Worker sends any answer of 400
+// or higher on to Rails, which has no /catalog route, so a visitor sees the
+// Rails 404 page in both cases.
 export async function catalogGet<T>(
 	path: string,
 	params: Record<string, string | number | null | undefined> = {}
@@ -63,14 +64,11 @@ export async function currentTerm(): Promise<Term | null> {
 	}
 }
 
-// The term of a term_uid query param, or the default: the current term when
-// it has sections, otherwise the newest term that has sections.
-export async function selectedTerm(param: string | null, terms: Term[]): Promise<Term | null> {
-	if (param) {
-		const term = terms.find((candidate) => String(candidate.uid) === param);
-		if (!term) error(404, 'Not found');
-		return term;
-	}
-	const current = await currentTerm();
-	return terms.find((term) => term.uid === current?.uid) ?? terms[0] ?? null;
+// The terms for the term picker and the term of a detail page. The two
+// requests run at the same time. See pickTerm.
+export async function termChoice(
+	param: string | null
+): Promise<{ terms: Term[]; term: Term | null }> {
+	const [terms, current] = await Promise.all([catalogTerms(), currentTerm()]);
+	return { terms, term: pickTerm(param, terms, current?.uid ?? null) };
 }
