@@ -30,12 +30,12 @@ export const GUIDES: Guide[] = [
 		title: 'Friends',
 		summary: 'Add friends, choose what each one sees, compare calendars, and find a time to meet.'
 	},
-	// {
-	// 	slug: 'dashboard',
-	// 	title: 'Your dashboard',
-	// 	summary:
-	// 		'Manage WIT-Calendar on the web: your schedule, calendar preferences, connected calendars, notifications, and account.'
-	// },
+	{
+		slug: 'dashboard',
+		title: 'Your dashboard',
+		summary:
+			'Manage WIT-Calendar on the web: your schedule, calendar preferences, connected calendars, notifications, and account.'
+	},
 	// {
 	// 	slug: 'mcp',
 	// 	title: 'Connect an AI assistant',
@@ -71,12 +71,12 @@ export const FEATURES: Feature[] = [
 			'Add friends, compare calendars, and find a time to meet. Share your full schedule or only when you are busy.',
 		guide: 'friends'
 	},
-	// {
-	// 	name: 'Dashboard',
-	// 	summary:
-	// 		'Change your settings on the web, connect Google Calendar or Outlook, and get your calendar feed link.',
-	// 	guide: 'dashboard'
-	// },
+	{
+		name: 'Dashboard',
+		summary:
+			'Change your settings on the web, connect Google Calendar or Outlook, and get your calendar feed link.',
+		guide: 'dashboard'
+	},
 	// {
 	// 	name: 'AI assistants',
 	// 	summary: 'Connect Claude, ChatGPT, or Claude Code and ask about your schedule and the catalog.',
