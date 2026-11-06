@@ -7,6 +7,7 @@ import {
 	meetingLines,
 	oneDecimal,
 	pageParam,
+	pickTerm,
 	rmpSummary,
 	seasons,
 	seatsLine,
@@ -104,5 +105,22 @@ describe('catalog formatting', () => {
 
 	it('reads an exam date as a calendar date', () => {
 		assert.equal(shortDate('2026-12-15'), 'Tue, Dec 15');
+	});
+});
+
+describe('pickTerm', () => {
+	const terms = [
+		{ uid: 202730, name: 'Summer 2027' },
+		{ uid: 202720, name: 'Spring 2027' }
+	];
+
+	it('takes the term of the param when it is in the list', () => {
+		assert.equal(pickTerm('202720', terms, 202730)?.name, 'Spring 2027');
+	});
+
+	it('falls back to the current term, then the newest, for an unknown param', () => {
+		assert.equal(pickTerm('201410', terms, 202720)?.name, 'Spring 2027');
+		assert.equal(pickTerm(null, terms, 199910)?.name, 'Summer 2027');
+		assert.equal(pickTerm(null, [], null), null);
 	});
 });

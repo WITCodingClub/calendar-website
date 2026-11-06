@@ -70,6 +70,9 @@ export type Section = {
 		end_time: string;
 		location: string | null;
 	} | null;
+	// Null until the backend stores the catalog entry of the course. The course
+	// page needs it, so link to the page only when it is set.
+	course?: { code: string } | null;
 };
 
 export type RequisiteNode =
@@ -130,6 +133,19 @@ export function withQuery(
 export function pageParam(value: string | null): number {
 	const page = Number.parseInt(value ?? '', 10);
 	return Number.isFinite(page) && page > 1 ? page : 1;
+}
+
+// The term of a term_uid query param when it is in the list. Otherwise the
+// default: the current term when it has sections, else the newest term that
+// has sections. An old bookmark with a term that has no sections left gets
+// the default, not a 404.
+export function pickTerm(
+	param: string | null,
+	terms: Term[],
+	currentUid: number | null
+): Term | null {
+	const chosen = param ? terms.find((term) => String(term.uid) === param) : undefined;
+	return chosen ?? terms.find((term) => term.uid === currentUid) ?? terms[0] ?? null;
 }
 
 // "4.2 / 5 from 31 ratings", or null when there are no ratings.
