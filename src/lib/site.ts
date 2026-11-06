@@ -91,6 +91,20 @@ const pageMeta: Record<string, PageMeta> = {
 			{ title: `${SITE_NAME} - ${doc.title}`, description: doc.description }
 		])
 	),
+	'/catalog': {
+		title: `${SITE_NAME} - Course Catalog`,
+		description:
+			'Browse Wentworth courses and instructors: descriptions, prerequisites, sections, and ratings.'
+	},
+	'/catalog/courses': {
+		title: `${SITE_NAME} - Courses`,
+		description: 'Search the Wentworth course catalog: descriptions, prerequisites, and sections.'
+	},
+	'/catalog/instructors': {
+		title: `${SITE_NAME} - Instructors`,
+		description:
+			'Wentworth instructors, the sections they teach, and their Rate My Professors ratings.'
+	},
 	'/privacy': {
 		title: `${SITE_NAME} - Privacy Policy`,
 		description: 'How WIT-Calendar collects, uses, and protects your information.'
