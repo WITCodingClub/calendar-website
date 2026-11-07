@@ -1,7 +1,9 @@
 <script lang="ts">
     import { resolve } from "$app/paths";
     import Guide from "$lib/components/Guide.svelte";
+    import CopyText from "$lib/components/CopyText.svelte";
     import Screenshot from "$lib/components/Screenshot.svelte";
+    import ScreenshotRow from "$lib/components/ScreenshotRow.svelte";
     import { DISCORD_URL, SITE_ORIGIN } from "$lib/site";
 
     const MCP_URL = `${SITE_ORIGIN}/api/mcp`;
@@ -15,8 +17,8 @@
         course fit my schedule?"
     </p>
     <p>
-        The connection is read-only. The assistant can't change your schedule, your settings, or anything
-        else, and you can disconnect it at any time.
+        You choose what the assistant can do when you connect it. Unless you allow more, it can only read:
+        it can't change your settings, your friends, or anything else. You can disconnect it at any time.
     </p>
 
     <h2 id="what-it-can-read">What it can read</h2>
@@ -27,44 +29,90 @@
         <li><strong>Your friends:</strong> your friends list, and the times your friends are busy. It sees when a friend is busy, but not which courses they take.</li>
         <li><strong>The university calendar:</strong> holidays, term dates, registration, deadlines, study days, finals week, and graduation.</li>
         <li><strong>The course catalog:</strong> terms, subjects, sections, courses with their prerequisites, instructors with their RateMyProfessor ratings, and reviews.</li>
+        <li><strong>Your calendar settings:</strong> your event titles, colors, reminders, and visibility.</li>
     </ul>
+    <p>
+        The course catalog and the university calendar are public, so the assistant can always read them.
+        When you connect, you can turn off reading your schedule, your friends, or your calendar settings.
+    </p>
     <p>All times are in Boston time (Eastern Time).</p>
+
+    <h2 id="what-it-can-change">What it can change, if you allow it</h2>
+    <p>
+        These are off unless you turn them on when you connect. With one on, you can ask the assistant to do
+        it for you, such as "Turn off my class reminders."
+    </p>
+    <ul>
+        <li><strong>Calendar settings:</strong> your event titles, colors, reminders, and visibility.</li>
+        <li><strong>Notifications:</strong> pause or resume your class reminders.</li>
+        <li><strong>Friend requests:</strong> send, accept, decline, and cancel them.</li>
+        <li><strong>Meetings with friends:</strong> create, change, cancel, and leave them.</li>
+        <li><strong>Friend groups:</strong> create, rename, and delete them, and add or remove members.</li>
+    </ul>
+
+    <p>See <a href="#allow">Sign in and allow the connection</a> for more details.</p>
 
     <h2 id="before-you-start">Before you start</h2>
     <p>
-        You need a WIT-Calendar account. If you have used the extension, you already have one. You sign
-        in with the same Google account, Microsoft account, or passkey as always.
+        You need a WIT-Calendar account. If you have used the extension, you already have one.
     </p>
-    <p>The address of the MCP server is:</p>
-    <pre><code>{MCP_URL}</code></pre>
 
-    <h2 id="claude">Connect Claude</h2>
+    <h2 id="claude">Connect Claude / Claude Code</h2>
     <ol>
-        <li>In Claude, open <strong>Settings</strong>, then <strong>Connectors</strong>.</li>
-        <li>Select <strong>Add custom connector</strong>.</li>
-        <li>Enter <code>{MCP_URL}</code> as the URL.</li>
+        <li>In Claude, open <strong>Settings</strong>, then <strong>Customize</strong>.</li>
+        <li>Click the <strong>+ Add</strong> button in the top right corner of the screen, then select <strong>+ Add custom connector</strong>.</li>
+        <li>Enter <CopyText text={MCP_URL} inline /> as the URL.</li>
         <li>Claude opens WIT-Calendar in your browser. <a href="#allow">Sign in and allow the connection</a>.</li>
     </ol>
-    <Screenshot alt="The Add custom connector dialog in Claude, with the WIT-Calendar URL" />
+    <Screenshot
+        src="/guides/mcp/add-custom-connector-claude.webp"
+        width={1029}
+        height={801}
+        maxWidth={600}
+        alt="Claude's Add custom connector dialog, with the name WIT-Calendar and the MCP server address filled in"
+    />
+
+    <p>For Claude Code, run this command in your terminal:</p>
+    <CopyText text="claude mcp add --transport http wit-calendar {MCP_URL}" />
+    <p>Then run <code>/mcp</code> in Claude Code, and choose <strong>wit-calendar</strong>.</p>
 
     <h2 id="chatgpt">Connect ChatGPT</h2>
-    <p>
-        Add a custom connector in ChatGPT's settings, and enter <code>{MCP_URL}</code> as the URL. ChatGPT
-        opens WIT-Calendar in your browser. <a href="#allow">Sign in and allow the connection</a>.
-    </p>
-    <Screenshot alt="Adding WIT-Calendar as a connector in ChatGPT" />
-
-    <h2 id="claude-code">Connect Claude Code</h2>
-    <p>Run this command in your terminal:</p>
-    <pre><code>claude mcp add --transport http wit-calendar {MCP_URL}</code></pre>
-    <p>
-        Then run <code>/mcp</code> in Claude Code, and choose <strong>wit-calendar</strong>. Claude Code opens
-        your browser. <a href="#allow">Sign in and allow the connection</a>.
-    </p>
+    <ol>
+        <li>In ChatGPT, open <strong>Settings</strong>, then <strong>Plugins</strong>.</li>
+        <li>Select <strong>Browse directory</strong>.</li>
+        <li>Select <strong>Add</strong> in the top right corner, then <strong>Add custom MCP server</strong>.</li>
+        <li>
+            Name it <strong>WIT-Calendar</strong>. Under <strong>Connection</strong>, keep <strong>Server URL</strong>
+            selected and enter <CopyText text={MCP_URL} inline />. Set <strong>Authentication</strong> to
+            <strong>OAuth</strong>.
+        </li>
+        <li>ChatGPT opens WIT-Calendar in your browser. <a href="#allow">Sign in and allow the connection</a>.</li>
+    </ol>
+    <ScreenshotRow>
+        <Screenshot
+            src="/guides/mcp/chatgpt-plugins.webp"
+            width={1059}
+            height={603}
+            alt="ChatGPT's Plugins settings, with the Browse directory button highlighted"
+        />
+        <Screenshot
+            src="/guides/mcp/chatgpt-add-custom-mcp.webp"
+            width={1453}
+            height={534}
+            alt="ChatGPT's plugin directory, with the Add menu open and Add custom MCP server highlighted"
+        />
+    </ScreenshotRow>
+    <Screenshot
+        src="/guides/mcp/chatgpt-add-custom-mcp-menu.webp"
+        width={758}
+        height={541}
+        maxWidth={758}
+        alt="ChatGPT's Add custom MCP server form, with the name WIT-Calendar, the MCP server address, and OAuth sign-in"
+    />
 
     <h2 id="other-apps">Other apps</h2>
     <p>
-        Any app that supports MCP servers with OAuth sign-in can connect. Give it <code>{MCP_URL}</code>,
+        Any app that supports MCP servers with OAuth sign-in can connect. Give it <CopyText text={MCP_URL} inline />,
         and it finds the rest by itself.
     </p>
 
@@ -76,7 +124,7 @@
     <ul>
         <li>The account you are signed in as.</li>
         <li>The address that the app sends you back to after you allow it.</li>
-        <li>What the app will be able to read.</li>
+        <li>What the app can read, and what it can change if you allow it. Uncheck anything you don't want it to have.</li>
         <li>For some apps, the website that published the app's name and addresses.</li>
     </ul>
     <p>
@@ -84,7 +132,13 @@
         select <strong>Allow</strong>. If you didn't start the connection from that app yourself, or the
         address looks wrong, select <strong>Deny</strong>.
     </p>
-    <Screenshot alt="The WIT-Calendar consent page, with the app's name, the return address, and the Allow and Deny buttons" />
+    <Screenshot
+        src="/guides/mcp/consent-page.webp"
+        width={781}
+        height={1595}
+        maxWidth={420}
+        alt="The WIT-Calendar consent page for claude.ai: what the app can read, what it can change if you allow it, and the Deny and Allow buttons"
+    />
 
     <h2 id="try-it">Try it</h2>
     <p>Ask the assistant about your schedule:</p>
@@ -102,26 +156,49 @@
         <li>"Do these CRNs have any time conflicts?"</li>
     </ul>
     <p>If the assistant asks which term you mean, tell it, or say "this term".</p>
-    <Screenshot alt="Claude answering a question about a student's schedule" />
-
-    <h2 id="staying-connected">Staying connected</h2>
-    <p>
-        You sign in once. The app keeps its access up to date by itself, so you don't have to sign in
-        again unless you disconnect it.
-    </p>
-    <p>
-        The app and the extension share one limit on how often they can read your data. If the assistant
-        says it hit a limit, wait a minute and ask again.
-    </p>
+    <ScreenshotRow>
+        <Screenshot
+            src="/guides/mcp/claude-select-question.webp"
+            width={885}
+            height={638}
+            alt="Claude's Connectors menu, with Add from WIT-Calendar open and its ready-made prompts, such as Check my schedule"
+        />
+        <Screenshot
+            src="/guides/mcp/claude-prompt-inputs.webp"
+            width={577}
+            height={283}
+            alt="The Enter prompt inputs dialog for check_my_schedule, with the term Fall 2026"
+        />
+    </ScreenshotRow>
+    <ScreenshotRow>
+        <Screenshot
+            src="/guides/mcp/claude-mid-prompt.webp"
+            width={1604}
+            height={885}
+            alt="Claude running the Check my schedule prompt and asking to use the my_courses tool from WIT-Calendar"
+        />
+        <Screenshot
+            src="/guides/mcp/claude-schedule.webp"
+            width={861}
+            height={769}
+            alt="Claude's answer: a week view of the student's Fall 2026 courses from WIT-Calendar"
+        />
+    </ScreenshotRow>
 
     <h2 id="disconnect">Disconnect an app</h2>
     <ol>
-        <li><a href="/users/sign_in" rel="external" data-sveltekit-reload>Sign in</a> on this site, and open <strong>Settings</strong> on your dashboard.</li>
-        <li>Find the <strong>Connected apps</strong> card. It lists every app that can read your schedule, with the address each app uses. The card shows up only while at least one app is connected.</li>
+        <li><a href="/users/sign_in" rel="external" data-sveltekit-reload>Sign in to your user dashboard</a>, then open <strong>Settings</strong>.</li>
+        <li>Find the <strong>Connected apps</strong> card. It lists every app that can use your WIT-Calendar data, with the address each app uses. The card shows up only while at least one app is connected.</li>
         <li>Select <strong>Disconnect</strong> next to the app, then confirm.</li>
     </ol>
     <p>The app can't read your data after that. To use it again, connect it again.</p>
-    <Screenshot alt="The Connected apps card in dashboard settings, with a Disconnect button" />
+    <Screenshot
+        src="/guides/mcp/connected-apps-card-user-dash.webp"
+        width={619}
+        height={755}
+        maxWidth={619}
+        alt="The dashboard's Settings page, with the Connected apps card highlighted, showing Claude and a Disconnect button"
+    />
 
     <h2 id="troubleshooting">Troubleshooting</h2>
     <h3>"Cannot connect this app"</h3>
@@ -129,7 +206,7 @@
     <ul>
         <li>
             <strong>"This server cannot issue a token for …"</strong>: the app was given the wrong address.
-            Remove the connector, and add it again with exactly <code>{MCP_URL}</code>.
+            Remove the connector, and add it again with exactly <CopyText text={MCP_URL} inline />.
         </li>
         <li>
             <strong>"This app's details could not be checked"</strong>: WIT-Calendar couldn't read the app's
@@ -145,7 +222,7 @@
     <h3>Still stuck?</h3>
     <p>
         Ask on <a href={DISCORD_URL} target="_blank" rel="external noopener noreferrer">Discord</a>, or
-        <a href={resolve("/contact")}>contact us</a>. Tell us which app you are connecting and what you see.
+        <a href={resolve("/contact")}>contact us</a>. Tell us which app you are connecting and what you see (include screenshots when applicable).
     </p>
 
     <h2 id="developers">For developers</h2>
