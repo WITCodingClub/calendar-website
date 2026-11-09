@@ -74,7 +74,7 @@ jobs:
         uses: peter-evans/create-pull-request@v8
         with:
           path: website
-          add-paths: static/guides/getting-started/*.webp
+          add-paths: static/guides/**/*.webp
           branch: screenshots/${{ steps.extension.outputs.ref }}
           commit-message: 'Update screenshots for extension ${{ steps.extension.outputs.ref }}'
           title: 'Update screenshots for extension ${{ steps.extension.outputs.ref }}'
