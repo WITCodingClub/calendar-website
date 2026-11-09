@@ -498,9 +498,7 @@
 							"course_number": 2025,
 							"schedule_type": "lecture",
 							"prefix": "MATH",
-							"instructors": [
-								"Sample Instructor"
-							],
+							"instructors": ["Sample Instructor"],
 							"term": {
 								"name": "Fall 2026",
 								"id": 202710,
@@ -524,9 +522,7 @@
 											"name": "Wentworth Hall",
 											"abbreviation": "WENTW"
 										},
-										"rooms": [
-											"212"
-										]
+										"rooms": ["212"]
 									},
 									"monday": false,
 									"tuesday": true,
@@ -544,9 +540,7 @@
 							"course_number": 3100,
 							"schedule_type": "lecture",
 							"prefix": "COMP",
-							"instructors": [
-								"Sample Instructor"
-							],
+							"instructors": ["Sample Instructor"],
 							"term": {
 								"name": "Fall 2026",
 								"id": 202710,
@@ -570,9 +564,7 @@
 											"name": "Beatty Hall",
 											"abbreviation": "BEATY"
 										},
-										"rooms": [
-											"301"
-										]
+										"rooms": ["301"]
 									},
 									"monday": true,
 									"tuesday": false,
@@ -595,9 +587,7 @@
 							"course_number": 1850,
 							"schedule_type": "lecture",
 							"prefix": "MATH",
-							"instructors": [
-								"Sample Instructor"
-							],
+							"instructors": ["Sample Instructor"],
 							"term": {
 								"name": "Fall 2026",
 								"id": 202710,
@@ -621,9 +611,7 @@
 											"name": "Wentworth Hall",
 											"abbreviation": "WENTW"
 										},
-										"rooms": [
-											"210"
-										]
+										"rooms": ["210"]
 									},
 									"monday": true,
 									"tuesday": false,
@@ -641,9 +629,7 @@
 							"course_number": 2000,
 							"schedule_type": "lecture",
 							"prefix": "COMP",
-							"instructors": [
-								"Sample Instructor"
-							],
+							"instructors": ["Sample Instructor"],
 							"term": {
 								"name": "Fall 2026",
 								"id": 202710,
@@ -667,9 +653,7 @@
 											"name": "Beatty Hall",
 											"abbreviation": "BEATY"
 										},
-										"rooms": [
-											"402"
-										]
+										"rooms": ["402"]
 									},
 									"monday": false,
 									"tuesday": true,
@@ -687,9 +671,7 @@
 							"course_number": 1250,
 							"schedule_type": "lecture",
 							"prefix": "PHYS",
-							"instructors": [
-								"Sample Instructor"
-							],
+							"instructors": ["Sample Instructor"],
 							"term": {
 								"name": "Fall 2026",
 								"id": 202710,
@@ -713,9 +695,7 @@
 											"name": "Dobbs",
 											"abbreviation": "DOBBS"
 										},
-										"rooms": [
-											"104"
-										]
+										"rooms": ["104"]
 									},
 									"monday": true,
 									"tuesday": false,
@@ -738,9 +718,7 @@
 							"course_number": 1500,
 							"schedule_type": "lecture",
 							"prefix": "ELEC",
-							"instructors": [
-								"Sample Instructor"
-							],
+							"instructors": ["Sample Instructor"],
 							"term": {
 								"name": "Fall 2026",
 								"id": 202710,
@@ -764,9 +742,7 @@
 											"name": "Ira Allen",
 											"abbreviation": "IRA"
 										},
-										"rooms": [
-											"011"
-										]
+										"rooms": ["011"]
 									},
 									"monday": false,
 									"tuesday": true,
@@ -784,9 +760,7 @@
 							"course_number": 1100,
 							"schedule_type": "lecture",
 							"prefix": "ENGL",
-							"instructors": [
-								"Sample Instructor"
-							],
+							"instructors": ["Sample Instructor"],
 							"term": {
 								"name": "Fall 2026",
 								"id": 202710,
@@ -810,9 +784,7 @@
 											"name": "Wentworth Hall",
 											"abbreviation": "WENTW"
 										},
-										"rooms": [
-											"306"
-										]
+										"rooms": ["306"]
 									},
 									"monday": true,
 									"tuesday": false,
@@ -830,9 +802,7 @@
 							"course_number": 1500,
 							"schedule_type": "laboratory",
 							"prefix": "ELEC",
-							"instructors": [
-								"Sample Instructor"
-							],
+							"instructors": ["Sample Instructor"],
 							"term": {
 								"name": "Fall 2026",
 								"id": 202710,
@@ -856,9 +826,7 @@
 											"name": "Ira Allen",
 											"abbreviation": "IRA"
 										},
-										"rooms": [
-											"015"
-										]
+										"rooms": ["015"]
 									},
 									"monday": false,
 									"tuesday": false,
@@ -881,9 +849,7 @@
 							"course_number": 2100,
 							"schedule_type": "lecture",
 							"prefix": "MECH",
-							"instructors": [
-								"Sample Instructor"
-							],
+							"instructors": ["Sample Instructor"],
 							"term": {
 								"name": "Fall 2026",
 								"id": 202710,
@@ -907,9 +873,7 @@
 											"name": "Annex",
 											"abbreviation": "ANNEX"
 										},
-										"rooms": [
-											"201"
-										]
+										"rooms": ["201"]
 									},
 									"monday": true,
 									"tuesday": false,
@@ -927,9 +891,7 @@
 							"course_number": 2400,
 							"schedule_type": "lecture",
 							"prefix": "MECH",
-							"instructors": [
-								"Sample Instructor"
-							],
+							"instructors": ["Sample Instructor"],
 							"term": {
 								"name": "Fall 2026",
 								"id": 202710,
@@ -953,9 +915,7 @@
 											"name": "Annex",
 											"abbreviation": "ANNEX"
 										},
-										"rooms": [
-											"204"
-										]
+										"rooms": ["204"]
 									},
 									"monday": false,
 									"tuesday": true,
@@ -973,9 +933,7 @@
 							"course_number": 1000,
 							"schedule_type": "laboratory",
 							"prefix": "MECH",
-							"instructors": [
-								"Sample Instructor"
-							],
+							"instructors": ["Sample Instructor"],
 							"term": {
 								"name": "Fall 2026",
 								"id": 202710,
@@ -999,9 +957,7 @@
 											"name": "Annex",
 											"abbreviation": "ANNEX"
 										},
-										"rooms": [
-											"B01"
-										]
+										"rooms": ["B01"]
 									},
 									"monday": false,
 									"tuesday": false,
