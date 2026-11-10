@@ -25,8 +25,8 @@
 		'/guides',
 		...GUIDES.map((guide) => guidePath(guide.slug)),
 		...DOCS.map((doc) => docPath(doc.slug)),
-		'/contact',
 		'/changelog',
+		'/contact',
 		'/privacy',
 		'/tos',
 		'/security'
