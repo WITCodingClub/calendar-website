@@ -10,7 +10,7 @@ const pages = ['privacy', 'tos'];
 const lastUpdated = /Last updated.*?(\w+ \d{1,2}, \d{4})/s;
 
 function read(path: string): string {
-	return readFileSync(new URL(path, import.meta.url), 'utf8');
+	return readFileSync(new URL(path, import.meta.url), 'utf8').replace(/\r\n/g, '\n');
 }
 
 function pageSource(page: string): string {

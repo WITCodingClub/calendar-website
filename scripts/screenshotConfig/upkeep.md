@@ -15,14 +15,14 @@ npx playwright install chromium
 
 1. Edit the website's `scripts/screenshotConfig/config.json`. Keep the fixed date within the sample schedule's term; update `calendar.json` if needed.
 2. From the **website root**, choose a command:
-  ```sh
-   npm run screenshots
-  ```
-   This reuses the existing build in `../calendar-extension/extension/`. To build the extension before capturing instead:
-   If your extension checkout is elsewhere, specify its root (quote paths containing spaces):
-   Omit `--build` to reuse that checkout's existing build. Relative checkout paths resolve from your current directory. Use `--help` for available options. The selected checkout's current code is built; the script does not download or switch extension versions.
-3. Review the generated `.webp` images in `static/guides/getting-started/`. Run `npm run dev` in the website root to check them in the guide. Adjust the config and rerun until they look right.
-4. Commit and push the final config, any changed sample data, screenshots, and relevant guide changes together in your website PR.
+
+```sh
+ npm run screenshots
+```
+
+This reuses the existing build in `../calendar-extension/extension/`. To build the extension before capturing instead:
+If your extension checkout is elsewhere, specify its root (quote paths containing spaces):
+Omit `--build` to reuse that checkout's existing build. Relative checkout paths resolve from your current directory. Use `--help` for available options. The selected checkout's current code is built; the script does not download or switch extension versions. 3. Review the generated `.webp` images in `static/guides/getting-started/`. Run `npm run dev` in the website root to check them in the guide. Adjust the config and rerun until they look right. 4. Commit and push the final config, any changed sample data, screenshots, and relevant guide changes together in your website PR.
 
 The runner reads the website config directly, so no copying back is needed. Each entry produces `<name>.webp`. Its `outputDir` overrides the default destination and resolves relative to the config folder; current entries use `../../static/guides/getting-started`. Matching filenames are overwritten; old images are not automatically removed.
 
