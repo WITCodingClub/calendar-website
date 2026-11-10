@@ -14,7 +14,10 @@ export type ExtensionAnnounce = {
 	returning?: boolean;
 };
 
-export type ExtensionTarget = Pick<Window, 'addEventListener' | 'removeEventListener' | 'postMessage'> & {
+export type ExtensionTarget = Pick<
+	Window,
+	'addEventListener' | 'removeEventListener' | 'postMessage'
+> & {
 	location: { origin: string };
 	document: {
 		documentElement: { dataset: DOMStringMap };

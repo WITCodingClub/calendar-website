@@ -60,9 +60,13 @@
 						>Visit our website<bdt class="block-component"></bdt> at
 						<span style="color: rgb(0, 58, 250);"
 							><bdt class="question noTranslate"
-								><a target="_blank" class="mr-1" data-custom-class="link" href="https://calendar.witcc.dev"
-									>https://calendar.witcc.dev </a
-								></bdt
+								><a
+									target="_blank"
+									class="mr-1"
+									data-custom-class="link"
+									href="https://calendar.witcc.dev"
+									>https://calendar.witcc.dev
+								</a></bdt
 							></span
 						><span style="font-size: 15px;"
 							><span style="color: rgb(89, 89, 89);"
@@ -70,7 +74,7 @@
 									><span style="font-size: 15px;"
 										><span style="color: rgb(89, 89, 89);"
 											><bdt class="statement-end-if-in-editor">
-												 or any website of ours that links to this Privacy Notice</bdt
+												or any website of ours that links to this Privacy Notice</bdt
 											></span
 										></span
 									></span
@@ -155,9 +159,14 @@
 						still have any questions or concerns, please contact us at
 						<bdt class="question noTranslate"
 							><a target="_blank" data-custom-class="link" href="mailto:calendarwit@gmail.com"
-								>calendarwit@gmail.com</a>, <a target="_blank" data-custom-class="link" href="mailto:lambertl@wit.edu"
-								>lambertl@wit.edu</a>, and <a target="_blank" data-custom-class="link" href="mailto:mayonej@wit.edu"
-								>mayonej@wit.edu</a></bdt
+								>calendarwit@gmail.com</a
+							>,
+							<a target="_blank" data-custom-class="link" href="mailto:lambertl@wit.edu"
+								>lambertl@wit.edu</a
+							>, and
+							<a target="_blank" data-custom-class="link" href="mailto:mayonej@wit.edu"
+								>mayonej@wit.edu</a
+							></bdt
 						>.</span
 					></span
 				></span
@@ -312,8 +321,8 @@
 		<div style="line-height: 1.5;">
 			<span style="font-size: 15px;"
 				><span data-custom-class="body_text"
-					><strong>What are your rights?</strong> Depending on where you are located geographically,
-					the applicable privacy law may mean you have certain rights regarding your personal information.
+					><strong>What are your rights?</strong> Depending on where you are located geographically, the
+					applicable privacy law may mean you have certain rights regarding your personal information.
 					Learn more about&nbsp;</span
 				></span
 			><a data-custom-class="link" href="#privacyrights"
@@ -330,8 +339,8 @@
 					is by <bdt class="block-component"></bdt>
 					<span style="color: rgb(0, 58, 250);"><bdt class="question"></bdt></span><bdt
 						class="else-block"
-					></bdt> contacting us. We will consider and act upon any request in accordance with
-					applicable data protection laws.</span
+					></bdt> contacting us. We will consider and act upon any request in accordance with applicable
+					data protection laws.</span
 				></span
 			>
 		</div>
@@ -772,7 +781,9 @@
 		<div style="line-height: 1.5;">
 			<span style="font-size: 15px;"
 				><strong
-					><span data-custom-class="heading_2"><h3>Anonymous usage counts in the extension</h3></span></strong
+					><span data-custom-class="heading_2"
+						><h3>Anonymous usage counts in the extension</h3></span
+					></strong
 				></span
 			>
 		</div>
@@ -780,8 +791,8 @@
 			<span style="font-size: 15px; color: rgb(89, 89, 89);"
 				><span data-custom-class="body_text"
 					><strong><em>In Short:&nbsp;</em></strong><em>
-						If you turn them on, the extension sends us anonymous counts of how often some features are
-						used. They are off until you choose.</em
+						If you turn them on, the extension sends us anonymous counts of how often some features
+						are used. They are off until you choose.</em
 					></span
 				></span
 			>
@@ -790,11 +801,11 @@
 		<div style="line-height: 1.5;">
 			<span style="font-size: 15px; color: rgb(89, 89, 89);"
 				><span data-custom-class="body_text"
-					>After you sign in, the WIT-Calendar extension asks if you want to share anonymous usage counts.
-					The counts are off until you turn them on. You can turn them on or off at any time in the extension
-					Settings ("Share anonymous usage counts"). In Firefox, the extension also needs the optional
-					"technical and interaction data" permission, which you can remove in the Firefox add-on
-					settings.</span
+					>After you sign in, the WIT-Calendar extension asks if you want to share anonymous usage
+					counts. The counts are off until you turn them on. You can turn them on or off at any time
+					in the extension Settings ("Share anonymous usage counts"). In Firefox, the extension also
+					needs the optional "technical and interaction data" permission, which you can remove in
+					the Firefox add-on settings.</span
 				></span
 			>
 		</div>
@@ -802,16 +813,17 @@
 		<div style="line-height: 1.5;">
 			<span style="font-size: 15px; color: rgb(89, 89, 89);"
 				><span data-custom-class="body_text"
-					>When the counts are on, the extension sends a message when some actions happen, for example when
-					a schedule import succeeds or fails, when you sign in, or when you copy your calendar link. Each
-					message contains only:</span
+					>When the counts are on, the extension sends a message when some actions happen, for
+					example when a schedule import succeeds or fails, when you sign in, or when you copy your
+					calendar link. Each message contains only:</span
 				></span
 			>
 		</div>
 		<ul>
 			<li data-custom-class="body_text" style="line-height: 1.5;">
 				<span style="font-size: 15px; color: rgb(89, 89, 89);"
-					><span data-custom-class="body_text">the name of the action, from a fixed list</span></span
+					><span data-custom-class="body_text">the name of the action, from a fixed list</span
+					></span
 				>
 			</li>
 			<li data-custom-class="body_text" style="line-height: 1.5;">
@@ -821,18 +833,19 @@
 			</li>
 			<li data-custom-class="body_text" style="line-height: 1.5;">
 				<span style="font-size: 15px; color: rgb(89, 89, 89);"
-					><span data-custom-class="body_text">the browser name (Chrome, Edge, or Firefox)</span></span
+					><span data-custom-class="body_text">the browser name (Chrome, Edge, or Firefox)</span
+					></span
 				>
 			</li>
 		</ul>
 		<div style="line-height: 1.5;">
 			<span style="font-size: 15px; color: rgb(89, 89, 89);"
 				><span data-custom-class="body_text"
-					>The messages do not contain your name, email address, account, sign-in token, or schedule. We
-					do not link the counts to you or to your account. We keep only totals for each action, extension
-					version, and browser, and we use them only to learn which parts of WIT-Calendar students use and
-					what to improve. As with any request to our servers, your IP address can appear in short-term
-					server logs, but we do not store it with the counts.</span
+					>The messages do not contain your name, email address, account, sign-in token, or
+					schedule. We do not link the counts to you or to your account. We keep only totals for
+					each action, extension version, and browser, and we use them only to learn which parts of
+					WIT-Calendar students use and what to improve. As with any request to our servers, your IP
+					address can appear in short-term server logs, but we do not store it with the counts.</span
 				></span
 			>
 		</div>
@@ -867,7 +880,8 @@
 		<div style="line-height: 1.5;">
 			<span style="font-size: 15px;"
 				><strong
-					><span data-custom-class="heading_2"><h3>Microsoft account and Outlook calendar</h3></span></strong
+					><span data-custom-class="heading_2"><h3>Microsoft account and Outlook calendar</h3></span
+					></strong
 				></span
 			>
 		</div>
@@ -875,8 +889,9 @@
 			<span style="font-size: 15px; color: rgb(89, 89, 89);"
 				><span data-custom-class="body_text"
 					><strong><em>In Short:&nbsp;</em></strong><em>
-						If you sign in with Microsoft or connect an Outlook calendar, we receive limited information
-						from Microsoft. Both features are optional, and you can disconnect at any time.</em
+						If you sign in with Microsoft or connect an Outlook calendar, we receive limited
+						information from Microsoft. Both features are optional, and you can disconnect at any
+						time.</em
 					></span
 				></span
 			>
@@ -885,8 +900,8 @@
 		<div style="line-height: 1.5;">
 			<span style="font-size: 15px; color: rgb(89, 89, 89);"
 				><span data-custom-class="body_text"
-					>Where these features are available, you can use your WIT Microsoft account in two ways. Each
-					one is separate, and each one needs your permission.</span
+					>Where these features are available, you can use your WIT Microsoft account in two ways.
+					Each one is separate, and each one needs your permission.</span
 				></span
 			>
 		</div>
@@ -895,10 +910,11 @@
 			<span style="font-size: 15px; color: rgb(89, 89, 89);"
 				><span data-custom-class="body_text"
 					><strong>Sign in with Microsoft.</strong> When you sign in to the WIT-Calendar dashboard with
-					your WIT Microsoft account, Microsoft sends us your name, your email address, the ID of the WIT
-					Microsoft organization, and the ID of your account in that organization. We store these values
-					to find your WIT-Calendar account the next time you sign in. The sign-in does not ask for access
-					to your calendar, mail, or files, and we do not keep a Microsoft access token for it.</span
+					your WIT Microsoft account, Microsoft sends us your name, your email address, the ID of the
+					WIT Microsoft organization, and the ID of your account in that organization. We store these
+					values to find your WIT-Calendar account the next time you sign in. The sign-in does not ask
+					for access to your calendar, mail, or files, and we do not keep a Microsoft access token for
+					it.</span
 				></span
 			>
 		</div>
@@ -915,29 +931,30 @@
 			<li data-custom-class="body_text" style="line-height: 1.5;">
 				<span style="font-size: 15px; color: rgb(89, 89, 89);"
 					><span data-custom-class="body_text"
-						>Read and write your calendars. Microsoft grants this permission for all your calendars. You
-						choose where your course events go: a separate "WIT Courses" calendar that WIT-Calendar creates,
-						or your main calendar, where your classes show as busy to people who can see your availability.
-						WIT-Calendar also creates meeting events in your main calendar when you use the meeting
-						features below. It reads and changes only the course and meeting events that it creates,
-						including responses to its meeting invitations. It does not read your other events.</span
+						>Read and write your calendars. Microsoft grants this permission for all your calendars.
+						You choose where your course events go: a separate "WIT Courses" calendar that
+						WIT-Calendar creates, or your main calendar, where your classes show as busy to people
+						who can see your availability. WIT-Calendar also creates meeting events in your main
+						calendar when you use the meeting features below. It reads and changes only the course
+						and meeting events that it creates, including responses to its meeting invitations. It
+						does not read your other events.</span
 					></span
 				>
 			</li>
 			<li data-custom-class="body_text" style="line-height: 1.5;">
 				<span style="font-size: 15px; color: rgb(89, 89, 89);"
 					><span data-custom-class="body_text"
-						>Read and write your mailbox settings. WIT-Calendar uses this permission only to read your
-						list of Outlook categories and to add "WIT" color categories for your course events. It does
-						not read your mail.</span
+						>Read and write your mailbox settings. WIT-Calendar uses this permission only to read
+						your list of Outlook categories and to add "WIT" color categories for your course
+						events. It does not read your mail.</span
 					></span
 				>
 			</li>
 			<li data-custom-class="body_text" style="line-height: 1.5;">
 				<span style="font-size: 15px; color: rgb(89, 89, 89);"
 					><span data-custom-class="body_text"
-						>Keep access while you are away. This lets us update your course and meeting events without
-						a new sign-in each time.</span
+						>Keep access while you are away. This lets us update your course and meeting events
+						without a new sign-in each time.</span
 					></span
 				>
 			</li>
@@ -945,10 +962,10 @@
 		<div style="line-height: 1.5;">
 			<span style="font-size: 15px; color: rgb(89, 89, 89);"
 				><span data-custom-class="body_text"
-					>For the calendar sync, we store the access token and the refresh token that Microsoft gives
-					us, the IDs of the calendars that hold your course and meeting events, and the ID, title,
-					location, and times of each event that we create. We use the stored course event details to see which fields you changed in
-					Outlook, so that a sync keeps your changes.</span
+					>For the calendar sync, we store the access token and the refresh token that Microsoft
+					gives us, the IDs of the calendars that hold your course and meeting events, and the ID,
+					title, location, and times of each event that we create. We use the stored course event
+					details to see which fields you changed in Outlook, so that a sync keeps your changes.</span
 				></span
 			>
 		</div>
@@ -956,12 +973,13 @@
 		<div style="line-height: 1.5;">
 			<span style="font-size: 15px; color: rgb(89, 89, 89);"
 				><span data-custom-class="body_text"
-					>You can disconnect your Microsoft account on the WIT-Calendar dashboard. When you disconnect
-					the calendar, we delete your course and meeting events from Outlook, and the "WIT Courses"
-					calendar if you use one. We also delete your Microsoft tokens from our database. If Microsoft
-					does not answer at that moment, the calendar or some events can stay in Outlook, and you can
-					delete them there. Meeting records stay in WIT-Calendar; reconnecting can publish them and
-					send invitations again. Delete a meeting in WIT-Calendar to cancel it.</span
+					>You can disconnect your Microsoft account on the WIT-Calendar dashboard. When you
+					disconnect the calendar, we delete your course and meeting events from Outlook, and the
+					"WIT Courses" calendar if you use one. We also delete your Microsoft tokens from our
+					database. If Microsoft does not answer at that moment, the calendar or some events can
+					stay in Outlook, and you can delete them there. Meeting records stay in WIT-Calendar;
+					reconnecting can publish them and send invitations again. Delete a meeting in WIT-Calendar
+					to cancel it.</span
 				></span
 			>
 		</div>
@@ -970,8 +988,9 @@
 			<span style="font-size: 15px; color: rgb(89, 89, 89);"
 				><span data-custom-class="body_text"
 					>We use the information that we receive from Microsoft only to provide the sign-in and the
-					calendar and meeting features you choose. Meeting invitations share the meeting and attendee
-					details described below. We do not sell Microsoft information or use it for advertising.</span
+					calendar and meeting features you choose. Meeting invitations share the meeting and
+					attendee details described below. We do not sell Microsoft information or use it for
+					advertising.</span
 				></span
 			>
 		</div>
@@ -992,17 +1011,17 @@
 		</div>
 		<ul>
 			<li data-custom-class="body_text" style="line-height: 1.5;">
-				<strong>Full sharing.</strong> Your friend can see course titles and codes, the term, class
-				dates and times, buildings and rooms, instructor details, and calendar settings, including
-				custom event titles and descriptions. This is the default for new requests unless you choose
-				otherwise, and for friendships created before availability-only sharing was added.
+				<strong>Full sharing.</strong> Your friend can see course titles and codes, the term, class dates
+				and times, buildings and rooms, instructor details, and calendar settings, including custom event
+				titles and descriptions. This is the default for new requests unless you choose otherwise, and
+				for friendships created before availability-only sharing was added.
 			</li>
 			<li data-custom-class="body_text" style="line-height: 1.5;">
 				<strong>Availability-only sharing.</strong> Your friend can see busy blocks with dates, start
 				and end times, and the time zone. These include classes, final exams, and meetings recorded in
-				WIT-Calendar. Overlapping blocks are combined. The response contains no course titles or
-				codes, instructors, locations, or meeting details, and access to your full course schedule
-				is blocked on our servers. Meeting invitations separately share the details described below.
+				WIT-Calendar. Overlapping blocks are combined. The response contains no course titles or codes,
+				instructors, locations, or meeting details, and access to your full course schedule is blocked
+				on our servers. Meeting invitations separately share the details described below.
 			</li>
 		</ul>
 		<div data-custom-class="body_text" style="line-height: 1.5;">
@@ -1011,11 +1030,11 @@
 			friend's level. Either person can remove the friendship to stop further schedule access.
 		</div>
 		<div data-custom-class="body_text" style="line-height: 1.5;">
-			<strong>Temporary friendships.</strong> You can set an end date on a request. Schedule access
-			ends at expiry, even before the expired record is removed. A date without a time means the end
-			of that day in America/New_York. Either person can shorten the duration. Extending it or making
-			it permanent requires the other person's acceptance on the dashboard; a proposal alone does
-			not extend access. After expiry, a new request is required.
+			<strong>Temporary friendships.</strong> You can set an end date on a request. Schedule access ends
+			at expiry, even before the expired record is removed. A date without a time means the end of that
+			day in America/New_York. Either person can shorten the duration. Extending it or making it permanent
+			requires the other person's acceptance on the dashboard; a proposal alone does not extend access.
+			After expiry, a new request is required.
 		</div>
 		<div data-custom-class="body_text" style="line-height: 1.5;">
 			We store requests, the people in each friendship, each person's sharing level, end dates, and
@@ -1038,25 +1057,25 @@
 		</div>
 		<div data-custom-class="body_text" style="line-height: 1.5;">
 			Inviting friends is optional. The extension starts with invitations selected; review that
-			choice before creating a meeting. When you invite friends, the app shows them the
-			meeting's title, location, times, recurrence, and the organizer's and selected friends' names
-			and user IDs. It appears in their meeting list and counts as busy time without an acceptance
-			step in WIT-Calendar. A connected Google or Microsoft calendar provider sends the invitations
-			using the organizer's account. Meeting details and attendee names and email addresses are
-			shared with that provider and can be visible to the other attendees. An invitation can add
-			the event to a recipient's calendar according to that provider's settings. An ICS feed cannot
-			send invitations, but includes attendee names and email addresses when invitations are selected;
+			choice before creating a meeting. When you invite friends, the app shows them the meeting's
+			title, location, times, recurrence, and the organizer's and selected friends' names and user
+			IDs. It appears in their meeting list and counts as busy time without an acceptance step in
+			WIT-Calendar. A connected Google or Microsoft calendar provider sends the invitations using
+			the organizer's account. Meeting details and attendee names and email addresses are shared
+			with that provider and can be visible to the other attendees. An invitation can add the event
+			to a recipient's calendar according to that provider's settings. An ICS feed cannot send
+			invitations, but includes attendee names and email addresses when invitations are selected;
 			anyone with that feed's URL can read them.
 		</div>
 		<div data-custom-class="body_text" style="line-height: 1.5;">
-			Only the organizer can edit or cancel the meeting. Invited friends can leave it in WIT-Calendar.
-			Declining the whole invitation in Google Calendar or Outlook also removes a friend when the
-			organizer's next sync reads the response; declining one occurrence of a weekly meeting does
-			not remove the friend from the series. Removing a friendship removes each person from the
-			other's meetings; expired friendships are removed from meetings during cleanup. Future
-			invitations are updated through the provider. To cancel a meeting, delete it in WIT-Calendar:
-			deleting only the external event can cause a later sync to recreate it. Provider updates and
-			deletions can be delayed or fail, so an external event or invitation may remain.
+			Only the organizer can edit or cancel the meeting. Invited friends can leave it in
+			WIT-Calendar. Declining the whole invitation in Google Calendar or Outlook also removes a
+			friend when the organizer's next sync reads the response; declining one occurrence of a weekly
+			meeting does not remove the friend from the series. Removing a friendship removes each person
+			from the other's meetings; expired friendships are removed from meetings during cleanup.
+			Future invitations are updated through the provider. To cancel a meeting, delete it in
+			WIT-Calendar: deleting only the external event can cause a later sync to recreate it. Provider
+			updates and deletions can be delayed or fail, so an external event or invitation may remain.
 		</div>
 		<div style="line-height: 1.5;">
 			<h3>One-time meeting links</h3>
@@ -1069,20 +1088,20 @@
 			Treat the link as private: someone you send it to can forward it.
 		</div>
 		<div data-custom-class="body_text" style="line-height: 1.5;">
-			To book, the guest provides a name and email address and chooses a time. We store those details
-			with the meeting and share them with the organizer and the calendar provider that sends the
-			invitation, or include them in the organizer's ICS feed. We send the guest a confirmation email
-			whose reply address is the organizer's email. If the guest is signed in, we also record their
-			account ID with the booking. Signing in does not create a friendship or grant full schedule
-			access, and the meeting is published to the organizer's calendars; the guest receives an
-			invitation when a connected provider can send one.
+			To book, the guest provides a name and email address and chooses a time. We store those
+			details with the meeting and share them with the organizer and the calendar provider that
+			sends the invitation, or include them in the organizer's ICS feed. We send the guest a
+			confirmation email whose reply address is the organizer's email. If the guest is signed in, we
+			also record their account ID with the booking. Signing in does not create a friendship or
+			grant full schedule access, and the meeting is published to the organizer's calendars; the
+			guest receives an invitation when a connected provider can send one.
 		</div>
 		<div data-custom-class="body_text" style="line-height: 1.5;">
 			We store the link's title, date range, meeting length, expiry, booking or revocation status,
 			and a hash of its secret token. The link accepts only one booking and stops accepting bookings
 			after use, expiry, or revocation. You can revoke an unused link in the meeting link controls.
-			Revoking or expiring a link does not cancel an already booked meeting or erase its stored data.
-			Changing visibility or removing a friend stops future schedule access, but cannot erase
+			Revoking or expiring a link does not cancel an already booked meeting or erase its stored
+			data. Changing visibility or removing a friend stops future schedule access, but cannot erase
 			information already received, saved, or copied by another person or their calendar provider.
 			See sections 5 and 13 for retention and data requests, including requests from guests without
 			an account.
@@ -1395,20 +1414,20 @@
 			<li data-custom-class="body_text" style="line-height: 1.5;">
 				<span style="font-size: 15px; color: rgb(89, 89, 89);"
 					><span data-custom-class="body_text"
-						><strong>To share schedules and arrange meetings.&nbsp;</strong>We use your friendship and
-						visibility settings to share the schedule information you allow, find possible meeting times,
-						create and update meetings, and send invitations, booking confirmations, and friendship
-						notifications. See "Friends and schedule sharing", "Meetings with friends", and "One-time
-						meeting links" above.</span
+						><strong>To share schedules and arrange meetings.&nbsp;</strong>We use your friendship
+						and visibility settings to share the schedule information you allow, find possible
+						meeting times, create and update meetings, and send invitations, booking confirmations,
+						and friendship notifications. See "Friends and schedule sharing", "Meetings with
+						friends", and "One-time meeting links" above.</span
 					></span
 				>
 			</li>
 			<li data-custom-class="body_text" style="line-height: 1.5;">
 				<span style="font-size: 15px; color: rgb(89, 89, 89);"
 					><span data-custom-class="body_text"
-						><strong>To improve our Services.&nbsp;</strong>If you turn on anonymous usage counts in the
-						extension, we use the totals to learn which features students use. See "Anonymous usage counts in
-						the extension" above.</span
+						><strong>To improve our Services.&nbsp;</strong>If you turn on anonymous usage counts in
+						the extension, we use the totals to learn which features students use. See "Anonymous
+						usage counts in the extension" above.</span
 					></span
 				>
 			</li>
@@ -1623,14 +1642,24 @@
 																									>
 																								</div>
 																								<ul>
-																									<li data-custom-class="body_text" style="line-height: 1.5;">
-																										<strong>Friends, meeting guests, and calendar providers.</strong> We share your schedule
-																										or availability according to each friendship's sharing level, and the limited details
-																										shown by a meeting link with anyone holding it. Bookings share the guest's name, email,
-																										and chosen time with the organizer. Publishing meetings and sending invitations shares
-																										meeting details and attendee names and email addresses with the selected Google or
-																										Microsoft provider, other attendees, or people with access to the ICS feed. See "Friends
-																										and schedule sharing", "Meetings with friends", and "One-time meeting links" above.
+																									<li
+																										data-custom-class="body_text"
+																										style="line-height: 1.5;"
+																									>
+																										<strong
+																											>Friends, meeting guests, and calendar
+																											providers.</strong
+																										> We share your schedule or availability according
+																										to each friendship's sharing level, and the limited
+																										details shown by a meeting link with anyone holding
+																										it. Bookings share the guest's name, email, and chosen
+																										time with the organizer. Publishing meetings and sending
+																										invitations shares meeting details and attendee names
+																										and email addresses with the selected Google or Microsoft
+																										provider, other attendees, or people with access to
+																										the ICS feed. See "Friends and schedule sharing",
+																										"Meetings with friends", and "One-time meeting links"
+																										above.
 																									</li>
 																									<li
 																										data-custom-class="body_text"
@@ -1638,12 +1667,11 @@
 																									>
 																										<span style="font-size: 15px;"
 																											><span data-custom-class="body_text"
-																												><strong>Business Transfers.</strong> We may
-																												share or transfer your information in connection
-																												with, or during negotiations of, any merger,
-																												sale of company assets, financing, or acquisition
-																												of all or a portion of our business to another
-																												company.</span
+																												><strong>Business Transfers.</strong> We may share
+																												or transfer your information in connection with,
+																												or during negotiations of, any merger, sale of
+																												company assets, financing, or acquisition of all
+																												or a portion of our business to another company.</span
 																											></span
 																										>
 																									</li>
@@ -1947,9 +1975,9 @@
 																																			class="block-component"
 																																		></bdt>fulfill<bdt
 																																			class="statement-end-if-in-editor"
-																																		></bdt> the purposes outlined in
-																																		this Privacy Notice unless otherwise
-																																		required by law.</em
+																																		></bdt> the purposes outlined in this
+																																		Privacy Notice unless otherwise required
+																																		by law.</em
 																																	></span
 																																></span
 																															></span
@@ -1989,7 +2017,10 @@
 																																		></span
 																																	><bdt class="block-component"
 																																	></bdt>the period of time in which
-																																	users have an account with us, or, for a guest without an account, while the organizer keeps the booked meeting<bdt
+																																	users have an account with us, or,
+																																	for a guest without an account,
+																																	while the organizer keeps the
+																																	booked meeting<bdt
 																																		class="block-component"
 																																	></bdt><span
 																																		style="font-size: 15px;"
@@ -2235,14 +2266,22 @@
 																																			></bdt><bdt class="question"
 																																				><a
 																																					target="_blank"
-																																					data-custom-class="link" href="mailto:calendarwit@gmail.com"
-																																					>calendarwit@gmail.com</a>, <a
+																																					data-custom-class="link"
+																																					href="mailto:calendarwit@gmail.com"
+																																					>calendarwit@gmail.com</a
+																																				>,
+																																				<a
 																																					target="_blank"
-																																					data-custom-class="link" href="mailto:lambertl@wit.edu"
-																																					>lambertl@wit.edu</a>, and <a
+																																					data-custom-class="link"
+																																					href="mailto:lambertl@wit.edu"
+																																					>lambertl@wit.edu</a
+																																				>, and
+																																				<a
 																																					target="_blank"
-																																					data-custom-class="link" href="mailto:mayonej@wit.edu"
-																																					>mayonej@wit.edu</a></bdt
+																																					data-custom-class="link"
+																																					href="mailto:mayonej@wit.edu"
+																																					>mayonej@wit.edu</a
+																																				></bdt
 																																			><bdt class="else-block"
 																																			></bdt></span
 																																		></span
@@ -2525,14 +2564,22 @@
 																																	class="question noTranslate"
 																																	><a
 																																		target="_blank"
-																																		data-custom-class="link" href="mailto:calendarwit@gmail.com"
-																																		>calendarwit@gmail.com</a>, <a
+																																		data-custom-class="link"
+																																		href="mailto:calendarwit@gmail.com"
+																																		>calendarwit@gmail.com</a
+																																	>,
+																																	<a
 																																		target="_blank"
-																																		data-custom-class="link" href="mailto:lambertl@wit.edu"
-																																		>lambertl@wit.edu</a>, and <a
+																																		data-custom-class="link"
+																																		href="mailto:lambertl@wit.edu"
+																																		>lambertl@wit.edu</a
+																																	>, and
+																																	<a
 																																		target="_blank"
-																																		data-custom-class="link" href="mailto:mayonej@wit.edu"
-																																		>mayonej@wit.edu</a></bdt
+																																		data-custom-class="link"
+																																		href="mailto:mayonej@wit.edu"
+																																		>mayonej@wit.edu</a
+																																	></bdt
 																																>.</span
 																															></span
 																														><bdt class="statement-end-if-in-editor"
@@ -2702,8 +2749,8 @@
 																																		Delaware, Florida, Indiana, Iowa,
 																																		Kentucky, Maryland, Minnesota, Montana,
 																																		Nebraska, New Hampshire, New Jersey,
-																																		Oregon, Rhode Island, Tennessee,
-																																		Texas, Utah, or Virginia<bdt
+																																		Oregon, Rhode Island, Tennessee, Texas,
+																																		Utah, or Virginia<bdt
 																																			class="else-block"
 																																		></bdt>, you may have the right
 																																		to request access to and receive
@@ -2809,7 +2856,7 @@
 																																		></span
 																																	></th
 																																><th
-																																	style="width: 14.9084%; border-right: 1px solid black; border-top: 1px solid black; text-align: center; text-align: left;"
+																																	style="width: 14.9084%; border-right: 1px solid black; border-top: 1px solid black; text-align: left;"
 																																	><span
 																																		style="font-size: 15px; color: rgb(89, 89, 89);"
 																																		><span
@@ -4105,8 +4152,7 @@
 																																										></bdt>"selling"<bdt
 																																											class="statement-end-if-in-editor"
 																																										></bdt>
-																																										of your personal
-																																										information.<span
+																																										of your personal information.<span
 																																											style="color: rgb(89, 89, 89); font-size: 15px;"
 																																											><span
 																																												data-custom-class="body_text"
@@ -4134,10 +4180,31 @@
 																																									style="font-size: 15px; color: rgb(89, 89, 89);"
 																																									><span
 																																										data-custom-class="body_text"
-																																										>We have not sold personal information in the preceding twelve (12) months and will not sell it.
-																																													We share schedules, availability, meeting details, and contact information with the friends,
-																																													meeting guests, and calendar providers involved in the features you use, as described in
-																																													"WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?" above.<span
+																																										>We have not
+																																										sold personal
+																																										information in
+																																										the preceding
+																																										twelve (12)
+																																										months and will
+																																										not sell it. We
+																																										share schedules,
+																																										availability,
+																																										meeting details,
+																																										and contact
+																																										information with
+																																										the friends,
+																																										meeting guests,
+																																										and calendar
+																																										providers
+																																										involved in the
+																																										features you
+																																										use, as
+																																										described in
+																																										"WHEN AND WITH
+																																										WHOM DO WE SHARE
+																																										YOUR PERSONAL
+																																										INFORMATION?"
+																																										above.<span
 																																											style="color: rgb(89, 89, 89);"
 																																											><span
 																																												data-custom-class="body_text"
@@ -4388,14 +4455,14 @@
 																																										out</strong
 																																									>
 																																									of the processing of
-																																									your personal data
-																																									if it is used for targeted
+																																									your personal data if
+																																									it is used for targeted
 																																									advertising<bdt
 																																										class="block-component"
 																																									></bdt>
 																																									(or sharing as defined
-																																									under California’s
-																																									privacy law)<bdt
+																																									under California’s privacy
+																																									law)<bdt
 																																										class="statement-end-if-in-editor"
 																																									></bdt>, the sale
 																																									of personal data,
@@ -4719,7 +4786,10 @@
 																																											style="color: rgb(0, 58, 250);"
 																																											><bdt
 																																												class="question"
-																																												>calendarwit@gmail.com, lambertl@wit.edu, and mayonej@wit.edu</bdt
+																																												>calendarwit@gmail.com,
+																																												lambertl@wit.edu,
+																																												and
+																																												mayonej@wit.edu</bdt
 																																											></span
 																																										>,
 																																										<bdt
@@ -4742,14 +4812,22 @@
 																																														class="question"
 																																														><a
 																																															target="_blank"
-																																															data-custom-class="link" href="mailto:calendarwit@gmail.com"
-																																															>calendarwit@gmail.com</a>, <a
+																																															data-custom-class="link"
+																																															href="mailto:calendarwit@gmail.com"
+																																															>calendarwit@gmail.com</a
+																																														>,
+																																														<a
 																																															target="_blank"
-																																															data-custom-class="link" href="mailto:lambertl@wit.edu"
-																																															>lambertl@wit.edu</a>, and <a
+																																															data-custom-class="link"
+																																															href="mailto:lambertl@wit.edu"
+																																															>lambertl@wit.edu</a
+																																														>, and
+																																														<a
 																																															target="_blank"
-																																															data-custom-class="link" href="mailto:mayonej@wit.edu"
-																																															>mayonej@wit.edu</a></bdt
+																																															data-custom-class="link"
+																																															href="mailto:mayonej@wit.edu"
+																																															>mayonej@wit.edu</a
+																																														></bdt
 																																													>,
 																																													<bdt
 																																														class="statement-end-if-in-editor"
@@ -4819,9 +4897,9 @@
 																																										class="statement-end-if-in-editor"
 																																									></bdt>
 																																									agent to make a request
-																																									on your behalf. We
-																																									may deny a request
-																																									from an
+																																									on your behalf. We may
+																																									deny a request from
+																																									an
 																																									<bdt
 																																										class="block-component"
 
@@ -4911,12 +4989,11 @@
 																																									information to verify
 																																									your identity before
 																																									processing your request
-																																									and the agent will
-																																									need to provide a written
+																																									and the agent will need
+																																									to provide a written
 																																									and signed permission
-																																									from you to submit
-																																									such request on your
-																																									behalf.</span
+																																									from you to submit such
+																																									request on your behalf.</span
 																																								></span
 																																							><bdt
 																																								class="block-component"
@@ -4949,14 +5026,22 @@
 																																										class="question noTranslate"
 																																										><a
 																																											target="_blank"
-																																											data-custom-class="link" href="mailto:calendarwit@gmail.com"
-																																											>calendarwit@gmail.com</a>, <a
+																																											data-custom-class="link"
+																																											href="mailto:calendarwit@gmail.com"
+																																											>calendarwit@gmail.com</a
+																																										>,
+																																										<a
 																																											target="_blank"
-																																											data-custom-class="link" href="mailto:lambertl@wit.edu"
-																																											>lambertl@wit.edu</a>, and <a
+																																											data-custom-class="link"
+																																											href="mailto:lambertl@wit.edu"
+																																											>lambertl@wit.edu</a
+																																										>, and
+																																										<a
 																																											target="_blank"
-																																											data-custom-class="link" href="mailto:mayonej@wit.edu"
-																																											>mayonej@wit.edu</a></bdt
+																																											data-custom-class="link"
+																																											href="mailto:mayonej@wit.edu"
+																																											>mayonej@wit.edu</a
+																																										></bdt
 																																									><bdt
 																																										class="else-block"
 																																									></bdt>. We will
@@ -5026,13 +5111,12 @@
 																																										class="statement-end-if-in-editor"
 																																									></bdt>
 																																									law, permits our users
-																																									who are California
-																																									residents to request
-																																									and obtain from us,
-																																									once a year and free
-																																									of charge, information
-																																									about categories of
-																																									personal information
+																																									who are California residents
+																																									to request and obtain
+																																									from us, once a year
+																																									and free of charge,
+																																									information about categories
+																																									of personal information
 																																									(if any) we disclosed
 																																									to third parties for
 																																									direct marketing purposes
@@ -5040,10 +5124,9 @@
 																																									of all third parties
 																																									with which we shared
 																																									personal information
-																																									in the immediately
-																																									preceding calendar
-																																									year. If you are a
-																																									California resident
+																																									in the immediately preceding
+																																									calendar year. If you
+																																									are a California resident
 																																									and would like to make
 																																									such a request, please
 																																									submit your request
@@ -5259,19 +5342,18 @@
 																																										></bdt> date at the
 																																										top of this Privacy
 																																										Notice. If we make
-																																										material changes
-																																										to this Privacy Notice,
+																																										material changes to
+																																										this Privacy Notice,
 																																										we may notify you
 																																										either by prominently
-																																										posting a notice
-																																										of such changes or
-																																										by directly sending
-																																										you a notification.
-																																										We encourage you
-																																										to review this Privacy
-																																										Notice frequently
-																																										to be informed of
-																																										how we are protecting
+																																										posting a notice of
+																																										such changes or by
+																																										directly sending you
+																																										a notification. We
+																																										encourage you to review
+																																										this Privacy Notice
+																																										frequently to be informed
+																																										of how we are protecting
 																																										your information.</span
 																																									></span
 																																								></span
@@ -5342,15 +5424,23 @@
 																																													class="question noTranslate"
 																																													><a
 																																														target="_blank"
-																																														data-custom-class="link" href="mailto:calendarwit@gmail.com"
-																																														>calendarwit@gmail.com</a>, <a
+																																														data-custom-class="link"
+																																														href="mailto:calendarwit@gmail.com"
+																																														>calendarwit@gmail.com</a
+																																													>,
+																																													<a
 																																														target="_blank"
-																																														data-custom-class="link" href="mailto:lambertl@wit.edu"
-																																														>lambertl@wit.edu</a>, and <a
+																																														data-custom-class="link"
+																																														href="mailto:lambertl@wit.edu"
+																																														>lambertl@wit.edu</a
+																																													>, and
+																																													<a
 																																														target="_blank"
-																																														data-custom-class="link" href="mailto:mayonej@wit.edu"
-																																														>mayonej@wit.edu</a> </bdt
-																																												><bdt
+																																														data-custom-class="link"
+																																														href="mailto:mayonej@wit.edu"
+																																														>mayonej@wit.edu</a
+																																													>
+																																												</bdt><bdt
 																																													class="statement-end-if-in-editor"
 																																													><bdt
 																																														class="block-component"
@@ -5364,8 +5454,8 @@
 																																												style="font-size: 15px; color: rgb(89, 89, 89);"
 																																												><span
 																																													data-custom-class="body_text"
-																																													></span
-																																												></span
+
+																																												></span></span
 																																											></span
 																																										></span
 																																									></span
@@ -5396,8 +5486,8 @@
 																																														data-custom-class="body_text"
 																																														><bdt
 																																															class="question noTranslate"
-																																															></bdt
-																																														></span
+
+																																														></bdt></span
 																																													></span
 																																												></span
 																																											></span
@@ -5427,8 +5517,7 @@
 																																									data-custom-class="body_text"
 																																									><bdt
 																																										class="question noTranslate"
-																																										></bdt
-																																									><span
+																																									></bdt><span
 																																										style="color: rgb(89, 89, 89);"
 																																										><span
 																																											style="font-size: 15px;"
@@ -5449,8 +5538,7 @@
 																																									data-custom-class="body_text"
 																																									><bdt
 																																										class="question"
-																																										></bdt
-																																									><span
+																																									></bdt><span
 																																										style="color: rgb(89, 89, 89);"
 																																										><span
 																																											style="font-size: 15px;"
@@ -5624,7 +5712,10 @@
 																																											style="color: rgb(0, 58, 250);"
 																																											><bdt
 																																												class="question"
-																																												>calendarwit@gmail.com, lambertl@wit.edu, and mayonej@wit.edu</bdt
+																																												>calendarwit@gmail.com,
+																																												lambertl@wit.edu,
+																																												and
+																																												mayonej@wit.edu</bdt
 																																											></span
 																																										><bdt
 																																											class="else-block"
@@ -5676,7 +5767,7 @@
 </div>
 
 <style>
-	[data-custom-class="body"] {
+	[data-custom-class='body'] {
 		color: var(--color-on-background);
 		font-size: 15px;
 		line-height: 1.6;
@@ -5706,35 +5797,35 @@
 		margin: 1.5rem 0 0.75rem;
 	}
 
-	[data-custom-class="title"] {
+	[data-custom-class='title'] {
 		color: var(--color-on-background);
 		font-size: 2rem;
 		font-weight: 700;
 	}
 
-	[data-custom-class="subtitle"] {
+	[data-custom-class='subtitle'] {
 		color: var(--color-on-surface-variant);
 		font-size: 0.9375rem;
 	}
 
-	[data-custom-class="body_text"],
-	span[data-custom-class="body_text"] {
+	[data-custom-class='body_text'],
+	span[data-custom-class='body_text'] {
 		color: var(--color-on-background);
 		font-size: 15px;
 		line-height: 1.6;
 	}
 
-	[data-custom-class="heading_1"] {
+	[data-custom-class='heading_1'] {
 		color: var(--color-on-background);
 		font-weight: 600;
 	}
 
-	[data-custom-class="heading_2"] {
+	[data-custom-class='heading_2'] {
 		color: var(--color-on-background);
 		font-weight: 600;
 	}
 
-	a[data-custom-class="link"],
+	a[data-custom-class='link'],
 	a {
 		color: var(--color-primary);
 		text-decoration: underline;
@@ -5742,7 +5833,7 @@
 		transition: opacity 0.2s;
 	}
 
-	a[data-custom-class="link"]:hover,
+	a[data-custom-class='link']:hover,
 	a:hover {
 		opacity: 0.8;
 	}
@@ -5791,30 +5882,30 @@
 		background-color: var(--color-surface);
 	}
 
-	div[style*="line-height"] {
+	div[style*='line-height'] {
 		margin: 0.5rem 0;
 	}
 
-	span[style*="color: rgb(89, 89, 89)"],
-	span[style*="color: rgb(127, 127, 127)"] {
+	span[style*='color: rgb(89, 89, 89)'],
+	span[style*='color: rgb(127, 127, 127)'] {
 		color: var(--color-on-surface-variant) !important;
 	}
 
-	span[style*="color: rgb(0, 58, 250)"] {
+	span[style*='color: rgb(0, 58, 250)'] {
 		color: var(--color-primary) !important;
 	}
 
-	span[style*="font-size: 15px"] {
+	span[style*='font-size: 15px'] {
 		font-size: 15px;
 	}
 
-	span[style*="font-size: 26px"] {
+	span[style*='font-size: 26px'] {
 		font-size: 1.625rem;
 	}
 
 	br {
 		display: block;
 		margin: 0.5rem 0;
-		content: "";
+		content: '';
 	}
 </style>

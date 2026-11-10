@@ -1,5 +1,5 @@
 <div data-custom-class="body">
-	<div align="center" style="text-align: left;">
+	<div data-align="center" style="text-align: left;">
 		<div class="MsoNormal" data-custom-class="title" style="line-height: 1.5;">
 			<bdt class="block-component"><span style="font-size: 19px;"></span></bdt><bdt class="question"
 				><strong><h1>TERMS OF SERVICE</h1></strong></bdt
@@ -16,12 +16,12 @@
 			>
 		</div>
 	</div>
-	<div align="center" style="text-align: left;">
+	<div data-align="center" style="text-align: left;">
 		<div class="MsoNormal" id="agreement" style="line-height: 1.5;">
-			<a name="_6aa3gkhykvst"></a>
+			<a id="_6aa3gkhykvst"></a>
 		</div>
 	</div>
-	<div align="center" style="text-align: left;">
+	<div data-align="center" style="text-align: left;">
 		<div class="MsoNormal" data-custom-class="body_text" style="line-height: 1.5;">
 			<span
 				style="font-size:11.0pt;line-height:115%;font-family:Arial;
@@ -46,8 +46,7 @@ mso-themetint:166;"
 								style="font-size:11.0pt;line-height:115%;
 Arial;mso-fareast-font-family:Calibri;color:#595959;mso-themecolor:text1;
 mso-themetint:166;"><bdt class="block-component"></bdt></span
-							>, a club at WIT in<bdt class="block-component"></bdt><bdt
-								class="block-component"
+							>, a club at WIT in<bdt class="block-component"></bdt><bdt class="block-component"
 							></bdt><bdt class="block-component"></bdt>
 							<span
 								style="font-size:11.0pt;line-height:115%;
@@ -66,7 +65,7 @@ mso-themetint:166;"
 					></span
 				></span
 			>
-			 <bdt class="question noTranslate"></bdt><bdt class="block-component"></bdt>
+			<bdt class="question noTranslate"></bdt><bdt class="block-component"></bdt>
 			<bdt class="question noTranslate"></bdt><span style="font-size: 15px;"
 				><span data-custom-class="body_text"
 					><span style="font-size: 15px;"
@@ -91,8 +90,8 @@ mso-themetint:166;"><bdt class="else-block"></bdt></span
 			><bdt class="statement-end-if-in-editor">.</bdt><bdt class="block-component"></bdt>
 		</div>
 	</div>
-	<div align="center" style="line-height: 1;"><br /></div>
-	<div align="center" style="text-align: left;">
+	<div data-align="center" style="line-height: 1;"><br /></div>
+	<div data-align="center" style="text-align: left;">
 		<div class="MsoNormal" data-custom-class="body_text" style="line-height: 1.5;">
 			<span
 				style="font-size:11.0pt;line-height:115%;font-family:Arial;
@@ -137,9 +136,14 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 				>You can contact us by <bdt class="block-component"
 					>email at <bdt class="question noTranslate"
 						><a target="_blank" data-custom-class="link" href="mailto:calendarwit@gmail.com"
-							>calendarwit@gmail.com</a>, <a target="_blank" data-custom-class="link" href="mailto:lambertl@wit.edu"
-							>lambertl@wit.edu</a>, and <a target="_blank" data-custom-class="link" href="mailto:mayonej@wit.edu"
-							>mayonej@wit.edu</a></bdt
+							>calendarwit@gmail.com</a
+						>,
+						<a target="_blank" data-custom-class="link" href="mailto:lambertl@wit.edu"
+							>lambertl@wit.edu</a
+						>, and
+						<a target="_blank" data-custom-class="link" href="mailto:mayonej@wit.edu"
+							>mayonej@wit.edu</a
+						></bdt
 					><bdt class="block-component"></bdt>
 					<bdt class="question noTranslate"></bdt><bdt class="block-component"></bdt>
 					<bdt class="question noTranslate"></bdt><bdt class="block-component"></bdt><bdt
@@ -147,9 +151,9 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 					></bdt> <bdt class="question noTranslate"></bdt><bdt class="statement-end-if-in-editor"
 					></bdt><bdt class="block-component"></bdt><bdt class="block-component"></bdt><bdt
 						class="block-component"
-					></bdt><bdt class="block-component"></bdt><bdt class="question noTranslate"
-						></bdt
-					><bdt class="statement-end-if-in-editor"></bdt><bdt class="block-component"></bdt></bdt
+					></bdt><bdt class="block-component"></bdt><bdt class="question noTranslate"></bdt><bdt
+						class="statement-end-if-in-editor"
+					></bdt><bdt class="block-component"></bdt></bdt
 				></span
 			>
 		</div>
@@ -180,8 +184,8 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 			>
 		</div>
 	</div>
-	<div align="center" style="line-height: 1;"><br /></div>
-	<div align="center" style="text-align: left;">
+	<div data-align="center" style="line-height: 1;"><br /></div>
+	<div data-align="center" style="text-align: left;">
 		<div class="MsoNormal" data-custom-class="body_text" style="line-height: 1.5;">
 			<bdt class="block-container if" data-type="if" id="a2595956-7028-dbe5-123e-d3d3a93ed076"
 				><bdt data-type="conditional-block"
@@ -476,9 +480,9 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 			>
 		</div>
 	</div>
-	<div align="center" style="text-align: left;">
+	<div data-align="center" style="text-align: left;">
 		<div class="MsoNormal" data-custom-class="heading_1" style="line-height: 1.5;">
-			<a name="_b6y29mp52qvx"></a>
+			<a id="_b6y29mp52qvx"></a>
 		</div>
 		<div class="MsoNormal" style="line-height: 1.5;"><br /></div>
 		<div class="MsoNormal" data-custom-class="heading_1" id="services" style="line-height: 1.5;">
@@ -512,14 +516,18 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 		</div>
 		<div class="MsoNormal" style="line-height: 1.5;"><br /></div>
 	</div>
-	<div align="center" data-custom-class="heading_1" style="text-align: left; line-height: 1.5;">
+	<div
+		data-align="center"
+		data-custom-class="heading_1"
+		style="text-align: left; line-height: 1.5;"
+	>
 		<strong
 			><span id="ip" style="font-size: 19px; line-height: 1.5;"
 				><h2>2. INTELLECTUAL PROPERTY RIGHTS</h2></span
 			></strong
 		>
 	</div>
-	<div align="center" style="text-align: left;">
+	<div data-align="center" style="text-align: left;">
 		<div class="MsoNormal" data-custom-class="heading_2" style="line-height: 1.5;">
 			<strong><h3>Our intellectual property</h3></strong>
 		</div>
@@ -617,9 +625,14 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 				this section or elsewhere in our Legal Terms, please address your request to: <bdt
 					class="question noTranslate"
 					><a target="_blank" data-custom-class="link" href="mailto:calendarwit@gmail.com"
-						>calendarwit@gmail.com</a>, <a target="_blank" data-custom-class="link" href="mailto:lambertl@wit.edu"
-						>lambertl@wit.edu</a>, and <a target="_blank" data-custom-class="link" href="mailto:mayonej@wit.edu"
-						>mayonej@wit.edu</a></bdt
+						>calendarwit@gmail.com</a
+					>,
+					<a target="_blank" data-custom-class="link" href="mailto:lambertl@wit.edu"
+						>lambertl@wit.edu</a
+					>, and
+					<a target="_blank" data-custom-class="link" href="mailto:mayonej@wit.edu"
+						>mayonej@wit.edu</a
+					></bdt
 				>. If we ever grant you the permission to post, reproduce, or publicly display any part of
 				our Services or Content, you must identify us as the owners or licensors of the Services,
 				Content, or Marks and ensure that any copyright or proprietary notice appears or is visible
@@ -627,8 +640,8 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 			>
 		</div>
 	</div>
-	<div align="center" style="line-height: 1.5;"><br /></div>
-	<div align="center" style="text-align: left;">
+	<div data-align="center" style="line-height: 1.5;"><br /></div>
+	<div data-align="center" style="text-align: left;">
 		<div class="MsoNormal" data-custom-class="body_text" style="line-height: 1.5;">
 			<span
 				style="font-size:11.0pt;line-height:115%;font-family:Arial;
@@ -661,8 +674,8 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 				></bdt><a data-custom-class="link" href="#prohibited"
 					><span style="color: rgb(0, 58, 250);">PROHIBITED ACTIVITIES</span></a
 				><bdt class="block-component"></bdt>"<bdt class="statement-end-if-in-editor"></bdt> section carefully
-				prior to using our Services to understand the (a) rights you give us and (b) obligations you
-				have when you post or upload any content through the Services.</span
+				prior to using our Services to understand the (a) rights you give us and (b) obligations you have
+				when you post or upload any content through the Services.</span
 			>
 		</div>
 		<div class="MsoNormal" style="line-height: 1.5;"><br /></div>
@@ -737,16 +750,16 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 		</div>
 		<div class="MsoNormal" style="line-height: 1.5;"><br /></div>
 	</div>
-	<div align="center" style="text-align: left;">
+	<div data-align="center" style="text-align: left;">
 		<div class="MsoNormal" data-custom-class="heading_1" id="userreps" style="line-height: 1.5;">
-			<a name="_5hg7kgyv9l8z"></a><strong
+			<a id="_5hg7kgyv9l8z"></a><strong
 				><span style="line-height: 1.5; font-family: Arial; font-size: 19px;"
 					><h2>3. USER REPRESENTATIONS</h2></span
 				></strong
 			>
 		</div>
 	</div>
-	<div align="center" style="text-align: left;">
+	<div data-align="center" style="text-align: left;">
 		<div class="MsoNormal" data-custom-class="body_text" style="line-height: 1.5;">
 			<span
 				style="font-size:11.0pt;line-height:115%;font-family:Arial;
@@ -813,8 +826,8 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 			>
 		</div>
 	</div>
-	<div align="center" style="line-height: 1.5;"><br /></div>
-	<div align="center" style="text-align: left;">
+	<div data-align="center" style="line-height: 1.5;"><br /></div>
+	<div data-align="center" style="text-align: left;">
 		<div class="MsoNormal" style="text-align: justify; line-height: 115%;">
 			<div class="MsoNormal" style="line-height: 17.25px;">
 				<div
@@ -1366,10 +1379,10 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 													>Make any <bdt class="block-component"></bdt>unauthorized<bdt
 														class="statement-end-if-in-editor"
 													></bdt>
-													use of the Services, including collecting usernames and/or email addresses
-													of users by electronic or other means for the purpose of sending
-													unsolicited email, or creating user accounts by automated means or under
-													false <bdt class="block-component"></bdt>pretenses<bdt
+													use of the Services, including collecting usernames and/or email addresses of
+													users by electronic or other means for the purpose of sending unsolicited email,
+													or creating user accounts by automated means or under false
+													<bdt class="block-component"></bdt>pretenses<bdt
 														class="statement-end-if-in-editor"
 													></bdt>.</span
 												></span
@@ -1396,7 +1409,7 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 													></bdt>endeavor<bdt class="statement-end-if-in-editor"></bdt> or commercial
 													enterprise.</span
 												><span
-													style="font-size: 11pt; line-height: 16.8667px; color: rgb(89, 89, 89);font-family: sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: justify; text-indent: -29.4px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; color: rgb(89, 89, 89);"
+													style="font-size: 11pt; line-height: 16.8667px; font-family: sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: justify; text-indent: -29.4px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; color: rgb(89, 89, 89);"
 													><bdt class="forloop-component"></bdt></span
 												></span
 											></span
@@ -1444,11 +1457,11 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 														>The Services does not offer users to submit or post content.<bdt
 															class="block-component"
 														></bdt>
-														We may provide you with the opportunity to create, submit, post,
-														display, transmit, perform, publish, distribute, or broadcast content
-														and materials to us or on the Services, including but not limited to
-														text, writings, video, audio, photographs, graphics, comments,
-														suggestions, or personal information or other material (collectively,
+														We may provide you with the opportunity to create, submit, post, display,
+														transmit, perform, publish, distribute, or broadcast content and materials
+														to us or on the Services, including but not limited to text, writings, video,
+														audio, photographs, graphics, comments, suggestions, or personal information
+														or other material (collectively,
 														<bdt class="block-component"></bdt>"Contributions"<bdt
 															class="statement-end-if-in-editor"
 														></bdt>). Contributions may be viewable by other users of the Services
@@ -1456,8 +1469,8 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 														such, any Contributions you transmit may be treated in accordance with
 														the Services' Privacy Policy.<bdt class="statement-end-if-in-editor"
 														></bdt>
-														When you create or make available any Contributions, you thereby
-														represent and warrant that:<span
+														When you create or make available any Contributions, you thereby represent
+														and warrant that:<span
 															style="font-size: 11pt; line-height: 16.8667px; color: rgb(89, 89, 89);"
 															><bdt class="statement-end-if-in-editor"
 																><bdt class="block-component"></bdt></bdt
@@ -1785,12 +1798,13 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 					class="statement-end-if-in-editor"
 				></bdt>). Such <span style="font-size: 14.6667px;">Third-Party</span> Websites and
 				<span style="font-size: 14.6667px;">Third-Party</span>
-				Content are not investigated, monitored, or checked for accuracy, appropriateness, or
-				completeness by us, and we are not responsible for any Third-Party Websites accessed through
-				the Services or any <span style="font-size: 14.6667px;">Third-Party</span> Content posted
-				on, available through, or installed from the Services, including the content, accuracy,
-				offensiveness, opinions, reliability, privacy practices, or other policies of or contained
-				in the <span style="font-size: 14.6667px;">Third-Party</span> Websites or the
+				Content are not investigated, monitored, or checked for accuracy, appropriateness, or completeness
+				by us, and we are not responsible for any Third-Party Websites accessed through the Services or
+				any <span style="font-size: 14.6667px;">Third-Party</span> Content posted on, available
+				through, or installed from the Services, including the content, accuracy, offensiveness,
+				opinions, reliability, privacy practices, or other policies of or contained in the
+				<span style="font-size: 14.6667px;">Third-Party</span>
+				Websites or the
 				<span style="font-size: 14.6667px;">Third-Party</span>
 				Content. Inclusion of, linking to, or permitting the use or installation of any
 				<span style="font-size: 14.6667px;">Third-Party</span>
@@ -1798,18 +1812,18 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 				imply approval or endorsement thereof by us. If you decide to leave the Services and access
 				the <span style="font-size: 14.6667px;">Third-Party</span> Websites or to use or install any
 				<span style="font-size: 14.6667px;">Third-Party</span>
-				Content, you do so at your own risk, and you should be aware these Legal Terms no longer
-				govern. You should review the applicable terms and policies, including privacy and data
-				gathering practices, of any website to which you navigate from the Services or relating to
-				any applications you use or install from the Services. Any purchases you make through
+				Content, you do so at your own risk, and you should be aware these Legal Terms no longer govern.
+				You should review the applicable terms and policies, including privacy and data gathering practices,
+				of any website to which you navigate from the Services or relating to any applications you use
+				or install from the Services. Any purchases you make through
 				<span style="font-size: 14.6667px;">Third-Party</span>
-				Websites will be through other websites and from other companies, and we take no
-				responsibility whatsoever in relation to such purchases which are exclusively between you
-				and the applicable third party. You agree and acknowledge that we do not endorse the
-				products or services offered on <span style="font-size: 14.6667px;">Third-Party</span>
-				Websites and you shall hold us blameless from any harm caused by your purchase of such
-				products or services. Additionally, you shall hold us blameless from any losses sustained by
-				you or harm caused to you relating to or resulting in any way from any
+				Websites will be through other websites and from other companies, and we take no responsibility
+				whatsoever in relation to such purchases which are exclusively between you and the applicable
+				third party. You agree and acknowledge that we do not endorse the products or services offered
+				on <span style="font-size: 14.6667px;">Third-Party</span>
+				Websites and you shall hold us blameless from any harm caused by your purchase of such products
+				or services. Additionally, you shall hold us blameless from any losses sustained by you or harm
+				caused to you relating to or resulting in any way from any
 				<span style="font-size: 14.6667px;">Third-Party</span>
 				Content or any contact with <span style="font-size: 14.6667px;">Third-Party</span> Websites.</span
 			>
@@ -2316,11 +2330,11 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 			piracy, invasion of privacy, or <bdt class="block-component"></bdt>unauthorized<bdt
 				class="statement-end-if-in-editor"
 			></bdt>
-			use; and (c) any claim for injunctive relief. If this provision is found to be illegal or
-			unenforceable, then neither Party will elect to arbitrate any Dispute falling within that
-			portion of this provision found to be illegal or unenforceable and such Dispute shall be
-			decided by a court of competent jurisdiction within the courts listed for jurisdiction above,
-			and the Parties agree to submit to the personal jurisdiction of that court.
+			use; and (c) any claim for injunctive relief. If this provision is found to be illegal or unenforceable,
+			then neither Party will elect to arbitrate any Dispute falling within that portion of this provision
+			found to be illegal or unenforceable and such Dispute shall be decided by a court of competent jurisdiction
+			within the courts listed for jurisdiction above, and the Parties agree to submit to the personal
+			jurisdiction of that court.
 			<bdt class="statement-end-if-in-editor"></bdt>
 		</div>
 		<div class="MsoNormal" style="line-height: 1.5; text-align: left;">
@@ -2378,18 +2392,17 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 				SERVICES, (3) ANY <bdt class="block-component"></bdt>UNAUTHORIZED<bdt
 					class="statement-end-if-in-editor"
 				></bdt>
-				ACCESS TO OR USE OF OUR SECURE SERVERS AND/OR ANY AND ALL PERSONAL INFORMATION AND/OR
-				FINANCIAL INFORMATION STORED THEREIN, (4) ANY INTERRUPTION OR CESSATION OF TRANSMISSION TO
-				OR FROM THE SERVICES, (5) ANY BUGS, VIRUSES, TROJAN HORSES, OR THE LIKE WHICH MAY BE
-				TRANSMITTED TO OR THROUGH THE SERVICES BY ANY THIRD PARTY, AND/OR (6) ANY ERRORS OR
-				OMISSIONS IN ANY CONTENT AND MATERIALS OR FOR ANY LOSS OR DAMAGE OF ANY KIND INCURRED AS A
-				RESULT OF THE USE OF ANY CONTENT POSTED, TRANSMITTED, OR OTHERWISE MADE AVAILABLE VIA THE
-				SERVICES. WE DO NOT WARRANT, ENDORSE, GUARANTEE, OR ASSUME RESPONSIBILITY FOR ANY PRODUCT OR
-				SERVICE ADVERTISED OR OFFERED BY A THIRD PARTY THROUGH THE SERVICES, ANY HYPERLINKED
-				WEBSITE, OR ANY WEBSITE OR MOBILE APPLICATION FEATURED IN ANY BANNER OR OTHER ADVERTISING,
-				AND WE WILL NOT BE A PARTY TO OR IN ANY WAY BE RESPONSIBLE FOR MONITORING ANY TRANSACTION
-				BETWEEN YOU AND ANY THIRD-PARTY PROVIDERS OF PRODUCTS OR SERVICES. AS WITH THE PURCHASE OF A
-				PRODUCT OR SERVICE THROUGH ANY MEDIUM OR IN ANY ENVIRONMENT, YOU SHOULD USE YOUR BEST
+				ACCESS TO OR USE OF OUR SECURE SERVERS AND/OR ANY AND ALL PERSONAL INFORMATION AND/OR FINANCIAL
+				INFORMATION STORED THEREIN, (4) ANY INTERRUPTION OR CESSATION OF TRANSMISSION TO OR FROM THE SERVICES,
+				(5) ANY BUGS, VIRUSES, TROJAN HORSES, OR THE LIKE WHICH MAY BE TRANSMITTED TO OR THROUGH THE SERVICES
+				BY ANY THIRD PARTY, AND/OR (6) ANY ERRORS OR OMISSIONS IN ANY CONTENT AND MATERIALS OR FOR ANY
+				LOSS OR DAMAGE OF ANY KIND INCURRED AS A RESULT OF THE USE OF ANY CONTENT POSTED, TRANSMITTED,
+				OR OTHERWISE MADE AVAILABLE VIA THE SERVICES. WE DO NOT WARRANT, ENDORSE, GUARANTEE, OR ASSUME
+				RESPONSIBILITY FOR ANY PRODUCT OR SERVICE ADVERTISED OR OFFERED BY A THIRD PARTY THROUGH THE SERVICES,
+				ANY HYPERLINKED WEBSITE, OR ANY WEBSITE OR MOBILE APPLICATION FEATURED IN ANY BANNER OR OTHER
+				ADVERTISING, AND WE WILL NOT BE A PARTY TO OR IN ANY WAY BE RESPONSIBLE FOR MONITORING ANY TRANSACTION
+				BETWEEN YOU AND ANY THIRD-PARTY PROVIDERS OF PRODUCTS OR SERVICES. AS WITH THE PURCHASE OF A PRODUCT
+				OR SERVICE THROUGH ANY MEDIUM OR IN ANY ENVIRONMENT, YOU SHOULD USE YOUR BEST
 				<bdt class="block-component"></bdt>JUDGMENT<bdt class="statement-end-if-in-editor"></bdt> AND
 				EXERCISE CAUTION WHERE APPROPRIATE.</span
 			>
@@ -2476,8 +2489,8 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 					the exclusive <bdt class="block-component"></bdt>defense<bdt
 						class="statement-end-if-in-editor"
 					></bdt>
-					and control of any matter for which you are required to indemnify us, and you agree to
-					cooperate, at your expense, with our <bdt class="block-component"></bdt>defense<bdt
+					and control of any matter for which you are required to indemnify us, and you agree to cooperate,
+					at your expense, with our <bdt class="block-component"></bdt>defense<bdt
 						class="statement-end-if-in-editor"
 					></bdt> of such claims. We will use reasonable efforts to notify you of any such claim, action,
 					or proceeding which is subject to this indemnification upon becoming aware of it.</bdt
@@ -2518,12 +2531,12 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 			<h3>Friends, sharing, and meetings</h3>
 		</div>
 		<div data-custom-class="body_text" style="line-height: 1.5; text-align: left;">
-			Sending or accepting a friend request authorizes schedule sharing once the request is accepted,
-			at the level you select. Full sharing is the default; where available, you can choose
-			availability-only sharing for each friend. You can change that level or remove the friendship.
-			Temporary friendships stop granting schedule access at expiry. Either person can shorten the
-			duration, but extending it or making it permanent requires the other person's acceptance on
-			the dashboard. Deleting or expiring a friend group does not end its friendships.
+			Sending or accepting a friend request authorizes schedule sharing once the request is
+			accepted, at the level you select. Full sharing is the default; where available, you can
+			choose availability-only sharing for each friend. You can change that level or remove the
+			friendship. Temporary friendships stop granting schedule access at expiry. Either person can
+			shorten the duration, but extending it or making it permanent requires the other person's
+			acceptance on the dashboard. Deleting or expiring a friend group does not end its friendships.
 		</div>
 		<div data-custom-class="body_text" style="line-height: 1.5; text-align: left;">
 			Creating a meeting authorizes us to publish and update it in the calendar destinations you
@@ -2535,9 +2548,9 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 			and cancellations can be delayed or fail.
 		</div>
 		<div data-custom-class="body_text" style="line-height: 1.5; text-align: left;">
-			Creating a meeting link authorizes anyone holding it to view the available times and book
-			once before expiry or revocation, without an account. Booking authorizes us to share the
-			guest's name, email, and selected time with the organizer and publish the meeting and send
+			Creating a meeting link authorizes anyone holding it to view the available times and book once
+			before expiry or revocation, without an account. Booking authorizes us to share the guest's
+			name, email, and selected time with the organizer and publish the meeting and send
 			confirmation and calendar invitations as described in the Privacy Policy. Keep links private.
 			Revoking a link does not cancel a booked meeting. Use another person's shared schedule and
 			contact details only to coordinate with them; do not redistribute them without permission.
@@ -2677,7 +2690,8 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 				style="font-size:11.0pt;line-height:115%;font-family:Arial;
 Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 				>In order to resolve a complaint regarding the Services or to receive further information
-				regarding use of the Services, please contact us at: calendarwit@gmail.com, lambertl@wit.edu, and mayonej@wit.edu</span
+				regarding use of the Services, please contact us at: calendarwit@gmail.com,
+				lambertl@wit.edu, and mayonej@wit.edu</span
 			>
 		</div>
 		<div class="MsoNormal" style="line-height: 1.5; text-align: left;"><br /></div>
@@ -2792,13 +2806,15 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 					><strong
 						><bdt class="question"
 							><bdt class="block-component"></bdt><bdt class="question noTranslate"
-								><a
-									target="_blank"
-									data-custom-class="link" href="mailto:calendarwit@gmail.com">calendarwit@gmail.com</a>, <a
-									target="_blank"
-									data-custom-class="link" href="mailto:lambertl@wit.edu">lambertl@wit.edu</a>, and <a
-									target="_blank"
-									data-custom-class="link" href="mailto:mayonej@wit.edu">mayonej@wit.edu</a></bdt
+								><a target="_blank" data-custom-class="link" href="mailto:calendarwit@gmail.com"
+									>calendarwit@gmail.com</a
+								>,
+								<a target="_blank" data-custom-class="link" href="mailto:lambertl@wit.edu"
+									>lambertl@wit.edu</a
+								>, and
+								<a target="_blank" data-custom-class="link" href="mailto:mayonej@wit.edu"
+									>mayonej@wit.edu</a
+								></bdt
 							><bdt class="statement-end-if-in-editor"></bdt></bdt
 						></strong
 					></span
@@ -2809,16 +2825,16 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 </div>
 
 <style>
-	[data-custom-class="body"] {
+	[data-custom-class='body'] {
 		color: rgb(var(--m3-scheme-on-background));
-		font-family: var(--m3-font, "Roboto Flex", sans-serif);
+		font-family: var(--m3-font, 'Roboto Flex', sans-serif);
 		line-height: 1.6;
 		max-width: 1200px;
 		margin: 0 auto;
 		padding: 2rem;
 	}
 
-	[data-custom-class="title"] h1 {
+	[data-custom-class='title'] h1 {
 		color: rgb(var(--m3-scheme-on-background));
 		font-size: 2rem;
 		font-weight: 700;
@@ -2826,13 +2842,13 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 		line-height: 1.2;
 	}
 
-	[data-custom-class="subtitle"] {
+	[data-custom-class='subtitle'] {
 		color: rgb(var(--m3-scheme-on-surface-variant));
 		font-size: 0.9rem;
 		margin-bottom: 2rem;
 	}
 
-	[data-custom-class="heading_1"] h2 {
+	[data-custom-class='heading_1'] h2 {
 		color: rgb(var(--m3-scheme-on-background));
 		font-size: 1.5rem;
 		font-weight: 600;
@@ -2840,7 +2856,7 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 		line-height: 1.3;
 	}
 
-	[data-custom-class="heading_2"] h3 {
+	[data-custom-class='heading_2'] h3 {
 		color: rgb(var(--m3-scheme-on-background));
 		font-size: 1.25rem;
 		font-weight: 600;
@@ -2848,25 +2864,27 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 		line-height: 1.4;
 	}
 
-	[data-custom-class="body_text"] {
+	[data-custom-class='body_text'] {
 		color: rgb(var(--m3-scheme-on-surface-variant));
 		font-size: 1rem;
 		line-height: 1.6;
 		margin: 0.75rem 0;
 	}
 
-	[data-custom-class="body_text"] span {
+	[data-custom-class='body_text'] span {
 		color: rgb(var(--m3-scheme-on-surface-variant));
 	}
 
-	[data-custom-class="link"] {
+	[data-custom-class='link'] {
 		color: rgb(var(--m3-scheme-primary));
 		text-decoration: underline;
 		text-decoration-color: rgb(var(--m3-scheme-outline-variant));
-		transition: color 0.2s ease, text-decoration-color 0.2s ease;
+		transition:
+			color 0.2s ease,
+			text-decoration-color 0.2s ease;
 	}
 
-	[data-custom-class="link"]:hover {
+	[data-custom-class='link']:hover {
 		color: rgb(var(--m3-scheme-primary));
 		text-decoration-color: rgb(var(--m3-scheme-primary));
 	}
@@ -2875,11 +2893,13 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 		margin: 0.5rem 0;
 	}
 
-	div[align="center"] {
+	div[data-align='center'] {
 		text-align: left;
 	}
 
-	h1, h2, h3 {
+	h1,
+	h2,
+	h3 {
 		color: rgb(var(--m3-scheme-on-background));
 		font-weight: 600;
 		margin: 1.5rem 0 1rem 0;
@@ -2900,7 +2920,8 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 		line-height: 1.4;
 	}
 
-	p, span {
+	p,
+	span {
 		color: rgb(var(--m3-scheme-on-surface-variant));
 		line-height: 1.6;
 	}
@@ -2910,7 +2931,8 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 		font-weight: 600;
 	}
 
-	ul, ol {
+	ul,
+	ol {
 		margin: 1rem 0;
 		padding-left: 2rem;
 		color: rgb(var(--m3-scheme-on-surface-variant));
@@ -2926,7 +2948,9 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 		color: rgb(var(--m3-scheme-primary));
 		text-decoration: underline;
 		text-decoration-color: rgb(var(--m3-scheme-outline-variant));
-		transition: color 0.2s ease, text-decoration-color 0.2s ease;
+		transition:
+			color 0.2s ease,
+			text-decoration-color 0.2s ease;
 	}
 
 	a:hover {
@@ -2934,51 +2958,51 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"
 		text-decoration-color: rgb(var(--m3-scheme-primary));
 	}
 
-	div[style*="line-height: 1.5"] {
+	div[style*='line-height: 1.5'] {
 		line-height: 1.6 !important;
 	}
 
-	span[style*="color: rgb(89, 89, 89)"],
-	span[style*="color:#595959"],
-	span[style*="color: rgb(89, 89, 89)"] span {
+	span[style*='color: rgb(89, 89, 89)'],
+	span[style*='color:#595959'],
+	span[style*='color: rgb(89, 89, 89)'] span {
 		color: rgb(var(--m3-scheme-on-surface-variant)) !important;
 	}
 
-	span[style*="color: rgb(0, 58, 250)"] {
+	span[style*='color: rgb(0, 58, 250)'] {
 		color: rgb(var(--m3-scheme-primary)) !important;
 	}
 
-	span[style*="background-color: rgb(255, 255, 255)"],
-	span[style*="background-color:rgb(255, 255, 255)"] {
+	span[style*='background-color: rgb(255, 255, 255)'],
+	span[style*='background-color:rgb(255, 255, 255)'] {
 		background-color: transparent !important;
 	}
 
-	li span[style*="text-indent: -29.4px"],
-	li span[style*="text-indent:-29.4px"] {
+	li span[style*='text-indent: -29.4px'],
+	li span[style*='text-indent:-29.4px'] {
 		text-indent: 0 !important;
 	}
 
-	span[style*="font-size: 15px"],
-	span[style*="font-size:15px"] {
+	span[style*='font-size: 15px'],
+	span[style*='font-size:15px'] {
 		font-size: 1rem;
 	}
 
-	span[style*="font-size: 19px"],
-	span[style*="font-size:19px"] {
+	span[style*='font-size: 19px'],
+	span[style*='font-size:19px'] {
 		font-size: 1.5rem;
 	}
 
-	span[style*="font-size:11.0pt"],
-	span[style*="font-size: 11pt"] {
+	span[style*='font-size:11.0pt'],
+	span[style*='font-size: 11pt'] {
 		font-size: 0.9rem;
 	}
 
-	li[data-custom-class="body_text"] span,
-	li[data-custom-class="body_text"] span span {
+	li[data-custom-class='body_text'] span,
+	li[data-custom-class='body_text'] span span {
 		color: rgb(var(--m3-scheme-on-surface-variant)) !important;
 		background-color: transparent !important;
 		text-indent: 0 !important;
-		font-family: var(--m3-font, "Roboto Flex", sans-serif) !important;
+		font-family: var(--m3-font, 'Roboto Flex', sans-serif) !important;
 	}
 
 	br {

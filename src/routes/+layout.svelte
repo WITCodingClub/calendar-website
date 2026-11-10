@@ -83,7 +83,9 @@
 
 <TopBar />
 
-<div class="relative overflow-hidden overflow-x-hidden overflow-y-hidden min-h-screen flex flex-col">
+<div
+	class="relative flex min-h-screen flex-col overflow-hidden overflow-x-hidden overflow-y-hidden"
+>
 	{#key page.url.pathname}
 		<div
 			in:fly={{ x: $inX, opacity: 1, duration: $skipAnim ? 0 : 500, easing: cubicInOut }}

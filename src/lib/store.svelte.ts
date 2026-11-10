@@ -5,8 +5,8 @@ import { browser } from '$app/environment';
 export const selected = writable('');
 
 selected.subscribe((value) => {
-    if (browser && value) {
-        // eslint-disable-next-line svelte/no-navigation-without-resolve
-        goto(value);
-    }
-})
+	if (browser && value) {
+		// eslint-disable-next-line svelte/no-navigation-without-resolve
+		goto(value);
+	}
+});

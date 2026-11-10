@@ -1,130 +1,192 @@
 <script lang="ts">
-    import { selected } from "$lib/store.svelte";
-    import { Button } from "m3-svelte";
-    import { resolve } from "$app/paths";
-    import { CONTACT_EMAIL, DISCORD_URL, GITHUB_ISSUES_URL, GITHUB_URL, INSTAGRAM_URL, LEGAL_EMAILS, ORGANIZATION, SECURITY_REPORT_URL, STATUS_URL } from "$lib/site";
+	import { selected } from '$lib/store.svelte';
+	import { Button } from 'm3-svelte';
+	import { resolve } from '$app/paths';
+	import {
+		CONTACT_EMAIL,
+		DISCORD_URL,
+		GITHUB_ISSUES_URL,
+		GITHUB_URL,
+		INSTAGRAM_URL,
+		LEGAL_EMAILS,
+		ORGANIZATION,
+		SECURITY_REPORT_URL,
+		STATUS_URL
+	} from '$lib/site';
 </script>
 
 <svelte:head>
 	<title>WIT-Calendar - Contact</title>
 </svelte:head>
 
-<div class="flex flex-row justify-center items-center mt-12 md:mt-24 px-4 text-center sm:text-left">
-    <h1 class="roboto-flex-wit-main text-4xl sm:text-6xl md:text-7xl leading-tight">Contact</h1>
+<div class="mt-12 md:mt-24 px-4 sm:text-left flex flex-row items-center justify-center text-center">
+	<h1 class="roboto-flex-wit-main text-4xl sm:text-6xl md:text-7xl leading-tight">Contact</h1>
 </div>
 
-<div class="flex flex-wrap justify-center items-center mt-4 peak gap-3 sm:gap-4 px-4">
-    <Button variant="outlined" onclick={() => $selected = "/guides"}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M6.325 12.85q-.225-.15-.337-.375T5.874 12t.113-.475t.337-.375l8.15-5.175q.125-.075.263-.112T15 5.825q.4 0 .7.288t.3.712v10.35q0 .425-.3.713t-.7.287q-.125 0-.262-.038t-.263-.112z"/></svg>
-        Guides
-    </Button>
-    <Button variant="outlined" onclick={() => $selected = "/changelog"}>
-        Changelog
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M8 17.175V6.825q0-.425.3-.713t.7-.287q.125 0 .263.037t.262.113l8.15 5.175q.225.15.338.375t.112.475t-.112.475t-.338.375l-8.15 5.175q-.125.075-.262.113T9 18.175q-.4 0-.7-.288t-.3-.712"/></svg>
-    </Button>
+<div class="mt-4 peak gap-3 sm:gap-4 px-4 flex flex-wrap items-center justify-center">
+	<Button variant="outlined" onclick={() => ($selected = '/guides')}
+		><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+			><path
+				fill="currentColor"
+				d="M6.325 12.85q-.225-.15-.337-.375T5.874 12t.113-.475t.337-.375l8.15-5.175q.125-.075.263-.112T15 5.825q.4 0 .7.288t.3.712v10.35q0 .425-.3.713t-.7.287q-.125 0-.262-.038t-.263-.112z"
+			/></svg
+		>
+		Guides
+	</Button>
+	<Button variant="outlined" onclick={() => ($selected = '/changelog')}>
+		Changelog
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+			><path
+				fill="currentColor"
+				d="M8 17.175V6.825q0-.425.3-.713t.7-.287q.125 0 .263.037t.262.113l8.15 5.175q.225.15.338.375t.112.475t-.112.475t-.338.375l-8.15 5.175q-.125.075-.262.113T9 18.175q-.4 0-.7-.288t-.3-.712"
+			/></svg
+		>
+	</Button>
 </div>
-
 
 <!-- eslint-disable svelte/no-navigation-without-resolve -- These links leave the SvelteKit app. They go to other sites, or to paths that the proxy sends to the Rails backend. Links to pages in this app use resolve(). -->
-<div class="flex justify-center px-4 sm:px-6 mt-8 pb-16">
-    <article class="contact-content w-full max-w-3xl text-lg text-secondary">
-        <p>
-            The fastest way to reach the WIT-Calendar team is our <a href={DISCORD_URL} target="_blank" rel="noopener noreferrer">Discord server</a>.
-            You can ask a question, tell us about a problem with your schedule, or suggest a feature there.
-            You can also email us at <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> with any questions or concerns.
-            If you report a problem, tell us which calendar you use and what issue you're having.
-        </p>
-        <div class="contact-actions">
-            <Button square variant="tonal" href={DISCORD_URL} target="_blank" rel="noopener noreferrer">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h7v2H5v14h14v-7h2v7q0 .825-.587 1.413T19 21zm4.7-5.3l-1.4-1.4L17.6 5H14V3h7v7h-2V6.4z"/></svg>
-                Discord
-            </Button>
-            <Button square variant="tonal" href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h7v2H5v14h14v-7h2v7q0 .825-.587 1.413T19 21zm4.7-5.3l-1.4-1.4L17.6 5H14V3h7v7h-2V6.4z"/></svg>
-                GitHub
-            </Button>
-            <Button square variant="tonal" href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h7v2H5v14h14v-7h2v7q0 .825-.587 1.413T19 21zm4.7-5.3l-1.4-1.4L17.6 5H14V3h7v7h-2V6.4z"/></svg>
-                Instagram
-            </Button>
-            <Button square variant="tonal" href={STATUS_URL} target="_blank" rel="noopener noreferrer">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h7v2H5v14h14v-7h2v7q0 .825-.587 1.413T19 21zm4.7-5.3l-1.4-1.4L17.6 5H14V3h7v7h-2V6.4z"/></svg>
-                Status
-            </Button>
-        </div>
-        <p>
-            If the extension does something wrong, open an issue on
-            <a href={GITHUB_ISSUES_URL} target="_blank" rel="noopener noreferrer">GitHub</a>
-            and include the steps that cause the problem.
-            Do not report a security problem in a public issue. Send it privately through
-            <a href={SECURITY_REPORT_URL} target="_blank" rel="noopener noreferrer">GitHub private vulnerability reporting</a>.
-            Our <a href="/.well-known/security.txt" data-sveltekit-reload>security.txt</a> file lists the other contacts.
-        </p>
-        <p>
-            WIT-Calendar is made by the {ORGANIZATION.name}, a student club at {ORGANIZATION.school},
-            {ORGANIZATION.streetAddress}, {ORGANIZATION.locality}, {ORGANIZATION.region} {ORGANIZATION.postalCode}.
-            To learn what data we keep and how to remove it, read the
-            <a href={resolve('/privacy')}>Privacy Policy</a>.
-            Send legal inquiries to all three of these addresses:
-            {#each LEGAL_EMAILS as email, index (email)}{index === LEGAL_EMAILS.length - 1 ? ", and " : index > 0 ? ", " : ""}<a href={`mailto:${email}`}>{email}</a>{/each}.
-        </p>
-    </article>
+<div class="px-4 sm:px-6 mt-8 pb-16 flex justify-center">
+	<article class="contact-content max-w-3xl text-lg text-secondary w-full">
+		<p>
+			The fastest way to reach the WIT-Calendar team is our <a
+				href={DISCORD_URL}
+				target="_blank"
+				rel="noopener noreferrer">Discord server</a
+			>. You can ask a question, tell us about a problem with your schedule, or suggest a feature
+			there. You can also email us at <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> with any
+			questions or concerns. If you report a problem, tell us which calendar you use and what issue you're
+			having.
+		</p>
+		<div class="contact-actions">
+			<Button square variant="tonal" href={DISCORD_URL} target="_blank" rel="noopener noreferrer">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+					><path
+						fill="currentColor"
+						d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h7v2H5v14h14v-7h2v7q0 .825-.587 1.413T19 21zm4.7-5.3l-1.4-1.4L17.6 5H14V3h7v7h-2V6.4z"
+					/></svg
+				>
+				Discord
+			</Button>
+			<Button square variant="tonal" href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+					><path
+						fill="currentColor"
+						d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h7v2H5v14h14v-7h2v7q0 .825-.587 1.413T19 21zm4.7-5.3l-1.4-1.4L17.6 5H14V3h7v7h-2V6.4z"
+					/></svg
+				>
+				GitHub
+			</Button>
+			<Button square variant="tonal" href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+					><path
+						fill="currentColor"
+						d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h7v2H5v14h14v-7h2v7q0 .825-.587 1.413T19 21zm4.7-5.3l-1.4-1.4L17.6 5H14V3h7v7h-2V6.4z"
+					/></svg
+				>
+				Instagram
+			</Button>
+			<Button square variant="tonal" href={STATUS_URL} target="_blank" rel="noopener noreferrer">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+					><path
+						fill="currentColor"
+						d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h7v2H5v14h14v-7h2v7q0 .825-.587 1.413T19 21zm4.7-5.3l-1.4-1.4L17.6 5H14V3h7v7h-2V6.4z"
+					/></svg
+				>
+				Status
+			</Button>
+		</div>
+		<p>
+			If the extension does something wrong, open an issue on
+			<a href={GITHUB_ISSUES_URL} target="_blank" rel="noopener noreferrer">GitHub</a>
+			and include the steps that cause the problem. Do not report a security problem in a public issue.
+			Send it privately through
+			<a href={SECURITY_REPORT_URL} target="_blank" rel="noopener noreferrer"
+				>GitHub private vulnerability reporting</a
+			>. Our <a href="/.well-known/security.txt" data-sveltekit-reload>security.txt</a> file lists the
+			other contacts.
+		</p>
+		<p>
+			WIT-Calendar is made by the {ORGANIZATION.name}, a student club at {ORGANIZATION.school},
+			{ORGANIZATION.streetAddress}, {ORGANIZATION.locality}, {ORGANIZATION.region}
+			{ORGANIZATION.postalCode}. To learn what data we keep and how to remove it, read the
+			<a href={resolve('/privacy')}>Privacy Policy</a>. Send legal inquiries to all three of these
+			addresses:
+			{#each LEGAL_EMAILS as email, index (email)}{index === LEGAL_EMAILS.length - 1
+					? ', and '
+					: index > 0
+						? ', '
+						: ''}<a href={`mailto:${email}`}>{email}</a>{/each}.
+		</p>
+	</article>
 </div>
 <!-- eslint-enable svelte/no-navigation-without-resolve -->
 
 <div class="invisible">
-    <img src="/calendar 2.webp" alt="Settings page" class="outline outline-tertiary w-full max-w-[420px] sm:w-[clamp(220px,24vw,420px)] lg:w-[clamp(240px,26vw,460px)] lg:max-w-[460px] h-auto aspect-16/10 object-cover object-top rounded-xl shadow-md transition-transform duration-200 ease-in-out sm:transform sm:rotate-2 sm:translate-y-[8px] sm:hover:rotate-1 sm:hover:translate-y-[2px] hover:scale-[1.03] hover:shadow-xl order-2 sm:order-0 mx-auto" />
-    <img src="/calendar.webp" alt="Calendar page" class="outline outline-primary w-full max-w-[640px] sm:w-[clamp(300px,36vw,640px)] lg:w-[clamp(360px,40vw,720px)] lg:max-w-[720px] h-auto aspect-16/10 object-cover object-top rounded-xl shadow-lg transition-transform duration-200 ease-in-out sm:transform sm:-translate-y-[8px] z-10 sm:hover:-translate-y-[6px] hover:scale-[1.03] hover:shadow-xl order-1 sm:order-1 mx-auto" />
-    <img src="/help.webp" alt="Help page" class="outline outline-tertiary w-full max-w-[420px] sm:w-[clamp(220px,24vw,420px)] lg:w-[clamp(240px,26vw,460px)] lg:max-w-[460px] h-auto aspect-16/10 object-cover object-top rounded-xl shadow-md transition-transform duration-200 ease-in-out sm:transform sm:-rotate-2 sm:translate-y-[8px] sm:hover:-rotate-1 sm:hover:translate-y-[2px] hover:scale-[1.03] hover:shadow-xl order-2 sm:order-2 mx-auto" />
+	<img
+		src="/calendar 2.webp"
+		alt="Settings page"
+		class="outline-tertiary sm:w-[clamp(220px,24vw,420px)] lg:w-[clamp(240px,26vw,460px)] lg:max-w-[460px] rounded-xl shadow-md ease-in-out sm:transform sm:rotate-2 sm:translate-y-[8px] sm:hover:rotate-1 sm:hover:translate-y-[2px] hover:shadow-xl sm:order-0 order-2 mx-auto aspect-16/10 h-auto w-full max-w-[420px] object-cover object-top outline transition-transform duration-200 hover:scale-[1.03]"
+	/>
+	<img
+		src="/calendar.webp"
+		alt="Calendar page"
+		class="outline-primary sm:w-[clamp(300px,36vw,640px)] lg:w-[clamp(360px,40vw,720px)] lg:max-w-[720px] rounded-xl shadow-lg ease-in-out sm:transform sm:-translate-y-[8px] sm:hover:-translate-y-[6px] hover:shadow-xl sm:order-1 z-10 order-1 mx-auto aspect-16/10 h-auto w-full max-w-[640px] object-cover object-top outline transition-transform duration-200 hover:scale-[1.03]"
+	/>
+	<img
+		src="/help.webp"
+		alt="Help page"
+		class="outline-tertiary sm:w-[clamp(220px,24vw,420px)] lg:w-[clamp(240px,26vw,460px)] lg:max-w-[460px] rounded-xl shadow-md ease-in-out sm:transform sm:-rotate-2 sm:translate-y-[8px] sm:hover:-rotate-1 sm:hover:translate-y-[2px] hover:shadow-xl sm:order-2 order-2 mx-auto aspect-16/10 h-auto w-full max-w-[420px] object-cover object-top outline transition-transform duration-200 hover:scale-[1.03]"
+	/>
 </div>
 
 <style>
-    .roboto-flex-wit-main {
-        font-family: "Roboto Flex", sans-serif;
-        color: var(--color-primary);
-        font-optical-sizing: 144;
-        font-weight: 900;
-        font-style: normal;
-        font-variation-settings:
-            "slnt" 0,
-            "wdth" 129,
-            "GRAD" 0,
-            "XOPQ" 140,
-            "XTRA" 468,
-            "YOPQ" 51,
-            "YTAS" 750,
-            "YTDE" -203,
-            "YTFI" 738,
-            "YTLC" 514,
-            "YTUC" 712;
-    }
+	.roboto-flex-wit-main {
+		font-family: 'Roboto Flex', sans-serif;
+		color: var(--color-primary);
+		font-optical-sizing: 144;
+		font-weight: 900;
+		font-style: normal;
+		font-variation-settings:
+			'slnt' 0,
+			'wdth' 129,
+			'GRAD' 0,
+			'XOPQ' 140,
+			'XTRA' 468,
+			'YOPQ' 51,
+			'YTAS' 750,
+			'YTDE' -203,
+			'YTFI' 738,
+			'YTLC' 514,
+			'YTUC' 712;
+	}
 
-    .contact-content {
-        display: flex;
-        flex-direction: column;
-        gap: 1.25rem;
-    }
+	.contact-content {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+	}
 
-    .contact-content p {
-        margin: 0;
-        line-height: 1.7;
-        text-wrap: pretty;
-    }
+	.contact-content p {
+		margin: 0;
+		line-height: 1.7;
+		text-wrap: pretty;
+	}
 
-    .contact-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-    }
+	.contact-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+	}
 
-    .contact-content p a {
-        color: var(--color-primary);
-        text-decoration: underline;
-        text-underline-offset: 0.18em;
-        text-decoration-thickness: 1px;
-        text-decoration-color: rgb(var(--m3-scheme-primary) / 0.45);
-    }
+	.contact-content p a {
+		color: var(--color-primary);
+		text-decoration: underline;
+		text-underline-offset: 0.18em;
+		text-decoration-thickness: 1px;
+		text-decoration-color: rgb(var(--m3-scheme-primary) / 0.45);
+	}
 
-    .contact-content p a:hover {
-        text-decoration-color: rgb(var(--m3-scheme-primary));
-    }
+	.contact-content p a:hover {
+		text-decoration-color: rgb(var(--m3-scheme-primary));
+	}
 </style>
