@@ -36,12 +36,12 @@ export const GUIDES: Guide[] = [
 		summary:
 			'Manage WIT-Calendar on the web: your schedule, calendar preferences, connected calendars, notifications, and account.'
 	},
-	// {
-	// 	slug: 'mcp',
-	// 	title: 'Connect an AI assistant',
-	// 	summary:
-	// 		'Let Claude, ChatGPT, or another AI assistant read your schedule and the course catalog, and ask it about your week.'
-	// }
+	{
+		slug: 'mcp',
+		title: 'Connect an AI assistant',
+		summary:
+			'Let any AI assistant read your schedule and the course catalog, and ask it about your week.'
+	}
 ];
 
 export type Feature = {
@@ -77,11 +77,11 @@ export const FEATURES: Feature[] = [
 			'Change your settings on the web, connect Google Calendar or Outlook, and get your calendar feed link.',
 		guide: 'dashboard'
 	},
-	// {
-	// 	name: 'AI assistants',
-	// 	summary: 'Connect Claude, ChatGPT, or Claude Code and ask about your schedule and the catalog.',
-	// 	guide: 'mcp'
-	// }
+	{
+		name: 'AI assistants',
+		summary: 'Connect any AI assistant and ask about your schedule and the catalog.',
+		guide: 'mcp'
+	}
 ];
 
 // The guide that new users should read first. It is also the first guide.
