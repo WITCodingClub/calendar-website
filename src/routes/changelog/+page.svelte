@@ -3,7 +3,26 @@
 	import { Button } from 'm3-svelte';
 	import { RELEASES_URL, formatReleaseDate, profileUrl } from '$lib/releaseNotes';
 
-	let { data } = $props();
+	import { onMount } from 'svelte';
+	import { refreshChangelog } from '$lib/changelogCache';
+	import type { Release } from '$lib/releaseNotes';
+
+	let releases = $state<Release[]>([]);
+	let loading = $state(true);
+	let failed = $state(false);
+
+	onMount(() => {
+		void refreshChangelog((value) => {
+			releases = value;
+			loading = false;
+		})
+			.catch(() => {
+				failed = true;
+			})
+			.finally(() => {
+				loading = false;
+			});
+	});
 </script>
 
 <svelte:head>
@@ -37,7 +56,9 @@
 
 <!-- eslint-disable svelte/no-navigation-without-resolve -- These links go to GitHub, outside the SvelteKit app. -->
 <div class="px-4 sm:px-6 mt-8 pb-16 flex justify-center">
-	{#if data.failed}
+	{#if loading}
+		<p role="status">Loading changelog…</p>
+	{:else if failed}
 		<p class="text-lg font-medium text-secondary text-center">
 			We couldn't load the changelog right now. See the <a
 				class="ref-inline"
@@ -48,7 +69,7 @@
 		</p>
 	{:else}
 		<ol class="changelog max-w-3xl w-full">
-			{#each data.releases as release (release.version)}
+			{#each releases as release (release.version)}
 				<li class="release bg-surface-container-high">
 					<header class="release-header">
 						<h2 class="text-2xl font-bold text-primary">

@@ -130,6 +130,10 @@ async function fetchGitHub(): Promise<GitHubData> {
 	};
 }
 
+export async function latestReleaseTag(): Promise<string> {
+	return (await get<GitHubRelease>('/releases/latest', FRESH)).tag_name;
+}
+
 let last: Release[] | undefined;
 
 // Throws when GitHub cannot be reached and nothing was loaded before.
